@@ -79,21 +79,41 @@
       .catch(function () { dealerPrompt(); });
   }
 
-  // "Change Location" -> focus the ZIP input
+  // "Change Location" -> focus hero ZIP if present; else swap in an inline mini-form
   var dealerChange = document.getElementById("dealer-change");
   if (dealerChange) {
     dealerChange.addEventListener("click", function (e) {
       e.preventDefault();
-      var inp = document.getElementById("zip-input");
-      if (inp) {
-        inp.focus();
-        inp.select();
-        inp.scrollIntoView({ behavior: "smooth", block: "center" });
+      var heroInp = document.getElementById("zip-input");
+      if (heroInp) {
+        heroInp.focus();
+        heroInp.select();
+        heroInp.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
       }
+      // No hero input — inject a mini ZIP form inside the card
+      var existing = document.getElementById("dealer-mini-form");
+      if (existing) { existing.querySelector("input").focus(); return; }
+      var mini = document.createElement("form");
+      mini.id = "dealer-mini-form";
+      mini.style.cssText = "display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;";
+      mini.innerHTML =
+        '<input type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP code"' +
+        ' style="padding:9px 12px;border:none;border-radius:7px;font-size:1rem;width:140px;">' +
+        '<button type="submit" class="btn btn--primary" style="padding:9px 18px;">Go</button>';
+      dealerChange.insertAdjacentElement("afterend", mini);
+      mini.querySelector("input").focus();
+      mini.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var z = mini.querySelector("input").value.trim();
+        if (!/^\d{5}$/.test(z)) return;
+        renderDealer(z);
+        mini.remove();
+      });
     });
   }
 
-  // Zip search -> update the local dealer card inline
+  // Hero ZIP form -> update the dealer card inline
   var zipForm = document.getElementById("zip-form");
   if (zipForm) {
     zipForm.addEventListener("submit", function (e) {

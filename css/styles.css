@@ -184,6 +184,27 @@ img { max-width: 100%; display: block; }
   font-size: 1rem; font-family: inherit;
 }
 
+/* Dealer card standalone section (city / partner pages) */
+.dealer-section {
+  background: var(--navy);
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.dealer-section .dealer-card {
+  margin-top: 0;
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.14);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 22px;
+}
+.dealer-section .dealer-card__zip  { margin-bottom: 0; }
+.dealer-section .dealer-card__label { flex-shrink: 0; white-space: nowrap; }
+.dealer-section .dealer-card__name  { flex: 1; }
+.dealer-section .dealer-card__change { margin-top: 0; }
+
 /* Local dealer card (dynamic) */
 .dealer-card {
   margin-top: 16px;
