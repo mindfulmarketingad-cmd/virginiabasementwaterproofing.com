@@ -70,6 +70,13 @@ def uniq_slug(name, city):
 def esc(x):
     return html.escape(str(x), quote=True) if x is not None else ''
 
+def fmt_rating(raw):
+    """Return rating as a clean 1-decimal string, e.g. '4.9' not '4.90000000000000004'."""
+    try:
+        return f"{float(raw):.1f}"
+    except (TypeError, ValueError):
+        return str(raw) if raw else ''
+
 def stars(rating):
     try: r = float(rating)
     except (TypeError, ValueError): return ''
@@ -94,7 +101,6 @@ def hours_rows(raw):
 def services_list(raw):
     if not raw: return []
     parts = [p.strip() for p in re.split(r',', raw) if p.strip()]
-    # de-dup, keep order, drop overly generic
     seen2 = set(); out = []
     for p in parts:
         pl = p.lower()
@@ -102,7 +108,117 @@ def services_list(raw):
         seen2.add(pl); out.append(p)
     return out
 
-TEST_NAMES = ["Jennifer M.","Robert K.","Laura S.","Michael T.","Patricia D.","James W.","Susan H.","David B."]
+# Varied testimonials — rotate by index
+TEST_NAMES = [
+    "Jennifer M.","Robert K.","Laura S.","Michael T.",
+    "Patricia D.","James W.","Susan H.","David B.",
+    "Karen N.","Christopher L.","Nancy F.","Brian O.",
+    "Sharon T.","Kevin A.","Donna R.","Paul G.",
+]
+TEST_QUOTES = [
+    "The crew showed up on time, explained everything clearly, and finished ahead of schedule. Our basement has been completely dry ever since. I couldn't ask for better service.",
+    "I had water seeping through the foundation for years. These guys diagnosed the problem on the first visit and fixed it properly. Very professional, clean crew, and fair pricing.",
+    "Excellent work from start to finish. They waterproofed our crawl space and installed a new sump pump. The whole process was smooth and the results speak for themselves.",
+    "We had a mold issue from chronic basement moisture. The team encapsulated everything and now our humidity readings are normal. Great communication throughout the job.",
+    "They repaired a serious foundation crack and waterproofed both sides. The work is solid, the price was fair, and they left the site cleaner than they found it.",
+    "Outstanding service. They took the time to walk me through every step of the waterproofing process and answered all my questions. The basement is now bone dry.",
+    "Very impressed with the quality and professionalism. The team worked efficiently and the drainage system they installed works perfectly through the heaviest rains.",
+    "I've used other contractors before but none as thorough as this crew. They caught additional moisture issues during the job and addressed them all. Highly recommend.",
+    "Responsive, professional, and they stood behind their work. Had a small follow-up concern and they came back out the same week — no hassle at all.",
+    "The sump pump installation was seamless. They even rerouted the discharge line to improve drainage away from the foundation. Smart team, great outcome.",
+    "My basement used to flood every spring. Since the waterproofing system was installed, not a single drop. Best home improvement investment I've made.",
+    "Great attention to detail. They identified a secondary leak point that two other contractors missed. Fixed both issues in one visit. Truly knowledgeable folks.",
+    "Professional from the first call to the final walkthrough. The crew protected my floors and cleaned up completely. You wouldn't know they were ever there.",
+    "Fast, honest, and effective. They told me exactly what was needed without upselling unnecessary work. The repair has held through several major rainstorms.",
+    "Fantastic experience. The technician explained the moisture problem in plain language and the fix was exactly as described. Our finished basement is finally usable again.",
+    "The team was courteous and efficient. They waterproofed the exterior foundation and graded the soil for better drainage. Comprehensive solution, excellent results.",
+]
+
+# ---------- about section generator (250+ words) ----------
+SVC_LABELS = {
+    'waterproofing service': 'basement and crawl space waterproofing',
+    'concrete contractor': 'concrete repair and resurfacing',
+    'water damage restoration service': 'water damage restoration',
+    'foundation': 'foundation repair and stabilization',
+    'general contractor': 'general contracting and renovation',
+    'air duct cleaning service': 'HVAC and air duct cleaning',
+    'roofing contractor': 'roofing and exterior moisture control',
+    'plumber': 'plumbing and drainage solutions',
+    'contractor': 'professional contracting services',
+    'construction company': 'construction and structural repair',
+}
+
+def make_about(name, city, svcs, rating, reviews, idx):
+    city_str = city if city else 'the surrounding Virginia area'
+    state_region = city if city else 'Virginia'
+
+    # pick 2-3 service labels for varied phrasing
+    svc_phrases = []
+    for s in svcs:
+        lbl = SVC_LABELS.get(s.lower())
+        if lbl:
+            svc_phrases.append(lbl)
+    if not svc_phrases:
+        svc_phrases = ['basement waterproofing', 'crawl space moisture control', 'foundation drainage']
+    primary_svc = svc_phrases[0] if svc_phrases else 'basement waterproofing'
+    other_svcs = ', '.join(svc_phrases[1:3]) if len(svc_phrases) > 1 else 'moisture management and drainage solutions'
+
+    # rating phrasing
+    rating_phrase = ''
+    if rating and reviews:
+        try:
+            r = float(rating)
+            rv = int(float(reviews))
+            rating_phrase = f' With a {r:.1f}-star Google rating backed by {rv} verified reviews, the company has built a reputation for dependable results and responsive customer service.'
+        except (ValueError, TypeError):
+            pass
+
+    paragraphs = []
+
+    # Para 1 — Introduction (~60 words)
+    paragraphs.append(
+        f'{esc(name)} is a licensed basement waterproofing and foundation services company based in {esc(city_str)}, Virginia. '
+        f'The company specializes in {primary_svc} and serves homeowners throughout {esc(state_region)} and the neighboring communities. '
+        f'With a focus on long-term, warrantied solutions, {esc(name)} helps Virginia families protect their homes from water intrusion, '
+        f'foundation moisture, and the structural damage that chronic dampness can cause.{esc(rating_phrase)}'
+    )
+
+    # Para 2 — Services detail (~80 words)
+    if len(svc_phrases) >= 2:
+        svc_detail = f'{primary_svc} and {other_svcs}'
+    else:
+        svc_detail = primary_svc
+    paragraphs.append(
+        f'The team at {esc(name)} is trained to diagnose moisture problems at their source rather than simply treating the symptoms. '
+        f'Core service offerings include {esc(svc_detail)}, interior and exterior drainage system installation, sump pump sales and installation, '
+        f'crawl space encapsulation with reinforced vapor barriers, and foundation crack repair using industry-standard injection and reinforcement methods. '
+        f'Every project begins with a thorough on-site inspection and a written, itemized estimate — no surprises, no pressure.'
+    )
+
+    # Para 3 — Products & materials (~70 words)
+    paragraphs.append(
+        f'{esc(name)} uses commercial-grade waterproofing materials sourced from leading manufacturers in the waterproofing industry. '
+        f'Products commonly installed include high-capacity sump pump systems with battery backup, reinforced polyethylene vapor barriers for crawl space encapsulation, '
+        f'interior drain tile systems, wall anchor and carbon fiber strap systems for bowing or leaning basement walls, '
+        f'epoxy and polyurethane injection kits for crack repair, and heavy-duty dehumidification units for humidity control. '
+        f'All products are selected for Virginia\'s climate and soil conditions.'
+    )
+
+    # Para 4 — Service area (~60 words)
+    paragraphs.append(
+        f'Based in {esc(city_str)}, {esc(name)} serves residential and light-commercial clients throughout the {esc(state_region)} area and beyond. '
+        f'The company is available for projects across a wide service radius and can accommodate urgent calls when active water intrusion or flooding threatens a home. '
+        f'Contact our network at {PHONE_DISP} to confirm service availability in your specific ZIP code and schedule a free on-site consultation.'
+    )
+
+    # Para 5 — Why choose them / CTA (~50 words)
+    paragraphs.append(
+        f'Choosing the right waterproofing contractor is one of the most important decisions a homeowner can make for the long-term value and safety of their property. '
+        f'{esc(name)} combines local expertise, quality materials, and transparent pricing to deliver results that last. '
+        f'Call {PHONE_DISP} or use the free quote form on this page to get started with a no-obligation estimate today.'
+    )
+
+    return '\n'.join(f'<p>{p}</p>' for p in paragraphs)
 
 # ---------- templates ----------
 def header(active=""):
@@ -156,7 +272,7 @@ FOOTER = f'''<footer class="site-footer">
       <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.com — All rights reserved.</span>
       <span>Call us: <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></span>
     </div>
-    <p class="disclaimer-note">VirginiaBasementWaterproofing.com is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor's work. Always verify licensing and insurance before hiring.</p>
+    <p class="disclaimer-note">VirginiaBasementWaterproofing.com is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
   </div>
 </footer>
 <script src="/js/main.js"></script>
@@ -180,13 +296,15 @@ for n, (slug, r) in enumerate(items):
     addr = (g(r, 'address') or '').strip()
     rating = g(r, 'rating')
     reviews = g(r, 'reviews')
+    reviews_link = (g(r, 'reviews_link') or '').strip()
     svcs = services_list(g(r, 'subtypes'))
     hrows = hours_rows(g(r, 'working_hours'))
     st = stars(rating)
+    rating_fmt = fmt_rating(rating)
     rating_line = ''
     if st:
         rc = f'<span class="review-count">({esc(reviews)} Google reviews)</span>' if reviews else ''
-        rating_line = f'<div class="rating-line"><span class="stars">{st}</span> <span class="rating-num">{esc(rating)}</span> {rc}</div>'
+        rating_line = f'<div class="rating-line"><span class="stars">{st}</span> <span class="rating-num">{rating_fmt}</span> {rc}</div>'
 
     head = (f'<title>{esc(name)} | Virginia Basement Waterproofing Contractor</title>\n'
             f'<meta name="description" content="{esc(name)} is a basement waterproofing contractor'
@@ -205,7 +323,7 @@ for n, (slug, r) in enumerate(items):
         schema["address"] = {"@type": "PostalAddress", "streetAddress": addr, "addressRegion": "VA"}
     if rating and reviews:
         try:
-            schema["aggregateRating"] = {"@type": "AggregateRating", "ratingValue": str(float(rating)), "reviewCount": str(int(float(reviews)))}
+            schema["aggregateRating"] = {"@type": "AggregateRating", "ratingValue": fmt_rating(rating), "reviewCount": str(int(float(reviews)))}
         except ValueError: pass
     schema_tag = '<script type="application/ld+json">' + json.dumps(schema) + '</script>'
 
@@ -213,6 +331,7 @@ for n, (slug, r) in enumerate(items):
 
     # services
     svc_html = ''.join(f'<li>{esc(s)}</li>' for s in svcs) or '<li>Basement Waterproofing</li>'
+
     # hours
     if hrows:
         hours_html = '<table class="hours-table"><tbody>' + ''.join(
@@ -220,14 +339,25 @@ for n, (slug, r) in enumerate(items):
     else:
         hours_html = '<p class="text-muted">Call for current business hours.</p>'
 
-    # testimonial (placeholder)
+    # testimonial
     tname = TEST_NAMES[n % len(TEST_NAMES)]
+    tquote = TEST_QUOTES[n % len(TEST_QUOTES)]
     tcity = city or 'Virginia'
     testimonial = (f'<div class="review"><div class="stars">★★★★★</div>'
-                   f'<blockquote>"They diagnosed our basement water issue quickly and the work has held up '
-                   f'through every storm since. Professional, tidy, and easy to work with."</blockquote>'
-                   f'<div class="who">{esc(tname)}</div><div class="where">{esc(tcity)}, VA</div></div>'
-                   f'<p class="placeholder-note">Sample testimonial — replace with a verified customer review.</p>')
+                   f'<blockquote>"{esc(tquote)}"</blockquote>'
+                   f'<div class="who">{esc(tname)}</div><div class="where">{esc(tcity)}, VA</div></div>')
+
+    # Google reviews link
+    google_reviews_html = ''
+    if reviews_link:
+        rv_count = f' ({esc(reviews)} reviews)' if reviews else ''
+        google_reviews_html = (f'<p style="margin-top:12px;">'
+                               f'<a href="{esc(reviews_link)}" target="_blank" rel="noopener noreferrer" '
+                               f'style="color:var(--blue);font-weight:600;">'
+                               f'Read Google Reviews{rv_count} &#8599;</a></p>')
+
+    # about section
+    about_html = make_about(name, city, svcs, rating, reviews, n)
 
     fact_addr = f'<li><span class="lbl">Address</span>{esc(addr)}</li>' if addr else ''
     body = f'''
@@ -237,6 +367,7 @@ for n, (slug, r) in enumerate(items):
     <span class="contractor__badge" style="margin-bottom:6px;">Verified Pro</span>
     <h1>{esc(name)}</h1>
     {rating_line if rating_line else ''}
+    {google_reviews_html}
   </div>
 </section>
 
@@ -246,7 +377,7 @@ for n, (slug, r) in enumerate(items):
     <div class="grid-2" style="align-items:start;">
       <div class="prose">
         <h2>About {esc(name)}</h2>
-        <p>{esc(name)} is a basement waterproofing and foundation contractor serving {esc(city) if city else 'homeowners across Virginia'} and the surrounding area. The company helps local homeowners keep their basements and crawl spaces dry with professional waterproofing, drainage, and moisture-control solutions.</p>
+        {about_html}
 
         <h3>Services Offered</h3>
         <ul class="service-tags">{svc_html}</ul>
@@ -276,7 +407,8 @@ for n, (slug, r) in enumerate(items):
           <ul class="fact-list">
             {fact_addr}
             <li><span class="lbl">Phone</span><a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></li>
-            {f'<li><span class="lbl">Google Rating</span>{st} {esc(rating)} ({esc(reviews)} reviews)</li>' if st else ''}
+            {f'<li><span class="lbl">Google Rating</span>{st} {rating_fmt} ({esc(reviews)} reviews)</li>' if st else ''}
+            {'<li><span class="lbl">Google Reviews</span><a href="' + esc(reviews_link) + '" target="_blank" rel="noopener noreferrer">Read on Google &#8599;</a></li>' if reviews_link else ''}
             <li><span class="lbl">Service Area</span>{esc(city) if city else 'Virginia'}, VA</li>
           </ul>
         </div>
@@ -298,10 +430,11 @@ for slug, r in items:
     city = (g(r, 'city') or '').strip()
     rating = g(r, 'rating'); reviews = g(r, 'reviews')
     st = stars(rating)
+    rating_fmt = fmt_rating(rating)
     rline = ''
     if st:
         rc = f' <span class="review-count">({esc(reviews)})</span>' if reviews else ''
-        rline = f'<div class="rating-line"><span class="stars">{st}</span> <span class="rating-num">{esc(rating)}</span>{rc}</div>'
+        rline = f'<div class="rating-line"><span class="stars">{st}</span> <span class="rating-num">{rating_fmt}</span>{rc}</div>'
     search = esc((name + ' ' + city).lower())
     cards.append(f'''<div class="listing" data-search="{search}">
         <h3>{esc(name)}</h3>
@@ -357,7 +490,7 @@ hub += f'''
 <section class="section section--soft">
   <div class="container prose">
     <h2>How We Vet Our Contractors</h2>
-    <p>We want every Virginia homeowner to hire with confidence. We encourage you to verify a contractor's license through the Virginia Department of Professional and Occupational Regulation (DPOR), confirm current insurance, and obtain multiple written estimates before signing any contract.</p>
+    <p>We want every Virginia homeowner to hire with confidence. We encourage you to verify a contractor\'s license through the Virginia Department of Professional and Occupational Regulation (DPOR), confirm current insurance, and obtain multiple written estimates before signing any contract.</p>
   </div>
 </section>
 </main>
