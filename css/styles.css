@@ -391,6 +391,8 @@ img { max-width: 100%; display: block; }
 .listing .rating-line { font-size: .9rem; color: var(--ink); margin-bottom: 12px; }
 .listing .rating-line .stars { font-size: .95rem; }
 .listing .listing__foot { margin-top: auto; padding-top: 12px; }
+.listing__services { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 6px; }
+.svc-tag { font-size: .72rem; background: #eef4fb; color: var(--navy); border: 1px solid #d0e3f5; border-radius: 4px; padding: 2px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 
 .rating-num { font-weight: 700; color: var(--navy); }
 .review-count { color: var(--muted); }

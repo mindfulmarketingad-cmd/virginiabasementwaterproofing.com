@@ -435,11 +435,17 @@ for slug, r in items:
     if st:
         rc = f' <span class="review-count">({esc(reviews)})</span>' if reviews else ''
         rline = f'<div class="rating-line"><span class="stars">{st}</span> <span class="rating-num">{rating_fmt}</span>{rc}</div>'
+    svcs_card = services_list(g(r, 'subtypes'))[:3]
+    svc_tags_html = ''
+    if svcs_card:
+        svc_tags_html = '<div class="listing__services">' + ''.join(
+            f'<span class="svc-tag">{esc(s)}</span>' for s in svcs_card) + '</div>'
     search = esc((name + ' ' + city).lower())
     cards.append(f'''<div class="listing" data-search="{search}">
         <h3>{esc(name)}</h3>
         <div class="meta">{esc(city) + ', VA' if city else 'Virginia'}</div>
         {rline}
+        {svc_tags_html}
         <div class="listing__foot"><a href="/partners/{slug}/" class="btn btn--blue btn--block">View Profile</a></div>
       </div>''')
 
