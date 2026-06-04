@@ -4,22 +4,23 @@
    ========================================================= */
 
 :root {
-  --navy: #0f2942;
-  --navy-dark: #0a1d30;
-  --blue: #1b6ec2;
-  --blue-dark: #155a9e;
-  --accent: #f4a300;
-  --accent-dark: #d98e00;
-  --ink: #1c2733;
+  /* Virginia flag colors: deep royal blue + Virginia red */
+  --navy: #1b2a6b;
+  --navy-dark: #0f1b47;
+  --blue: #2d55b0;
+  --blue-dark: #1f3e88;
+  --accent: #c8102e;
+  --accent-dark: #a50e25;
+  --ink: #1a2035;
   --muted: #5a6b7b;
   --line: #e3e8ee;
   --bg: #ffffff;
-  --bg-soft: #f6f8fb;
-  --bg-softer: #eef2f7;
+  --bg-soft: #f5f7fc;
+  --bg-softer: #eaeffa;
   --green: #1f8a4c;
   --radius: 10px;
-  --shadow: 0 2px 8px rgba(15, 41, 66, 0.06);
-  --shadow-lg: 0 12px 32px rgba(15, 41, 66, 0.12);
+  --shadow: 0 2px 8px rgba(27, 42, 107, 0.08);
+  --shadow-lg: 0 12px 32px rgba(27, 42, 107, 0.14);
   --max: 1140px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -123,12 +124,14 @@ img { max-width: 100%; display: block; }
 }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand__mark {
-  width: 40px; height: 40px; border-radius: 9px;
+  width: 48px; height: 40px; border-radius: 9px;
   background: var(--navy);
   display: grid; place-items: center;
-  color: #fff; font-weight: 800; font-size: 1.15rem;
+  font-weight: 900; font-size: 1rem; letter-spacing: -.5px;
   flex-shrink: 0;
 }
+.brand__mark .bm-v { color: #fff; }
+.brand__mark .bm-bw { color: var(--accent); }
 .brand__name { font-weight: 800; color: var(--navy); font-size: 1.05rem; line-height: 1.15; }
 .brand__name span { display: block; font-weight: 600; color: var(--muted); font-size: .74rem; letter-spacing: .5px; text-transform: uppercase; }
 .brand:hover { text-decoration: none; }
@@ -160,6 +163,18 @@ img { max-width: 100%; display: block; }
   color: #fff;
   padding: 60px 0 70px;
 }
+.hero--video { position: relative; overflow: hidden; background: var(--navy-dark); }
+.hero__video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: .35; pointer-events: none;
+}
+.hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(27,42,107,.82) 0%, rgba(15,27,71,.88) 100%);
+  pointer-events: none;
+}
+.hero--video .container { position: relative; z-index: 1; }
 .hero h1 { color: #fff; font-size: 2.8rem; }
 .hero .grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: start; }
 .hero p { color: #c5d4e3; font-size: 1.12rem; }
@@ -396,6 +411,39 @@ img { max-width: 100%; display: block; }
 
 .rating-num { font-weight: 700; color: var(--navy); }
 .review-count { color: var(--muted); }
+
+/* ---- Service page dealer banner ---- */
+.service-banner {
+  background: linear-gradient(100deg, var(--navy) 0%, var(--navy-dark) 100%);
+  padding: 22px 0;
+  border-bottom: 3px solid var(--accent);
+}
+.service-banner__inner {
+  display: flex; align-items: center; gap: 0;
+  flex-wrap: wrap;
+}
+.service-banner__left {
+  flex: 1 1 320px; padding-right: 32px;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+.service-banner__right { flex: 0 0 auto; padding-left: 32px; }
+.service-banner__tagline {
+  font-size: 1.25rem; font-weight: 800; color: #fff;
+  margin: 0 0 6px; line-height: 1.25;
+}
+.service-banner__sub { font-size: .95rem; color: #9fb8e0; margin: 0; }
+.service-banner__sub a { color: #7eb8e8; font-weight: 600; }
+.service-banner__sub a:hover { color: #fff; }
+.service-banner__zip { font-size: .88rem; color: #9fb8e0; margin-bottom: 3px; }
+.service-banner__zip strong { color: #fff; }
+.service-banner__dealer { font-size: .97rem; color: #cfe0f0; margin-bottom: 6px; }
+.service-banner__dealer strong { color: #fff; font-weight: 700; }
+.service-banner__change { font-size: .88rem; color: #7eb8e8; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+.service-banner__change:hover { color: #fff; text-decoration: none; }
+@media (max-width: 640px) {
+  .service-banner__left { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); padding-right: 0; padding-bottom: 16px; margin-bottom: 16px; }
+  .service-banner__right { padding-left: 0; }
+}
 
 /* Listing detail */
 .listing-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; padding: 40px 0; }
