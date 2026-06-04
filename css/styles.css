@@ -184,6 +184,25 @@ img { max-width: 100%; display: block; }
   font-size: 1rem; font-family: inherit;
 }
 
+/* Local dealer card (dynamic) */
+.dealer-card {
+  margin-top: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.dealer-card__zip { font-size: .95rem; color: #9fb6cc; margin-bottom: 6px; min-height: 1px; }
+.dealer-card__label { color: #c5d4e3; font-size: 1rem; }
+.dealer-card__name { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.2; margin-top: 2px; }
+.dealer-card__name a { color: #fff; }
+.dealer-card__name a:hover { color: var(--accent); text-decoration: none; }
+.dealer-card__change {
+  display: inline-block; margin-top: 12px;
+  color: #6db3ff; font-weight: 600; font-size: .92rem;
+}
+.dealer-card__change span { color: var(--accent); }
+
 /* Quote form card */
 .quote-card {
   background: #fff;
