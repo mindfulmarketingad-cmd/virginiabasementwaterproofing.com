@@ -57,7 +57,7 @@
     var zipEl = document.getElementById("dealer-zip");
     var nameEl = document.getElementById("dealer-name");
     if (zipEl) zipEl.textContent = "";
-    if (nameEl) nameEl.textContent = msg || "Enter your ZIP code above to find your local dealer.";
+    if (nameEl) nameEl.textContent = msg || "Call (757) 743-9050 to reach your local dealer.";
   }
 
   // Detect the visitor's location by IP on first load (no API key required).

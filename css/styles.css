@@ -311,6 +311,19 @@ img { max-width: 100%; display: block; }
 }
 .city-grid a:hover { border-color: var(--blue); background: var(--bg-soft); text-decoration: none; }
 
+/* City chip pills (region pages) */
+.city-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.city-chip {
+  display: inline-block; padding: 6px 14px; background: var(--bg-soft);
+  border: 1px solid var(--line); border-radius: 20px;
+  color: var(--navy); font-size: .88rem; font-weight: 600;
+}
+.city-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); text-decoration: none; }
+
+/* Embedded city map */
+.city-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.city-map iframe { display: block; }
+
 /* Reviews */
 .review {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
