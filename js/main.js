@@ -130,6 +130,29 @@
 
   if (dealerCard) detectLocation();
 
+  // ---- Partner directory search filter ----
+  var partnerSearch = document.getElementById("partner-search");
+  if (partnerSearch) {
+    var listings = Array.prototype.slice.call(document.querySelectorAll(".listing"));
+    var countEl = document.getElementById("partner-count");
+    var totalCount = listings.length;
+    partnerSearch.addEventListener("input", function () {
+      var q = partnerSearch.value.trim().toLowerCase();
+      var shown = 0;
+      listings.forEach(function (el) {
+        var hay = el.getAttribute("data-search") || "";
+        var match = !q || hay.indexOf(q) !== -1;
+        el.style.display = match ? "" : "none";
+        if (match) shown++;
+      });
+      if (countEl) {
+        countEl.textContent = q
+          ? "Showing " + shown + " of " + totalCount + " contractors"
+          : "Showing all " + totalCount + " contractors";
+      }
+    });
+  }
+
   // Quote form (client-side confirmation only — no backend)
   var quoteForms = document.querySelectorAll("form[data-quote]");
   quoteForms.forEach(function (form) {
