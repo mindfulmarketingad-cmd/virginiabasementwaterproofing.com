@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#f5f7fc"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="28" font-weight="800" fill="#ffffff">A Waterproofing System: Three Working Approaches</text>
+
+  <!-- col 1 -->
+  <rect x="50" y="100" width="350" height="520" rx="14" fill="#ffffff" stroke="#2d55b0" stroke-width="3"/>
+  <rect x="50" y="100" width="350" height="70" rx="14" fill="#2d55b0"/>
+  <text x="225" y="135" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">1. Interior Drainage</text>
+  <text x="225" y="158" text-anchor="middle" font-size="15" fill="#dbe6ff">Reactive &#183; most common</text>
+  <text x="225" y="220" text-anchor="middle" font-size="56">⬇️</text>
+  <text x="80" y="290" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Interior French drains</text>
+  <text x="80" y="330" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Sump pump &amp; pit</text>
+  <text x="80" y="370" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Dehumidifier</text>
+  <text x="80" y="445" font-size="15" fill="#5a6b7b">Manages water that has</text>
+  <text x="80" y="468" font-size="15" fill="#5a6b7b">already breached the wall.</text>
+  <rect x="80" y="520" width="290" height="40" rx="8" fill="#eaeffa"/>
+  <text x="225" y="546" text-anchor="middle" font-size="15" font-weight="700" fill="#2d55b0">No exterior digging needed</text>
+
+  <!-- col 2 -->
+  <rect x="425" y="100" width="350" height="520" rx="14" fill="#ffffff" stroke="#1f8a4c" stroke-width="3"/>
+  <rect x="425" y="100" width="350" height="70" rx="14" fill="#1f8a4c"/>
+  <text x="600" y="135" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">2. Exterior Waterproofing</text>
+  <text x="600" y="158" text-anchor="middle" font-size="15" fill="#d9f5e4">Proactive &#183; most thorough</text>
+  <text x="600" y="220" text-anchor="middle" font-size="56">🛡️</text>
+  <text x="455" y="290" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Waterproof membranes</text>
+  <text x="455" y="330" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Exterior drain tile</text>
+  <text x="455" y="370" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Grading &amp; downspouts</text>
+  <text x="455" y="445" font-size="15" fill="#5a6b7b">Stops water before it ever</text>
+  <text x="455" y="468" font-size="15" fill="#5a6b7b">presses on the foundation.</text>
+  <rect x="455" y="520" width="290" height="40" rx="8" fill="#eafaf0"/>
+  <text x="600" y="546" text-anchor="middle" font-size="15" font-weight="700" fill="#1f8a4c">Involves excavation</text>
+
+  <!-- col 3 -->
+  <rect x="800" y="100" width="350" height="520" rx="14" fill="#ffffff" stroke="#c8102e" stroke-width="3"/>
+  <rect x="800" y="100" width="350" height="70" rx="14" fill="#c8102e"/>
+  <text x="975" y="135" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">3. Sealants &amp; Coatings</text>
+  <text x="975" y="158" text-anchor="middle" font-size="15" fill="#ffdbe1">Preventative &#183; topical</text>
+  <text x="975" y="220" text-anchor="middle" font-size="56">🖌️</text>
+  <text x="830" y="290" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Masonry coatings</text>
+  <text x="830" y="330" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Vapor barriers</text>
+  <text x="830" y="370" font-size="17" font-weight="700" fill="#1b2a6b">&#8226; Crack injections</text>
+  <text x="830" y="445" font-size="15" fill="#5a6b7b">Stops minor seepage and</text>
+  <text x="830" y="468" font-size="15" fill="#5a6b7b">vapor through the concrete.</text>
+  <rect x="830" y="520" width="290" height="40" rx="8" fill="#fdeef0"/>
+  <text x="975" y="546" text-anchor="middle" font-size="15" font-weight="700" fill="#c8102e">Best for minor issues</text>
+</svg>

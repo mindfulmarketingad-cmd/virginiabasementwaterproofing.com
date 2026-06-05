@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#f5f7fc"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="28" font-weight="800" fill="#ffffff">The Hidden Value: Beyond Resale Numbers</text>
+
+  <!-- card 1 structural -->
+  <rect x="50" y="110" width="350" height="240" rx="14" fill="#ffffff" stroke="#e3e8ee" stroke-width="2"/>
+  <circle cx="120" cy="185" r="38" fill="#eaeffa"/>
+  <text x="120" y="200" text-anchor="middle" font-size="36">🏗️</text>
+  <text x="180" y="180" font-size="22" font-weight="800" fill="#1b2a6b">Structural</text>
+  <text x="180" y="206" font-size="22" font-weight="800" fill="#1b2a6b">integrity</text>
+  <text x="80" y="270" font-size="16" fill="#5a6b7b">Keeps water from eroding</text>
+  <text x="80" y="294" font-size="16" fill="#5a6b7b">concrete or degrading</text>
+  <text x="80" y="318" font-size="16" fill="#5a6b7b">wooden framing.</text>
+
+  <!-- card 2 health -->
+  <rect x="425" y="110" width="350" height="240" rx="14" fill="#ffffff" stroke="#e3e8ee" stroke-width="2"/>
+  <circle cx="495" cy="185" r="38" fill="#eafaf0"/>
+  <text x="495" y="200" text-anchor="middle" font-size="36">🫁</text>
+  <text x="555" y="180" font-size="22" font-weight="800" fill="#1b2a6b">Health &amp;</text>
+  <text x="555" y="206" font-size="22" font-weight="800" fill="#1b2a6b">air quality</text>
+  <text x="455" y="270" font-size="16" fill="#5a6b7b">Eliminates the damp,</text>
+  <text x="455" y="294" font-size="16" fill="#5a6b7b">musty environments</text>
+  <text x="455" y="318" font-size="16" fill="#5a6b7b">where toxic mold thrives.</text>
+
+  <!-- card 3 warranty -->
+  <rect x="800" y="110" width="350" height="240" rx="14" fill="#ffffff" stroke="#e3e8ee" stroke-width="2"/>
+  <circle cx="870" cy="185" r="38" fill="#fdeef0"/>
+  <text x="870" y="200" text-anchor="middle" font-size="36">📜</text>
+  <text x="930" y="180" font-size="22" font-weight="800" fill="#1b2a6b">Transferable</text>
+  <text x="930" y="206" font-size="22" font-weight="800" fill="#1b2a6b">warranties</text>
+  <text x="830" y="270" font-size="16" fill="#5a6b7b">Long-term, transferable</text>
+  <text x="830" y="294" font-size="16" fill="#5a6b7b">coverage becomes an</text>
+  <text x="830" y="318" font-size="16" fill="#5a6b7b">excellent selling point.</text>
+
+  <!-- peace of mind banner -->
+  <rect x="50" y="385" width="1100" height="235" rx="14" fill="#1b2a6b"/>
+  <text x="600" y="455" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff">Peace of Mind That Protects Your Investment</text>
+  <text x="600" y="505" text-anchor="middle" font-size="18" fill="#c5d4e3">A dry basement prevents foundation damage, stops mold, and safeguards every dollar</text>
+  <text x="600" y="533" text-anchor="middle" font-size="18" fill="#c5d4e3">of your home's market value &#8212; not just the cost of the system itself.</text>
+  <rect x="430" y="558" width="340" height="44" rx="22" fill="#c8102e"/>
+  <text x="600" y="587" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Protects long-term value</text>
+</svg>
