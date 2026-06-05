@@ -204,6 +204,18 @@ SERVICES = [
             ("Floor & Slab Crack Sealing", "Sealing of basement floor cracks that allow water and radon to enter."),
             ("Leaking Pipe Penetration Repair", "Sealing of gaps around pipes and utility penetrations through foundation walls."),
         ],
+    },    {
+        "slug": "basement-water-damage-restoration",
+        "name": "Basement Water Damage Restoration",
+        "short": "basement water damage restoration",
+        "blurb": "Fast, professional water damage restoration for Virginia basements — emergency extraction, structural drying, mold prevention, and full rebuild services.",
+        "offerings": [
+            ("Emergency Water Extraction", "Truck-mounted and submersible extraction equipment removes standing water from flooded basements within hours of your call — 24/7 response."),
+            ("Structural Drying & Dehumidification", "Industrial air movers and commercial dehumidifiers dry framing, subfloor, drywall, and concrete to measured moisture targets, stopping secondary damage."),
+            ("Mold Prevention & Remediation", "Antimicrobial treatment applied during the drying process prevents mold colonies from establishing. Active mold growth is safely remediated and removed."),
+            ("Damaged Material Removal & Rebuild", "Saturated drywall, insulation, flooring, and framing that cannot be dried in place are removed and replaced with code-compliant materials."),
+            ("Contents Cleaning & Pack-Out", "Furniture, stored items, and personal belongings are inventoried, cleaned on-site or packed out for off-site drying and restoration."),
+        ],
     },
 ]
 
@@ -269,7 +281,7 @@ FOOTER = f'''<footer class="site-footer">
         <a class="footer-phone" href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
