@@ -284,10 +284,10 @@ FOOTER = f'''<footer class="site-footer">
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.com — All rights reserved.</span>
+      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org — All rights reserved.</span>
       <span>Call us: <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></span>
     </div>
-    <p class="disclaimer-note">VirginiaBasementWaterproofing.com is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
+    <p class="disclaimer-note">VirginiaBasementWaterproofing.org is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
   </div>
 </footer>
 <script src="/js/main.js"></script>
@@ -324,7 +324,7 @@ for n, (slug, r) in enumerate(items):
     head = (f'<title>{esc(name)} | Virginia Basement Waterproofing Contractor</title>\n'
             f'<meta name="description" content="{esc(name)} is a basement waterproofing contractor'
             f'{(" in " + esc(city)) if city else ""}, Virginia. View ratings, services, hours, and request a free quote.">\n'
-            f'<link rel="canonical" href="https://virginiabasementwaterproofing.com/partners/{slug}/">\n'
+            f'<link rel="canonical" href="https://virginiabasementwaterproofing.org/partners/{slug}/">\n'
             f'<meta name="robots" content="index, follow">')
 
     schema = {
@@ -466,7 +466,7 @@ for slug, r in items:
 
 hub_head = ('<title>Virginia Basement Waterproofing Contractors | Full Directory</title>\n'
             '<meta name="description" content="Browse our full directory of basement waterproofing contractors across Virginia. Compare ratings and reviews, then request a free estimate.">\n'
-            '<link rel="canonical" href="https://virginiabasementwaterproofing.com/partners/">\n'
+            '<link rel="canonical" href="https://virginiabasementwaterproofing.org/partners/">\n'
             '<meta name="robots" content="index, follow">')
 hub = header().replace('__HEAD__', hub_head).replace('__SCHEMA__', '')
 hub += f'''

@@ -286,10 +286,10 @@ FOOTER = f'''<footer class="site-footer">
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.com &mdash; All rights reserved.</span>
+      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org &mdash; All rights reserved.</span>
       <span>Call us: <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></span>
     </div>
-    <p class="disclaimer-note">VirginiaBasementWaterproofing.com is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
+    <p class="disclaimer-note">VirginiaBasementWaterproofing.org is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
   </div>
 </footer>
 <script src="/js/main.js"></script>
@@ -373,7 +373,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
     city_slug = slugify(city)
     city_url  = f"/virginia/{region_slug}/{city_slug}/"
     city_url_map[city] = city_url
-    canonical = f"https://virginiabasementwaterproofing.com{city_url}"
+    canonical = f"https://virginiabasementwaterproofing.org{city_url}"
 
     contractors = by_city.get(city, [])
     n_co        = len(contractors)
@@ -444,7 +444,7 @@ REGIONS = [
 
 region_count = 0
 for region_slug, region_label, map_query in REGIONS:
-    canonical   = f"https://virginiabasementwaterproofing.com/virginia/{region_slug}/"
+    canonical   = f"https://virginiabasementwaterproofing.org/virginia/{region_slug}/"
     contractors = by_region.get(region_slug, [])
     n_co        = len(contractors)
     intro       = REGION_INTROS.get(region_slug, '')
