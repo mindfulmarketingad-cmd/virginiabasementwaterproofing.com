@@ -285,8 +285,8 @@ FOOTER = f'''<footer class="site-footer">
 </html>'''
 
 def zip_banner(zips):
-    opts = ''.join(f'<option value="{z}">{z}</option>' for z in zips)
-    return f'''<div class="service-banner" aria-live="polite">
+    # Dynamic banner — JS in main.js detects location and renders contractor name
+    return f'''<div class="service-banner" id="dealer-card" aria-live="polite">
   <div class="container">
     <div class="service-banner__inner">
       <div class="service-banner__left">
@@ -294,15 +294,15 @@ def zip_banner(zips):
         <p class="service-banner__sub">Contact your <a href="/partners/">local contractor</a> or call <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></p>
       </div>
       <div class="service-banner__right">
-        <div class="service-banner__dealer">Your Local Contractor is
-          <select class="service-banner__zipselect" aria-label="Select your ZIP code">{opts}</select>
-        </div>
+        <div class="service-banner__zip" id="dealer-zip"></div>
+        <div class="service-banner__dealer">Your Local Contractor is <strong><span id="dealer-name">Detecting location&hellip;</span></strong></div>
+        <a href="#" class="service-banner__change" id="dealer-change">&#9679; Change Location</a>
       </div>
     </div>
   </div>
 </div>'''
 
-def page_head(title, description, canonical, schema_json, zips):
+def page_head(title, description, canonical, schema_json, zips=None):
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>

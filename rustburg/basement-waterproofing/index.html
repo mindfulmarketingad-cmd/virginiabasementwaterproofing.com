@@ -38,7 +38,7 @@
     </div>
   </div>
 </header>
-<div class="service-banner" aria-live="polite">
+<div class="service-banner" id="dealer-card" aria-live="polite">
   <div class="container">
     <div class="service-banner__inner">
       <div class="service-banner__left">
@@ -46,9 +46,9 @@
         <p class="service-banner__sub">Contact your <a href="/partners/">local contractor</a> or call <a href="tel:+17577439050">(757) 743-9050</a></p>
       </div>
       <div class="service-banner__right">
-        <div class="service-banner__dealer">Your Local Contractor is
-          <select class="service-banner__zipselect" aria-label="Select your ZIP code"><option value="24588">24588</option></select>
-        </div>
+        <div class="service-banner__zip" id="dealer-zip"></div>
+        <div class="service-banner__dealer">Your Local Contractor is <strong><span id="dealer-name">Detecting location…</span></strong></div>
+        <a href="#" class="service-banner__change" id="dealer-change">&#9679; Change Location</a>
       </div>
     </div>
   </div>
