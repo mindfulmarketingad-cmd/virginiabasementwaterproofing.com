@@ -324,6 +324,21 @@ img { max-width: 100%; display: block; }
 .city-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .city-map iframe { display: block; }
 
+/* Money pages: service+city landing */
+.offerings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 22px 0 8px; }
+.offering { background: #fff; border: 1px solid var(--line, #e4e8f0); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); }
+.offering h3 { margin: 0 0 6px; font-size: 1.08rem; color: var(--navy); }
+.offering p { margin: 0; color: #555; font-size: .95rem; line-height: 1.55; }
+.reasons-list { list-style: none; padding: 0; margin: 22px 0 8px; display: grid; gap: 14px; }
+.reasons-list li { display: block; background: #f7f9fc; border-radius: var(--radius); padding: 16px 20px; border: 1px solid var(--line, #e4e8f0); }
+.reasons-list strong { display: block; color: var(--navy); font-size: 1.02rem; margin-bottom: 4px; }
+.reasons-list span { color: #555; font-size: .95rem; line-height: 1.55; }
+.zip-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.zip-chip { display: inline-block; background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; letter-spacing: .3px; padding: 6px 13px; border-radius: 999px; }
+.related-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.related-chip { display: inline-block; background: #eef2fa; color: var(--navy); font-weight: 600; font-size: .92rem; padding: 8px 15px; border-radius: 999px; border: 1px solid var(--line, #e4e8f0); }
+.related-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); text-decoration: none; }
+
 /* Reviews */
 .review {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
@@ -453,6 +468,16 @@ img { max-width: 100%; display: block; }
 .service-banner__dealer strong { color: #fff; font-weight: 700; }
 .service-banner__change { font-size: .88rem; color: #7eb8e8; font-weight: 600; display: flex; align-items: center; gap: 5px; }
 .service-banner__change:hover { color: #fff; text-decoration: none; }
+.service-banner__zipselect {
+  margin-left: 8px; padding: 5px 30px 5px 12px; border-radius: 7px;
+  border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08);
+  color: #fff; font-size: .95rem; font-weight: 700; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 8px center; background-size: 14px;
+}
+.service-banner__zipselect:focus { outline: none; border-color: var(--accent); }
+.service-banner__zipselect option { color: #1b2a6b; }
 @media (max-width: 640px) {
   .service-banner__left { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); padding-right: 0; padding-bottom: 16px; margin-bottom: 16px; }
   .service-banner__right { padding-left: 0; }
