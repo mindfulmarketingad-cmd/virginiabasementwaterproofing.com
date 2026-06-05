@@ -207,6 +207,7 @@ SERVICES = [
     },    {
         "slug": "basement-water-damage-restoration",
         "name": "Basement Water Damage Restoration",
+        "label": "Water Damage Restoration",
         "short": "basement water damage restoration",
         "blurb": "Fast, professional water damage restoration for Virginia basements — emergency extraction, structural drying, mold prevention, and full rebuild services.",
         "offerings": [
@@ -215,6 +216,76 @@ SERVICES = [
             ("Mold Prevention & Remediation", "Antimicrobial treatment applied during the drying process prevents mold colonies from establishing. Active mold growth is safely remediated and removed."),
             ("Damaged Material Removal & Rebuild", "Saturated drywall, insulation, flooring, and framing that cannot be dried in place are removed and replaced with code-compliant materials."),
             ("Contents Cleaning & Pack-Out", "Furniture, stored items, and personal belongings are inventoried, cleaned on-site or packed out for off-site drying and restoration."),
+        ],
+    },
+    {
+        "slug": "basement-remodeling",
+        "name": "Basement Remodeling",
+        "label": "Basement Remodeling",
+        "short": "basement remodeling",
+        "blurb": "Transform your unfinished or dated Virginia basement into livable, functional space — home offices, family rooms, guest suites, and more — with licensed local remodeling contractors.",
+        "offerings": [
+            ("Basement Finishing & Framing", "Full framing, insulation, drywall, and finishing that converts raw basement space into a conditioned, livable room ready for flooring and paint."),
+            ("Flooring Installation", "Moisture-resistant flooring options — luxury vinyl plank, engineered hardwood, tile, and carpet — selected and installed for below-grade conditions."),
+            ("Egress Windows & Permits", "Code-compliant egress window installation that makes basement bedrooms legal, improves natural light, and provides emergency exit access."),
+            ("Bathroom & Wet Bar Rough-In", "Plumbing rough-in and finish work for basement half-baths, full bathrooms, and wet bar areas including drain tie-in and fixture installation."),
+            ("Lighting, Electrical & HVAC", "Recessed lighting, outlet rough-in, panel upgrades, and HVAC extensions that make the finished basement comfortable year-round."),
+        ],
+    },
+    {
+        "slug": "black-mold-treatment",
+        "name": "Black Mold Treatment",
+        "label": "Black Mold Treatment",
+        "short": "black mold treatment",
+        "blurb": "Safe, thorough black mold testing, removal, and remediation for Virginia basements and crawl spaces — performed by licensed contractors following EPA and IICRC protocols.",
+        "offerings": [
+            ("Mold Testing & Air Sampling", "Certified inspectors take surface swab and air samples to confirm mold species, measure spore counts, and define the scope of contamination before any work begins."),
+            ("Containment & Safe Removal", "Negative-pressure containment barriers isolate the work area. Contaminated drywall, insulation, and wood materials are removed following IICRC S520 remediation standards."),
+            ("Structural Surface Treatment", "Exposed framing, joists, concrete, and block are HEPA-vacuumed, scrubbed, and treated with EPA-registered antimicrobial and encapsulant products."),
+            ("Moisture Source Correction", "Remediation without fixing the moisture source always fails. Our contractors identify and correct the water intrusion — drainage, vapor barrier, waterproofing, or HVAC — that fed the mold."),
+            ("Post-Remediation Clearance Testing", "Independent air and surface testing after work is complete confirms that spore counts have returned to normal levels and the space is safe to reoccupy."),
+        ],
+    },
+    {
+        "slug": "emergency-water-clean-up",
+        "name": "Emergency Water Clean Up",
+        "label": "Emergency Water Clean Up",
+        "short": "emergency water clean up",
+        "blurb": "Fast, 24/7 emergency water cleanup for flooded Virginia basements — rapid water extraction, structural drying, and sanitizing to stop damage before it spreads.",
+        "offerings": [
+            ("24/7 Emergency Response", "Round-the-clock dispatch gets a crew to your flooded basement fast — because every hour that water sits deepens the structural and mold damage."),
+            ("Standing Water Extraction", "High-capacity truck-mounted and submersible pumps remove standing water quickly to halt damage to framing, flooring, and stored belongings."),
+            ("Rapid Drying & Dehumidification", "Industrial air movers and commercial dehumidifiers pull moisture out of subfloor, walls, and concrete to measured dryness targets."),
+            ("Sanitizing & Disinfection", "Antimicrobial cleaning of affected surfaces eliminates bacteria and contaminants left behind by sewage backups, storm water, and flooding."),
+            ("Damaged Material Removal", "Saturated drywall, insulation, carpet, and flooring that cannot be salvaged are removed and hauled away so drying and rebuilding can begin."),
+        ],
+    },
+    {
+        "slug": "mobile-home-vapor-barrier",
+        "name": "Mobile Home Vapor Barrier",
+        "label": "Mobile Home Vapor Barrier",
+        "short": "mobile home vapor barrier",
+        "blurb": "Professional vapor barrier installation and underbelly repair for Virginia mobile and manufactured homes — sealing out ground moisture, mold, cold drafts, and pests.",
+        "offerings": [
+            ("Underbelly Vapor Barrier Installation", "Heavy-duty polyethylene liners installed across the underbelly to block ground moisture from rising into the floor and insulation."),
+            ("Belly Wrap Repair & Replacement", "Torn or sagging factory belly wrap is patched or fully replaced to reseal the underside of your manufactured home."),
+            ("Under-Home Moisture Control", "Sealing and grading beneath skirted mobile homes to stop standing water and humidity from rotting the structure."),
+            ("Underfloor Insulation Replacement", "Wet, fallen, or rodent-damaged underfloor insulation is removed and replaced to restore comfort and lower energy bills."),
+            ("Skirting & Vent Sealing", "Proper skirting and vent management keeps animals, moisture, and cold air out of the crawl area beneath the home."),
+        ],
+    },
+    {
+        "slug": "thermal-dry-floor-installation",
+        "name": "Thermal Dry Floor Installation",
+        "label": "Thermal Dry Floor Installation",
+        "short": "thermal dry floor installation",
+        "blurb": "Insulated, moisture-proof basement floor systems for Virginia homes — a warm, dry, mold-resistant barrier installed between your finished floor and the cold concrete slab.",
+        "offerings": [
+            ("Insulated Subfloor Matting", "Dimpled thermal floor panels create an air gap and moisture break between the cold concrete slab and your finished floor surface."),
+            ("Built-In Vapor Barrier Layer", "An integrated vapor barrier blocks slab moisture and efflorescence from reaching carpet, vinyl, or laminate installed above."),
+            ("Warmer, Energy-Efficient Floors", "The thermal layer keeps basement floors noticeably warmer underfoot and helps reduce heating costs in finished living space."),
+            ("Mold-Resistant Inorganic Materials", "Inorganic panels won't feed mold or rot the way wood subfloors and padding do in damp, below-grade conditions."),
+            ("Finished-Floor-Ready Panels", "Rigid, level panels install directly over concrete and accept carpet, laminate, luxury vinyl plank, or engineered flooring."),
         ],
     },
 ]
@@ -281,7 +352,7 @@ FOOTER = f'''<footer class="site-footer">
         <a class="footer-phone" href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
@@ -438,7 +509,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
     <div style="margin-top:40px;">
       <h2>Other Services in {esc(city)}</h2>
       <div class="related-services">
-        {''.join(f'<a href="/{city_slug}/{s["slug"]}/" class="related-chip">{esc(s["name"])}</a>' for s in SERVICES if s["slug"] != sslug)}
+        {''.join(f'<a href="/{city_slug}/{s["slug"]}/" class="related-chip">{esc(s.get("label", s["name"]))}</a>' for s in SERVICES if s["slug"] != sslug)}
       </div>
     </div>
   </div>
