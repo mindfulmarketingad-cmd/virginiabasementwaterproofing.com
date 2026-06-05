@@ -324,7 +324,7 @@ for n, (slug, r) in enumerate(items):
     head = (f'<title>{esc(name)} | Virginia Basement Waterproofing Contractor</title>\n'
             f'<meta name="description" content="{esc(name)} is a basement waterproofing contractor'
             f'{(" in " + esc(city)) if city else ""}, Virginia. View ratings, services, hours, and request a free quote.">\n'
-            f'<link rel="canonical" href="https://virginiabasementwaterproofing.org/partners/{slug}/">\n'
+            f'<link rel="canonical" href="https://www.virginiabasementwaterproofing.org/partners/{slug}/">\n'
             f'<meta name="robots" content="index, follow">')
 
     schema = {
@@ -466,7 +466,7 @@ for slug, r in items:
 
 hub_head = ('<title>Virginia Basement Waterproofing Contractors | Full Directory</title>\n'
             '<meta name="description" content="Browse our full directory of basement waterproofing contractors across Virginia. Compare ratings and reviews, then request a free estimate.">\n'
-            '<link rel="canonical" href="https://virginiabasementwaterproofing.org/partners/">\n'
+            '<link rel="canonical" href="https://www.virginiabasementwaterproofing.org/partners/">\n'
             '<meta name="robots" content="index, follow">')
 hub = header().replace('__HEAD__', hub_head).replace('__SCHEMA__', '')
 hub += f'''

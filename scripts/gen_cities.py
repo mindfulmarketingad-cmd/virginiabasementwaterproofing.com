@@ -373,7 +373,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
     city_slug = slugify(city)
     city_url  = f"/virginia/{region_slug}/{city_slug}/"
     city_url_map[city] = city_url
-    canonical = f"https://virginiabasementwaterproofing.org{city_url}"
+    canonical = f"https://www.virginiabasementwaterproofing.org{city_url}"
 
     contractors = by_city.get(city, [])
     n_co        = len(contractors)
@@ -444,7 +444,7 @@ REGIONS = [
 
 region_count = 0
 for region_slug, region_label, map_query in REGIONS:
-    canonical   = f"https://virginiabasementwaterproofing.org/virginia/{region_slug}/"
+    canonical   = f"https://www.virginiabasementwaterproofing.org/virginia/{region_slug}/"
     contractors = by_region.get(region_slug, [])
     n_co        = len(contractors)
     intro       = REGION_INTROS.get(region_slug, '')
