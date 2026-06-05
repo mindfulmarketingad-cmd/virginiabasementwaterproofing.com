@@ -228,45 +228,24 @@
     "24641":{"n":"Rife Remodeling & Flooring","u":"/partners/rife-remodeling-flooring/"}
   };
 
-  // Regional fallback: 3-digit ZIP prefix → contractor when exact ZIP not in map
-  var ZIP3_FALLBACK = {
-    "220":{"n":"Old Dominion Waterproofing","u":"/partners/"},
-    "221":{"n":"Old Dominion Waterproofing","u":"/partners/"},
-    "222":{"n":"Old Dominion Waterproofing","u":"/partners/"},
-    "223":{"n":"Old Dominion Waterproofing","u":"/partners/"},
-    "224":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "225":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "227":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "226":{"n":"Shenandoah Valley Foundation Pros","u":"/partners/"},
-    "228":{"n":"Shenandoah Valley Foundation Pros","u":"/partners/"},
-    "244":{"n":"Shenandoah Valley Foundation Pros","u":"/partners/"},
-    "229":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "239":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "240":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "241":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "242":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "243":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "245":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "246":{"n":"Blue Ridge Crawl & Basement","u":"/partners/"},
-    "230":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "231":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "232":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "238":{"n":"Capital Foundation & Waterproofing","u":"/partners/"},
-    "233":{"n":"Tidewater Dry Basements","u":"/partners/tidewater-dry-basements/"},
-    "234":{"n":"Tidewater Dry Basements","u":"/partners/tidewater-dry-basements/"},
-    "235":{"n":"Tidewater Dry Basements","u":"/partners/tidewater-dry-basements/"},
-    "236":{"n":"Tidewater Dry Basements","u":"/partners/tidewater-dry-basements/"},
-    "237":{"n":"Tidewater Dry Basements","u":"/partners/tidewater-dry-basements/"}
-  };
-
+  // Regional fallback: when an exact ZIP isn't listed, match the numerically
+  // nearest real contractor sharing the same area, so the banner always links
+  // to a genuine business listing page.
   var DEFAULT_CONTRACTOR = { n: "Virginia Basement Waterproofing Network", u: "/partners/" };
+  var ZIP_KEYS = Object.keys(VBW_BY_ZIP).map(Number).sort(function (a, b) { return a - b; });
 
   function contractorForZip(zip) {
     zip = String(zip).replace(/\D/g, "").slice(0, 5);
     if (VBW_BY_ZIP[zip]) return VBW_BY_ZIP[zip];
-    var prefix = zip.slice(0, 3);
-    if (ZIP3_FALLBACK[prefix]) return ZIP3_FALLBACK[prefix];
-    return DEFAULT_CONTRACTOR;
+    var target = parseInt(zip, 10);
+    if (isNaN(target) || !ZIP_KEYS.length) return DEFAULT_CONTRACTOR;
+    // Find the numerically closest listed ZIP (same prefix preferred via distance)
+    var best = ZIP_KEYS[0], bestDist = Math.abs(ZIP_KEYS[0] - target);
+    for (var i = 1; i < ZIP_KEYS.length; i++) {
+      var d = Math.abs(ZIP_KEYS[i] - target);
+      if (d < bestDist) { bestDist = d; best = ZIP_KEYS[i]; }
+    }
+    return VBW_BY_ZIP[String(best)] || DEFAULT_CONTRACTOR;
   }
 
   // ── Dealer/contractor banner ─────────────────────────────────────────────────
