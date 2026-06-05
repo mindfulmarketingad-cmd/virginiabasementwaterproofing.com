@@ -398,7 +398,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
     <h1>{esc(sname)} in {esc(city)}, VA</h1>
     <p>Connect with licensed, insured {esc(slc)} contractors serving {esc(city)} and the surrounding {esc(region_label)} area. Free estimates, no obligation, and one local call away.</p>
     <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Get a Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
       <a href="tel:{PHONE_TEL}" class="btn btn--ghost btn--lg">Call {PHONE_DISP}</a>
     </div>
   </div>
@@ -428,7 +428,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
 
     <div class="cta-band" id="job-request" style="margin-top:48px;">
       <h2>Submit a Job Request for {esc(sname)} in {esc(city)}, VA</h2>
-      <p>Tell us about your project and a licensed {esc(city)}-area contractor will reach out with a free, no-obligation estimate for your {esc(slc)} job.</p>
+      <p>Once you submit a job request, we'll connect you with the ideal licensed contractor for your situation. They'll reach out within 1–3 business days.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
         <a href="tel:{PHONE_TEL}" class="btn btn--ghost btn--lg">Call {PHONE_DISP}</a>

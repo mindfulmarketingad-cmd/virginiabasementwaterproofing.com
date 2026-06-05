@@ -229,7 +229,7 @@ def make_about(name, city, svcs, rating, reviews, idx):
     paragraphs.append(
         f'Choosing the right waterproofing contractor is one of the most important decisions a homeowner can make for the long-term value and safety of their property. '
         f'{esc(name)} combines local expertise, quality materials, and transparent pricing to deliver results that last. '
-        f'Call {PHONE_DISP} or use the free quote form on this page to get started with a no-obligation estimate today.'
+        f'Submit a job request through this page and we\'ll connect you with the ideal contractor for your situation — they\'ll reach out within 1–3 business days.'
     )
 
     return '\n'.join(f'<p>{p}</p>' for p in paragraphs)
@@ -414,9 +414,9 @@ for n, (slug, r) in enumerate(items):
 
       <div>
         <div class="fact-card" style="margin-bottom:22px;">
-          <h3 style="margin-top:0;">Get a Free Quote</h3>
-          <p class="text-muted" style="font-size:.92rem;">Request a free, no-obligation estimate through our network.</p>
-          <a href="/get-a-quote/" class="btn btn--primary btn--block btn--lg" style="margin-bottom:10px;">Get a Free Quote</a>
+          <h3 style="margin-top:0;">Submit a Job Request</h3>
+          <p class="text-muted" style="font-size:.92rem;">We'll connect you with the ideal contractor for your situation. They'll reach out within 1–3 business days.</p>
+          <a href="/get-a-quote/" class="btn btn--primary btn--block btn--lg" style="margin-bottom:10px;">Submit Job Request</a>
           <a href="tel:{PHONE_TEL}" class="btn btn--blue btn--block">Call {PHONE_DISP}</a>
         </div>
         <div class="fact-card">
