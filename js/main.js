@@ -12,6 +12,35 @@
     });
   }
 
+  // Mega menu — desktop hover + click, mobile click
+  document.querySelectorAll(".nav-item").forEach(function (item) {
+    var isTouch = false;
+    item.addEventListener("mouseenter", function () {
+      if (isTouch) return;
+      item.classList.add("open");
+    });
+    item.addEventListener("mouseleave", function () {
+      if (isTouch) return;
+      item.classList.remove("open");
+    });
+    item.querySelector("a").addEventListener("click", function (e) {
+      // On mobile or touch, toggle instead of navigating
+      if (window.innerWidth <= 900 || isTouch) {
+        e.preventDefault();
+        item.classList.toggle("open");
+      }
+    });
+    item.addEventListener("touchstart", function () { isTouch = true; }, { passive: true });
+  });
+  // Close mega menu on outside click
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav-item")) {
+      document.querySelectorAll(".nav-item.open").forEach(function (el) {
+        el.classList.remove("open");
+      });
+    }
+  });
+
   // Current year in footer
   var yr = document.querySelectorAll("[data-year]");
   yr.forEach(function (el) { el.textContent = new Date().getFullYear(); });
