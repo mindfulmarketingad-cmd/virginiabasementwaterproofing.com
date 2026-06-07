@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#f5f7fc"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="28" font-weight="800" fill="#ffffff">Step 3: Stop It From Happening Again &#8212; Long-Term Prevention</text>
+
+  <!-- house cross-section -->
+  <!-- sky -->
+  <rect x="0" y="60" width="1200" height="200" fill="#eaeffa"/>
+  <!-- ground -->
+  <rect x="0" y="260" width="1200" height="415" fill="#d9c3a6"/>
+  <!-- house walls above grade -->
+  <rect x="200" y="80" width="800" height="200" fill="#ffffff" stroke="#1b2a6b" stroke-width="3"/>
+  <!-- roof -->
+  <polygon points="160,80 600,30 1040,80" fill="#c8102e" stroke="#1b2a6b" stroke-width="2"/>
+  <!-- basement -->
+  <rect x="200" y="260" width="800" height="380" fill="#eaeffa" stroke="#1b2a6b" stroke-width="3"/>
+  <text x="600" y="440" text-anchor="middle" font-size="26" font-weight="700" fill="#1b2a6b">BASEMENT</text>
+
+  <!-- grading arrow -->
+  <polygon points="160,260 360,260 360,300 160,340" fill="#b89b78" stroke="#5a6b7b" stroke-width="1"/>
+  <path d="M140,280 L90,280" stroke="#1f8a4c" stroke-width="3" fill="none"/>
+  <polygon points="96,273 76,280 96,287" fill="#1f8a4c"/>
+  <text x="50" y="270" text-anchor="middle" font-size="15" font-weight="700" fill="#1f8a4c">Grade</text>
+  <text x="50" y="290" text-anchor="middle" font-size="13" fill="#5a6b7b">slopes</text>
+  <text x="50" y="308" text-anchor="middle" font-size="13" fill="#5a6b7b">away</text>
+
+  <!-- gutter + extended downspout -->
+  <rect x="990" y="78" width="16" height="220" fill="#2d55b0"/>
+  <rect x="990" y="292" width="150" height="14" fill="#2d55b0"/>
+  <text x="1070" y="328" font-size="13" fill="#1b2a6b" font-weight="700">Downspout</text>
+  <text x="1070" y="346" font-size="13" fill="#5a6b7b">6&#43; ft from wall</text>
+  <!-- rain -->
+  <g stroke="#2d55b0" stroke-width="2">
+    <line x1="800" y1="30" x2="790" y2="60"/>
+    <line x1="850" y1="30" x2="840" y2="60"/>
+    <line x1="900" y1="30" x2="890" y2="60"/>
+  </g>
+
+  <!-- sump pump -->
+  <rect x="880" y="560" width="80" height="80" rx="6" fill="#0f1b47"/>
+  <rect x="892" y="572" width="56" height="50" rx="4" fill="#2d55b0" opacity="0.5"/>
+  <rect x="912" y="540" width="12" height="30" rx="3" fill="#1b2a6b"/>
+  <path d="M918,540 L918,440 L1100,440" stroke="#c8102e" stroke-width="6" fill="none"/>
+  <polygon points="1080,430 1115,440 1080,450" fill="#c8102e"/>
+  <text x="920" y="668" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2a6b">Sump pump</text>
+
+  <!-- interior drain tile -->
+  <rect x="200" y="620" width="700" height="16" rx="5" fill="#9fb0c8"/>
+  <rect x="200" y="624" width="700" height="8" rx="3" fill="#2d55b0" opacity="0.5"/>
+  <g fill="#fff">
+    <circle cx="280" cy="628" r="4"/><circle cx="380" cy="628" r="4"/>
+    <circle cx="480" cy="628" r="4"/><circle cx="580" cy="628" r="4"/>
+    <circle cx="680" cy="628" r="4"/>
+  </g>
+  <text x="420" y="668" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2a6b">Interior perimeter drain &#8594; sump pit</text>
+
+  <!-- waterproof membrane on wall -->
+  <rect x="200" y="260" width="18" height="380" fill="#1f8a4c"/>
+  <text x="240" y="340" font-size="15" font-weight="700" fill="#1f8a4c">Membrane</text>
+  <text x="240" y="360" font-size="13" fill="#5a6b7b">on wall</text>
+
+  <!-- window well -->
+  <rect x="340" y="220" width="120" height="60" rx="4" fill="#adc8f0" stroke="#1b2a6b" stroke-width="2"/>
+  <text x="400" y="258" text-anchor="middle" font-size="12" fill="#1b2a6b" font-weight="700">Window well</text>
+  <text x="400" y="274" text-anchor="middle" font-size="11" fill="#5a6b7b">with drain</text>
+
+  <!-- legend panel -->
+  <rect x="660" y="280" width="320" height="200" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="2"/>
+  <text x="820" y="310" text-anchor="middle" font-size="16" font-weight="800" fill="#1b2a6b">Permanent Fixes</text>
+  <rect x="676" y="320" width="12" height="12" rx="2" fill="#1f8a4c"/>
+  <text x="697" y="331" font-size="14" fill="#5a6b7b">Regraded soil (6&#8221; drop in 10 ft)</text>
+  <rect x="676" y="342" width="12" height="12" rx="2" fill="#2d55b0"/>
+  <text x="697" y="353" font-size="14" fill="#5a6b7b">Interior drain tile system</text>
+  <rect x="676" y="364" width="12" height="12" rx="2" fill="#c8102e"/>
+  <text x="697" y="375" font-size="14" fill="#5a6b7b">Sump pump &#43; battery backup</text>
+  <rect x="676" y="386" width="12" height="12" rx="2" fill="#9fb0c8"/>
+  <text x="697" y="397" font-size="14" fill="#5a6b7b">Exterior waterproof membrane</text>
+  <rect x="676" y="408" width="12" height="12" rx="2" fill="#adc8f0"/>
+  <text x="697" y="419" font-size="14" fill="#5a6b7b">Window well drains</text>
+  <rect x="676" y="430" width="284" height="36" rx="8" fill="#1b2a6b"/>
+  <text x="818" y="454" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Prevents repeat flooding entirely</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#f5f7fc"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="28" font-weight="800" fill="#ffffff">Step 1: Remove Standing Water First</text>
+
+  <!-- Step 1 card -->
+  <rect x="50" y="90" width="340" height="540" rx="14" fill="#ffffff" stroke="#2d55b0" stroke-width="3"/>
+  <rect x="50" y="90" width="340" height="60" rx="14" fill="#2d55b0"/>
+  <text x="220" y="127" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Submersible Pump</text>
+  <text x="220" y="148" text-anchor="middle" font-size="14" fill="#dbe6ff">Best for &gt;2 inches of water</text>
+  <!-- pump icon -->
+  <rect x="160" y="200" width="120" height="140" rx="10" fill="#1b2a6b"/>
+  <circle cx="220" cy="270" r="30" fill="#2d55b0"/>
+  <rect x="210" y="175" width="20" height="30" rx="4" fill="#5a6b7b"/>
+  <path d="M220,175 L220,100" stroke="#c8102e" stroke-width="8" fill="none"/>
+  <polygon points="210,105 220,80 230,105" fill="#c8102e"/>
+  <text x="220" y="95" text-anchor="middle" font-size="13" fill="#c8102e" font-weight="700">Discharge out</text>
+  <!-- water level -->
+  <rect x="80" y="380" width="280" height="50" rx="6" fill="#2d55b0" opacity="0.18"/>
+  <text x="220" y="412" text-anchor="middle" font-size="14" fill="#2d55b0" font-weight="700">2&#8243; water level</text>
+  <text x="80" y="470" font-size="15" fill="#5a6b7b">Drop hose in deepest</text>
+  <text x="80" y="492" font-size="15" fill="#5a6b7b">corner; run discharge</text>
+  <text x="80" y="514" font-size="15" fill="#5a6b7b">hose outdoors &amp; away</text>
+  <text x="80" y="536" font-size="15" fill="#5a6b7b">from the foundation.</text>
+  <rect x="80" y="570" width="280" height="36" rx="8" fill="#eaeffa"/>
+  <text x="220" y="594" text-anchor="middle" font-size="13" font-weight="700" fill="#2d55b0">Clears in 15&#8211;30 minutes</text>
+
+  <!-- Step 2 card -->
+  <rect x="430" y="90" width="340" height="540" rx="14" fill="#ffffff" stroke="#1f8a4c" stroke-width="3"/>
+  <rect x="430" y="90" width="340" height="60" rx="14" fill="#1f8a4c"/>
+  <text x="600" y="127" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Wet/Dry Shop Vac</text>
+  <text x="600" y="148" text-anchor="middle" font-size="14" fill="#d9f5e4">Best for shallow puddles</text>
+  <!-- vac icon -->
+  <rect x="545" y="190" width="110" height="130" rx="50" fill="#5a6b7b"/>
+  <rect x="560" y="200" width="80" height="90" rx="40" fill="#9fb0c8"/>
+  <rect x="590" y="170" width="20" height="30" rx="4" fill="#1b2a6b"/>
+  <path d="M600,170 L600,120 L700,120" stroke="#1b2a6b" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M700,120 L700,300" stroke="#1b2a6b" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="10,6"/>
+  <!-- puddle -->
+  <ellipse cx="600" cy="380" rx="120" ry="28" fill="#2d55b0" opacity="0.22"/>
+  <text x="600" y="386" text-anchor="middle" font-size="14" fill="#2d55b0" font-weight="700">Shallow puddle</text>
+  <text x="450" y="460" font-size="15" fill="#5a6b7b">Vacuum residual water</text>
+  <text x="450" y="482" font-size="15" fill="#5a6b7b">after pump; gets into</text>
+  <text x="450" y="504" font-size="15" fill="#5a6b7b">corners the pump</text>
+  <text x="450" y="526" font-size="15" fill="#5a6b7b">can&#8217;t reach.</text>
+  <rect x="450" y="570" width="280" height="36" rx="8" fill="#eafaf0"/>
+  <text x="600" y="594" text-anchor="middle" font-size="13" font-weight="700" fill="#1f8a4c">Empty frequently &#8212; 5&#8211;6 gal. max</text>
+
+  <!-- Step 3 card -->
+  <rect x="810" y="90" width="340" height="540" rx="14" fill="#ffffff" stroke="#c8102e" stroke-width="3"/>
+  <rect x="810" y="90" width="340" height="60" rx="14" fill="#c8102e"/>
+  <text x="980" y="127" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Mop &amp; Squeegee</text>
+  <text x="980" y="148" text-anchor="middle" font-size="14" fill="#ffdbe1">Final pass &#8212; thin film</text>
+  <!-- mop icon -->
+  <rect x="960" y="185" width="16" height="150" rx="5" fill="#5a6b7b"/>
+  <rect x="930" y="330" width="76" height="20" rx="5" fill="#9fb0c8"/>
+  <rect x="920" y="345" width="100" height="30" rx="6" fill="#2d55b0" opacity="0.4"/>
+  <!-- squeegee -->
+  <rect x="850" y="240" width="80" height="12" rx="4" fill="#1b2a6b"/>
+  <rect x="880" y="170" width="10" height="75" rx="3" fill="#5a6b7b"/>
+  <text x="980" y="420" text-anchor="middle" font-size="15" fill="#5a6b7b">After pumping &amp; vacuuming,</text>
+  <text x="980" y="442" text-anchor="middle" font-size="15" fill="#5a6b7b">squeegee remaining film</text>
+  <text x="980" y="464" text-anchor="middle" font-size="15" fill="#5a6b7b">toward a drain or bucket;</text>
+  <text x="980" y="486" text-anchor="middle" font-size="15" fill="#5a6b7b">mop to absorb the last</text>
+  <text x="980" y="508" text-anchor="middle" font-size="15" fill="#5a6b7b">thin layer.</text>
+  <rect x="830" y="570" width="280" height="36" rx="8" fill="#fdeef0"/>
+  <text x="980" y="594" text-anchor="middle" font-size="13" font-weight="700" fill="#c8102e">Floor ready for drying fans</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#f5f7fc"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="28" font-weight="800" fill="#ffffff">Step 2: Set Up Drying Equipment &#8212; Fan &amp; Dehumidifier Placement</text>
+
+  <!-- basement room outline -->
+  <rect x="80" y="90" width="1040" height="520" rx="12" fill="#eaeffa" stroke="#1b2a6b" stroke-width="3"/>
+  <!-- floor -->
+  <rect x="80" y="540" width="1040" height="70" rx="0" fill="#cfd8e6"/>
+  <!-- walls -->
+  <rect x="80" y="90" width="28" height="450" fill="#9fb0c8"/>
+  <rect x="1092" y="90" width="28" height="450" fill="#9fb0c8"/>
+
+  <!-- dehumidifier center -->
+  <rect x="540" y="380" width="120" height="160" rx="10" fill="#1b2a6b"/>
+  <rect x="555" y="395" width="90" height="60" rx="6" fill="#2d55b0"/>
+  <rect x="560" y="402" width="80" height="4" rx="2" fill="#5a6b7b"/>
+  <rect x="560" y="412" width="80" height="4" rx="2" fill="#5a6b7b"/>
+  <rect x="560" y="422" width="80" height="4" rx="2" fill="#5a6b7b"/>
+  <rect x="560" y="432" width="80" height="4" rx="2" fill="#5a6b7b"/>
+  <!-- collection bucket -->
+  <rect x="575" y="505" width="50" height="30" rx="4" fill="#2d55b0" opacity="0.6"/>
+  <text x="600" y="560" text-anchor="middle" font-size="16" font-weight="800" fill="#1b2a6b">Dehumidifier</text>
+  <text x="600" y="580" text-anchor="middle" font-size="13" fill="#5a6b7b">Center of room</text>
+  <!-- moisture arrows INTO dehumidifier -->
+  <g stroke="#2d55b0" stroke-width="2" stroke-dasharray="8,5" fill="none" opacity="0.7">
+    <path d="M200,300 L530,440"/><path d="M400,200 L540,400"/><path d="M800,200 L660,400"/><path d="M1000,300 L670,440"/>
+    <path d="M300,500 L540,480"/><path d="M900,500 L670,480"/>
+  </g>
+
+  <!-- Fan 1 - left wall -->
+  <rect x="108" y="300" width="80" height="80" rx="8" fill="#c8102e"/>
+  <circle cx="148" cy="340" r="28" fill="#1b2a6b"/>
+  <circle cx="148" cy="340" r="14" fill="#c8102e"/>
+  <!-- fan blades suggestion -->
+  <line x1="148" y1="312" x2="148" y2="328" stroke="#fff" stroke-width="3"/>
+  <line x1="148" y1="352" x2="148" y2="368" stroke="#fff" stroke-width="3"/>
+  <line x1="120" y1="340" x2="134" y2="340" stroke="#fff" stroke-width="3"/>
+  <line x1="162" y1="340" x2="176" y2="340" stroke="#fff" stroke-width="3"/>
+  <!-- airflow arrows right -->
+  <path d="M188,330 L270,310" stroke="#c8102e" stroke-width="3" fill="none"/>
+  <polygon points="262,303 278,310 265,320" fill="#c8102e"/>
+  <path d="M188,350 L270,370" stroke="#c8102e" stroke-width="3" fill="none"/>
+  <polygon points="262,363 278,370 265,378" fill="#c8102e"/>
+  <text x="108" y="410" font-size="14" font-weight="700" fill="#c8102e">Fan 1</text>
+  <text x="108" y="428" font-size="13" fill="#5a6b7b">Aim across floor</text>
+
+  <!-- Fan 2 - right wall -->
+  <rect x="1012" y="300" width="80" height="80" rx="8" fill="#c8102e"/>
+  <circle cx="1052" cy="340" r="28" fill="#1b2a6b"/>
+  <circle cx="1052" cy="340" r="14" fill="#c8102e"/>
+  <line x1="1052" y1="312" x2="1052" y2="328" stroke="#fff" stroke-width="3"/>
+  <line x1="1052" y1="352" x2="1052" y2="368" stroke="#fff" stroke-width="3"/>
+  <line x1="1024" y1="340" x2="1038" y2="340" stroke="#fff" stroke-width="3"/>
+  <line x1="1066" y1="340" x2="1080" y2="340" stroke="#fff" stroke-width="3"/>
+  <!-- airflow arrows left -->
+  <path d="M1012,330 L930,310" stroke="#c8102e" stroke-width="3" fill="none"/>
+  <polygon points="938,303 922,310 935,320" fill="#c8102e"/>
+  <path d="M1012,350 L930,370" stroke="#c8102e" stroke-width="3" fill="none"/>
+  <polygon points="938,363 922,370 935,378" fill="#c8102e"/>
+  <text x="1012" y="410" font-size="14" font-weight="700" fill="#c8102e">Fan 2</text>
+  <text x="1012" y="428" font-size="13" fill="#5a6b7b">Opposite wall</text>
+
+  <!-- window open for ventilation -->
+  <rect x="490" y="94" width="220" height="80" rx="4" fill="#adc8f0" stroke="#1b2a6b" stroke-width="3"/>
+  <line x1="600" y1="94" x2="600" y2="174" stroke="#1b2a6b" stroke-width="2"/>
+  <text x="600" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2a6b">Open window</text>
+  <!-- exhaust arrow up through window -->
+  <path d="M600,200 L600,174" stroke="#1f8a4c" stroke-width="4" fill="none"/>
+  <polygon points="592,180 600,160 608,180" fill="#1f8a4c"/>
+  <text x="600" y="230" text-anchor="middle" font-size="13" fill="#1f8a4c" font-weight="700">Humid air exhausted out</text>
+
+  <!-- legend box -->
+  <rect x="100" y="100" width="220" height="120" rx="8" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <text x="116" y="126" font-size="15" font-weight="700" fill="#1b2a6b">Equipment Checklist</text>
+  <rect x="116" y="138" width="14" height="14" rx="3" fill="#c8102e"/>
+  <text x="138" y="150" font-size="13" fill="#5a6b7b">2&#43; high-velocity box fans</text>
+  <rect x="116" y="160" width="14" height="14" rx="3" fill="#2d55b0"/>
+  <text x="138" y="172" font-size="13" fill="#5a6b7b">Commercial dehumidifier</text>
+  <rect x="116" y="182" width="14" height="14" rx="3" fill="#1f8a4c"/>
+  <text x="138" y="194" font-size="13" fill="#5a6b7b">Open window or exhaust fan</text>
+
+  <!-- timeline bar at bottom -->
+  <rect x="200" y="610" width="800" height="40" rx="8" fill="#1b2a6b"/>
+  <rect x="200" y="610" width="200" height="40" rx="8" fill="#c8102e"/>
+  <text x="300" y="636" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">0&#8211;8 hrs</text>
+  <text x="500" y="636" text-anchor="middle" font-size="14" fill="#dbe6ff">8&#8211;24 hrs</text>
+  <text x="750" y="636" text-anchor="middle" font-size="14" fill="#dbe6ff">24&#8211;72 hrs (full dry)</text>
+  <text x="300" y="660" text-anchor="middle" font-size="12" fill="#c8102e">Most moisture removed</text>
+  <text x="750" y="660" text-anchor="middle" font-size="12" fill="#5a6b7b">Continue until humidity &lt;50%</text>
+</svg>
