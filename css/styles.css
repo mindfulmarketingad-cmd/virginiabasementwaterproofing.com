@@ -436,6 +436,23 @@ img { max-width: 100%; display: block; }
 .stats .num { font-size: 2.4rem; font-weight: 800; color: var(--accent); line-height: 1; }
 .stats .lbl { color: #c5d4e3; font-size: .92rem; margin-top: 6px; }
 
+/* How It Works / Process steps */
+.process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+.process-step { position: relative; padding: 32px 28px 28px; background: #fff; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.process-step__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; }
+.process-step h3 { margin-bottom: 10px; font-size: 1.05rem; }
+.process-step p { color: var(--muted); font-size: .93rem; margin: 0; }
+.process-step--accent .process-step__num { background: var(--accent); }
+@media (max-width: 700px) { .process-steps { grid-template-columns: 1fr; gap: 18px; } }
+
+/* What Happens Next timeline */
+.next-steps { list-style: none; padding: 0; margin: 0; }
+.next-steps li { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.next-steps li:last-child { border-bottom: none; }
+.next-steps__icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: .9rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.next-steps__body strong { display: block; font-size: .95rem; color: var(--navy); margin-bottom: 3px; }
+.next-steps__body span { font-size: .87rem; color: var(--muted); }
+
 /* CTA band */
 .cta-band {
   background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
