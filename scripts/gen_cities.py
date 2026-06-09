@@ -304,7 +304,7 @@ FOOTER = f'''<footer class="site-footer">
         <a class="footer-phone" href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
@@ -331,6 +331,8 @@ def page_head(title, description, canonical, schema_json=''):
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 {('<script type="application/ld+json">' + schema_json + '</script>') if schema_json else ''}
 </head>
@@ -338,7 +340,59 @@ def page_head(title, description, canonical, schema_json=''):
 {SITE_HEADER}
 {SERVICE_BANNER}'''
 
-def map_embed(query):
+def markers_for(contractor_list):
+    """Build a list of {name, lat, lng} from contractors that have valid coordinates."""
+    out = []
+    for slug, r in contractor_list:
+        try:
+            lat = float(g(r, 'latitude')); lng = float(g(r, 'longitude'))
+        except (TypeError, ValueError):
+            continue
+        if not (-90 <= lat <= 90 and -180 <= lng <= 180):
+            continue
+        out.append({'name': (g(r, 'name') or '').strip(), 'lat': lat, 'lng': lng})
+    return out
+
+_map_counter = [0]
+
+def map_embed(query, markers=None):
+    """Render an interactive Leaflet map. When markers are supplied, drop a dot at
+    each business location; otherwise fall back to a city-centered Google embed."""
+    markers = markers or []
+    if markers:
+        _map_counter[0] += 1
+        map_id = f"cityMap{_map_counter[0]}"
+        pts = json.dumps([[m['lat'], m['lng'], m['name']] for m in markers])
+        return f'''<div class="city-map">
+  <div id="{map_id}" class="city-map__canvas" role="img" aria-label="Map showing waterproofing contractor locations near {html_mod.escape(query)}, Virginia"></div>
+</div>
+<script>
+(function(){{
+  var pts = {pts};
+  function init(){{
+    if (typeof L === 'undefined') {{ return setTimeout(init, 120); }}
+    var el = document.getElementById('{map_id}');
+    if (!el) return;
+    var map = L.map(el, {{ scrollWheelZoom: false }});
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }}).addTo(map);
+    var latlngs = [];
+    pts.forEach(function(p){{
+      var dot = L.circleMarker([p[0], p[1]], {{
+        radius: 9, color: '#ffffff', weight: 2,
+        fillColor: '#c8102e', fillOpacity: 1
+      }}).addTo(map);
+      dot.bindPopup('<strong>' + p[2] + '</strong>');
+      latlngs.push([p[0], p[1]]);
+    }});
+    if (latlngs.length === 1) {{ map.setView(latlngs[0], 12); }}
+    else {{ map.fitBounds(latlngs, {{ padding: [40, 40], maxZoom: 13 }}); }}
+  }}
+  init();
+}})();
+</script>'''
     q = quote(query + ', Virginia, VA')
     return f'''<div class="city-map">
   <iframe
@@ -427,7 +481,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
 <main>
 <section class="section">
   <div class="container">
-    {map_embed(city)}
+    {map_embed(city, markers_for(contractors))}
 
     <div style="margin-top:40px;">
       <h2>Waterproofing Contractors in {esc(city)}</h2>
@@ -504,7 +558,7 @@ for region_slug, region_label, map_query in REGIONS:
 <main>
 <section class="section">
   <div class="container">
-    {map_embed(map_query)}
+    {map_embed(map_query, markers_for(contractors))}
 
     <div style="margin-top:32px;">
       <h2>Cities in {esc(region_label)}</h2>

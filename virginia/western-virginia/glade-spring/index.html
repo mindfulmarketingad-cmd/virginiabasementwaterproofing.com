@@ -9,6 +9,8 @@
 <link rel="canonical" href="https://www.virginiabasementwaterproofing.org/virginia/western-virginia/glade-spring/">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Basement Waterproofing in Glade Spring, VA", "areaServed": {"@type": "City", "name": "Glade Spring", "addressRegion": "VA"}, "telephone": "+17577439050", "url": "https://www.virginiabasementwaterproofing.org/virginia/western-virginia/glade-spring/"}</script>
 </head>
@@ -24,54 +26,18 @@
         <a href="/services/">Services <span class="nav-arrow"></span></a>
         <div class="mega-menu" role="menu">
           <div class="mega-menu__grid">
-            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128167;</span>
-              <span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span>
-            </a>
-            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127968;</span>
-              <span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span>
-            </a>
-            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127959;</span>
-              <span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span>
-            </a>
-            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9889;</span>
-              <span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span>
-            </a>
-            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127794;</span>
-              <span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span>
-            </a>
-            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128295;</span>
-              <span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span>
-            </a>
-            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128680;</span>
-              <span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span>
-            </a>
-            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128694;</span>
-              <span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span>
-            </a>
-            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128205;</span>
-              <span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span>
-            </a>
-            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#129532;</span>
-              <span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span>
-            </a>
-            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127978;</span>
-              <span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span>
-            </a>
-            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9632;</span>
-              <span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span>
-            </a>
+            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128167;</span><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
+            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127968;</span><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
+            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127959;</span><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
+            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9889;</span><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
+            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127794;</span><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
+            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128295;</span><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
+            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128680;</span><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
+            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128694;</span><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
+            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128205;</span><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
+            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#129532;</span><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
+            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127978;</span><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
+            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9632;</span><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
           </div>
           <div class="mega-menu__footer">
             <span>All 12 waterproofing &amp; foundation services</span>
@@ -119,13 +85,35 @@
 <section class="section">
   <div class="container">
     <div class="city-map">
-  <iframe
-    src="https://maps.google.com/maps?q=Glade%20Spring%2C%20Virginia%2C%20VA&z=13&output=embed&iwloc=&t=m"
-    width="100%" height="360" style="border:0; border-radius:var(--radius);"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Map of Glade Spring, Virginia">
-  </iframe>
+  <div id="cityMap100" class="city-map__canvas" role="img" aria-label="Map showing waterproofing contractor locations near Glade Spring, Virginia"></div>
 </div>
+<script>
+(function(){
+  var pts = [[36.7951239, -81.76732659999999, "DG Foundation & Drainage LLC"]];
+  function init(){
+    if (typeof L === 'undefined') { return setTimeout(init, 120); }
+    var el = document.getElementById('cityMap100');
+    if (!el) return;
+    var map = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    var latlngs = [];
+    pts.forEach(function(p){
+      var dot = L.circleMarker([p[0], p[1]], {
+        radius: 9, color: '#ffffff', weight: 2,
+        fillColor: '#c8102e', fillOpacity: 1
+      }).addTo(map);
+      dot.bindPopup('<strong>' + p[2] + '</strong>');
+      latlngs.push([p[0], p[1]]);
+    });
+    if (latlngs.length === 1) { map.setView(latlngs[0], 12); }
+    else { map.fitBounds(latlngs, { padding: [40, 40], maxZoom: 13 }); }
+  }
+  init();
+})();
+</script>
 
     <div style="margin-top:40px;">
       <h2>Waterproofing Contractors in Glade Spring</h2>
@@ -139,7 +127,7 @@
         </div></div>
     </div>
     <div class="cta-band" style="margin-top:48px;">
-  <h2>Submit Job Request</h2>
+  <h2>Submit a Job Request</h2>
   <p>Once you submit a job request, we'll connect you with the ideal licensed contractor for your situation. They'll reach out within 1–3 business days.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
     <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>

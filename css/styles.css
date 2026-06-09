@@ -403,6 +403,8 @@ img { max-width: 100%; display: block; }
 /* Embedded city map */
 .city-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .city-map iframe { display: block; }
+.city-map__canvas { width: 100%; height: 360px; background: #e8eef5; z-index: 1; }
+.city-map .leaflet-popup-content { font-weight: 600; color: var(--navy); }
 
 /* Money pages: service+city landing */
 .offerings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 22px 0 8px; }

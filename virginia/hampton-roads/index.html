@@ -9,6 +9,8 @@
 <link rel="canonical" href="https://www.virginiabasementwaterproofing.org/virginia/hampton-roads/">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Basement Waterproofing in Hampton Roads, VA", "areaServed": {"@type": "State", "name": "Virginia"}, "telephone": "+17577439050", "url": "https://www.virginiabasementwaterproofing.org/virginia/hampton-roads/"}</script>
 </head>
@@ -24,54 +26,18 @@
         <a href="/services/">Services <span class="nav-arrow"></span></a>
         <div class="mega-menu" role="menu">
           <div class="mega-menu__grid">
-            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128167;</span>
-              <span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span>
-            </a>
-            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127968;</span>
-              <span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span>
-            </a>
-            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127959;</span>
-              <span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span>
-            </a>
-            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9889;</span>
-              <span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span>
-            </a>
-            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127794;</span>
-              <span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span>
-            </a>
-            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128295;</span>
-              <span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span>
-            </a>
-            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128680;</span>
-              <span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span>
-            </a>
-            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128694;</span>
-              <span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span>
-            </a>
-            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128205;</span>
-              <span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span>
-            </a>
-            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#129532;</span>
-              <span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span>
-            </a>
-            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127978;</span>
-              <span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span>
-            </a>
-            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9632;</span>
-              <span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span>
-            </a>
+            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128167;</span><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
+            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127968;</span><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
+            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127959;</span><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
+            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9889;</span><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
+            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127794;</span><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
+            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128295;</span><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
+            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128680;</span><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
+            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128694;</span><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
+            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128205;</span><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
+            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#129532;</span><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
+            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127978;</span><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
+            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9632;</span><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
           </div>
           <div class="mega-menu__footer">
             <span>All 12 waterproofing &amp; foundation services</span>
@@ -119,13 +85,35 @@
 <section class="section">
   <div class="container">
     <div class="city-map">
-  <iframe
-    src="https://maps.google.com/maps?q=Hampton%20Roads%2C%20Virginia%2C%20Virginia%2C%20VA&z=13&output=embed&iwloc=&t=m"
-    width="100%" height="360" style="border:0; border-radius:var(--radius);"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Map of Hampton Roads, Virginia, Virginia">
-  </iframe>
+  <div id="cityMap125" class="city-map__canvas" role="img" aria-label="Map showing waterproofing contractor locations near Hampton Roads, Virginia, Virginia"></div>
 </div>
+<script>
+(function(){
+  var pts = [[36.8195544, -76.05207279999999, "JES Foundation Repair"], [36.7408496, -76.0767504, "ABC Service Company - Crawl Space and Foundation Repair Virginia Beach"], [36.822191, -76.06567799999999, "Virginia Foundation Solutions, Inc."], [36.8417263, -76.1511195, "Solutions LLC"], [36.845195, -76.1532409, "Services, Inc."], [36.8096662, -76.2042085, "KH, LLC"], [36.8248616, -76.05478529999999, "Talent Foundation Solutions"], [36.82712009999999, -76.1691651, "First Atlantic Restoration"], [36.8399131, -76.0917714, "OutterMind Enterprise llc"], [36.8971519, -76.1898956, "QXO"], [36.8472697, -76.03431719999999, "Coastal Crawlspace Solutions Inc"], [36.8248975, -76.0588625, "Priority Foundation Repair (PFR)"], [36.7890721, -76.057754, "Gilbert & Son Moisture Mold & Foundation"], [36.8424089, -76.1322277, "Foundation Repairs Virginia Beach"], [36.8443877, -76.08761729999999, "Reitzel Roofing and Exteriors"], [36.8216173, -76.0051545, "Service Pro's LLC"], [36.8221442, -76.0566314, "SERVPRO of Virginia Beach"], [36.8403636, -76.1044584, "Virginia Beach Water Restoration"], [36.8435078, -76.15443929999999, "Neptune Restoration"], [36.8403977, -76.06792709999999, "Virginia Beach"], [36.7767931, -76.0425293, "Clean Air Solutions Inc va"], [36.8444121, -76.1643172, "Valcourt Building Services - Virginia Beach"], [36.8441502, -76.17903679999999, "Universal Pest & Termite, Inc."], [36.787053, -76.0590716, "BACK BAY PEST & MOSQUITO"], [36.8445172, -76.161192, "United Restoration Inc."], [36.77817, -76.0403024, "Emergency Restoration Services LLC"], [36.783929, -76.08664739999999, "Aresco of Tidewater"], [36.8408051, -76.1549908, "911 Restoration of Virginia Beach"], [36.8107472, -76.0710879, "Virginia Beach"], [36.779643, -76.0761436, "Tidewater Restoration and Cleaning"], [36.7895115, -76.0646561, "Rainbow International of North Virginia Beach"], [36.8375943, -76.0725173, "Rolyn Companies, Inc."], [36.8945801, -76.1450521, "Premier Chimney and Roofing"], [36.8230146, -76.05904629999999, "Roto-Rooter Plumbing & Water Cleanup"], [36.8637018, -76.0857462, "Spotless Solutions"], [36.77607, -76.1508159, "Water Mold Fire Restoration of Virginia Beach"], [36.81604799999999, -76.06479279999999, "VA Beach Hero Mold Removal"], [36.9100703, -76.07133209999999, "J.M. Froehler Construction"], [36.811301, -76.063334, "Cavalier Enterprises"], [36.8521411, -76.15471749999999, "Home Paramount Pest Control"], [36.8593199, -76.2173814, "AMC911 Crawl Space & Foundation Repair"], [36.8631813, -76.21745279999999, "BAY Crawl Space & Foundation Repair"], [36.8813408, -76.2065161, "International Roofing"], [36.8461217, -76.2879974, "Red Turtle Roofing of Norfolk"], [36.936349, -76.25017629999999, "7 Cities Exteriors LLC"], [36.879167, -76.213917, "Roto-Rooter Plumbing & Water Cleanup"], [36.8622053, -76.24866349999999, "Rainbow Restoration of Norfolk"], [36.8341285, -76.20763579999999, "Cleaning & Restoration Specialist , Inc."], [36.858858, -76.2960274, "Norfolk Water Damage Restoration | Dreyer Pro"], [36.7862205, -76.2611618, "Crawlspace Medic"], [36.7934626, -76.2329551, "We Crawl Space Foundation Repair"], [36.779316, -76.2384545, "Queen Foundation Repair"], [36.8198938, -76.26469879999999, "Destiny Exteriors LLC"], [36.6362581, -76.20695169999999, "Hawk Crawlspace & Foundation Repair"], [36.7861313, -76.2902646, "Semper Dry Water Removal"], [36.7707707, -76.2597426, "Coastal Restoration & Construction"], [36.6366058, -76.20960579999999, "Beneath Crawl Space Services"], [36.760606, -76.234357, "My Jack of All Trades Inc"], [36.7605124, -76.2302323, "BELFOR Property Restoration"], [36.7820577, -76.2820332, "Johnson Pest Solutions"], [36.7933197, -76.2278594, "SERVPRO of Chesapeake, Portsmouth, Norfolk West, and Hampton North"], [36.7739706, -76.2593299, "Premier Restorations LLC"], [36.7853825, -76.24007859999999, "ServiceMaster Premier Restoration Services - Chesapeake"], [36.7329026, -76.21773689999999, "Merit Restorations"], [36.7440545, -76.3037282, "UrbanSprout"], [36.7416533, -76.2635215, "Water Damage Restoration Chesapeake"], [36.7154501, -76.184148, "PuroClean of South Chesapeake"], [36.7571278, -76.261533, "Jenkins Restorations"], [36.7931929, -76.23346939999999, "Roto-Rooter Plumbing & Water Cleanup"], [36.733174, -76.21639189999999, "MasterTech Environmental of Tidewater"], [36.7703749, -76.33779009999999, "Personal Touch Services"], [36.6917557, -76.6576175, "D.C. Crawlspace Solutions LLC"], [36.861342, -76.4639497, "SERVPRO of Suffolk/Smithfield/Franklin"], [36.8606393, -76.3511327, "K Plus Caulking"], [36.8240158, -76.29931289999999, "Rainbow Restoration of Chesapeake"], [36.8350804, -76.3028033, "Roto-Rooter Plumbing & Water Cleanup"], [36.8620861, -76.3957197, "Affordable Port Service"], [36.8100986, -76.3694802, "GO Now"], [37.0629915, -76.4551111, "911 Restoration of Virginia Peninsula"], [37.093446, -76.4703155, "Extreme Restoration Inc"], [37.0069212, -76.4375538, "Skyline Roofing"], [37.1089604, -76.52275949999999, "Atlantic Power Wash"], [37.1124497, -76.5190161, "Suncrest Crew"], [36.9755335, -76.4149434, "Newport News Water Damage Restoration"], [37.07756699999999, -76.4666125, "Home Paramount Pest Control"], [37.0888901, -76.47865089999999, "Advanced Restoration Services, Inc."], [37.0192613, -76.36004319999999, "Tidewater LLC"], [37.0075607, -76.4078979, "Roto-Rooter Plumbing & Water Cleanup"], [37.0427944, -76.39988249999999, "All Good Supply Corporation"], [37.3233809, -76.7356411, "FSI Foundation Systems"], [37.2530818, -76.76494919999999, "Chase Roofing LLC"], [37.2541915, -76.76828569999999, "Paul Davis Restoration of Williamsburg, VA (formerly STAT Services Inc)"], [37.2492032, -76.6851571, "PuroClean Emergency Restoration Specialists"], [37.2456123, -76.6603638, "Roto-Rooter Plumbing & Water Cleanup"], [37.2725808, -76.7383943, "Williamsburg Hero Mold Removal"], [37.1831971, -76.4814947, "NanoShield Roofing and Coatings"], [37.1832029, -76.481447, "Summit Environmental Solutions"], [37.1116469, -76.4622189, "ServiceMaster Premier Restoration Services"], [36.9640036, -76.6212668, "Patriot Crawl Space Repairs"], [36.9669157, -76.6066336, "Advantage Contracting Solutions"], [36.679406, -76.9204159, "Morgan Construction Partners General Contracting"], [37.2966042, -77.298675, "Randall's Crawlspace, Foundation, and Structural Repair"], [37.008976, -76.311942, "Legendary Solutions, Inc."], [37.1833547, -76.4813637, "Commonwealth Rapid Dry"], [37.4108343, -76.8114882, "The Drying Company"], [37.5254863, -76.4255233, "PBS Crawlspace & Foundation Specialists"], [37.8416291, -76.38233079999999, "Basement Solutions, LLC"], [37.6014853, -76.4507866, "Foundation Medix"], [37.36105999999999, -75.989351, "Munsey&Marshall Construction LLC"]];
+  function init(){
+    if (typeof L === 'undefined') { return setTimeout(init, 120); }
+    var el = document.getElementById('cityMap125');
+    if (!el) return;
+    var map = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    var latlngs = [];
+    pts.forEach(function(p){
+      var dot = L.circleMarker([p[0], p[1]], {
+        radius: 9, color: '#ffffff', weight: 2,
+        fillColor: '#c8102e', fillOpacity: 1
+      }).addTo(map);
+      dot.bindPopup('<strong>' + p[2] + '</strong>');
+      latlngs.push([p[0], p[1]]);
+    });
+    if (latlngs.length === 1) { map.setView(latlngs[0], 12); }
+    else { map.fitBounds(latlngs, { padding: [40, 40], maxZoom: 13 }); }
+  }
+  init();
+})();
+</script>
 
     <div style="margin-top:32px;">
       <h2>Cities in Hampton Roads</h2>
@@ -797,7 +785,7 @@
       </div>
     </div>
     <div class="cta-band" style="margin-top:48px;">
-  <h2>Submit Job Request</h2>
+  <h2>Submit a Job Request</h2>
   <p>Once you submit a job request, we'll connect you with the ideal licensed contractor for your situation. They'll reach out within 1–3 business days.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
     <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>

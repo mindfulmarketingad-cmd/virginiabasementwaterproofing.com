@@ -9,6 +9,8 @@
 <link rel="canonical" href="https://www.virginiabasementwaterproofing.org/virginia/northern-virginia/">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Basement Waterproofing in Northern Virginia, VA", "areaServed": {"@type": "State", "name": "Virginia"}, "telephone": "+17577439050", "url": "https://www.virginiabasementwaterproofing.org/virginia/northern-virginia/"}</script>
 </head>
@@ -24,54 +26,18 @@
         <a href="/services/">Services <span class="nav-arrow"></span></a>
         <div class="mega-menu" role="menu">
           <div class="mega-menu__grid">
-            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128167;</span>
-              <span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span>
-            </a>
-            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127968;</span>
-              <span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span>
-            </a>
-            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127959;</span>
-              <span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span>
-            </a>
-            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9889;</span>
-              <span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span>
-            </a>
-            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127794;</span>
-              <span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span>
-            </a>
-            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128295;</span>
-              <span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span>
-            </a>
-            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128680;</span>
-              <span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span>
-            </a>
-            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128694;</span>
-              <span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span>
-            </a>
-            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#128205;</span>
-              <span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span>
-            </a>
-            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#129532;</span>
-              <span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span>
-            </a>
-            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#127978;</span>
-              <span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span>
-            </a>
-            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem">
-              <span class="mega-menu__icon">&#9632;</span>
-              <span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span>
-            </a>
+            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128167;</span><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
+            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127968;</span><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
+            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127959;</span><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
+            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9889;</span><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
+            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127794;</span><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
+            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128295;</span><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
+            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128680;</span><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
+            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128694;</span><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
+            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128205;</span><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
+            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#129532;</span><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
+            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127978;</span><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
+            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9632;</span><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
           </div>
           <div class="mega-menu__footer">
             <span>All 12 waterproofing &amp; foundation services</span>
@@ -119,13 +85,35 @@
 <section class="section">
   <div class="container">
     <div class="city-map">
-  <iframe
-    src="https://maps.google.com/maps?q=Northern%20Virginia%2C%20Virginia%2C%20VA&z=13&output=embed&iwloc=&t=m"
-    width="100%" height="360" style="border:0; border-radius:var(--radius);"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Map of Northern Virginia, Virginia">
-  </iframe>
+  <div id="cityMap126" class="city-map__canvas" role="img" aria-label="Map showing waterproofing contractor locations near Northern Virginia, Virginia"></div>
 </div>
+<script>
+(function(){
+  var pts = [[38.8236022, -77.15956059999999, "DESKA Foundation Repair & Basement Waterproofing"], [38.7183914, -77.12304209999999, "DESKA Foundation Repair & Basement Waterproofing"], [38.8058048, -77.0544913, "VA Commercial Roofers Alexandria"], [38.7677483, -77.08243809999999, "Basement Detective"], [38.8050716, -77.0595945, "Foundation Medix"], [38.7983346, -77.16075029999999, "Drainage Solutions and Patios"], [38.8082743, -77.1072105, "DMV Foundation Solutions"], [38.8050258, -77.1136798, "SERVPRO of Alexandria"], [38.79760599999999, -77.16226, "Sam & Sons Services"], [38.80739, -77.15986099999999, "ConstruXure"], [38.8022286, -77.1218167, "Flood Smart"], [38.8287741, -77.1627555, "Flood Tech 3 - Water Damage Restoration Service"], [38.7962524, -77.1659536, "SERVPRO of Springfield/Mt. Vernon"], [38.8045028, -77.1394713, "PuroClean of Alexandria"], [38.7533823, -77.0846902, "ServiceMaster National Capital Restoration"], [38.7322731, -77.1028274, "Roto-Rooter Plumbing & Water Cleanup"], [38.80490229999999, -77.1136899, "SERVPRO of Rose Hill / Fort Hunt"], [38.80237229999999, -77.07253469999999, "Paragon Property Restoration"], [38.8051837, -77.1659777, "Pipe Pro Solutions"], [38.8062908, -77.1299791, "Sanitech Mold Remediation"], [38.7915548, -77.1199345, "O'Neill Plumbing Services L.L.C."], [38.8088181, -77.1408721, "Total Home Rescue - Water Damage Restoration Service"], [38.814963, -77.1448255, "Commercial Damage Restoration"], [38.8297441, -77.12702349999999, "Roofing Premium Contractor Solution LLC"], [38.7976059, -77.1622596, "USA CONTRACTORS Inc"], [38.8646676, -77.07225389999999, "Value Dry Basement Waterproofing"], [38.8934287, -77.1371688, "Royal Restoration - Water Damage Arlington"], [38.8826504, -77.1180474, "Crawl Space Brothers"], [38.894453, -77.07259069999999, "All State Masonry & Construction"], [38.89692489999999, -77.1263322, "Roto-Rooter Plumbing & Water Cleanup"], [38.8146714, -77.3751709, "Exterior Waterproofing Experts, A Division of Clifton Contracting"], [38.874623, -77.2375915, "TSP Contracting"], [38.8480329, -77.3102131, "Advanced Restoration Solutions"], [38.8446196, -77.25551949999999, "Ultimate Water Damage Restoration, LLC"], [38.8489954, -77.31143399999999, "Metropolitan Contractors"], [38.8615921, -77.30345369999999, "USA Storm Roofing and Construction Group"], [38.8757952, -77.2342953, "Flood Masters, LLC"], [38.8513864, -77.3597231, "Nexur Remodeling"], [38.8762368, -77.234724, "Barex of DMV"], [38.8615921, -77.30345369999999, "Greenway home improvements"], [38.8785782, -77.1815642, "Drainage & Erosion Solutions"], [38.8650401, -77.1858771, "Fairfax Construction"], [38.8934232, -77.19003769999999, "Home Paramount Pest Control"], [38.9291278, -77.1176912, "Mclean"], [38.9358447, -77.1792969, "PuroClean of McLean and West Falls Church"], [38.9358747, -77.17934029999999, "Roto-Rooter Plumbing & Water Cleanup"], [38.9453951, -77.3608086, "JJ Basement and Yards Waterproofing Repairs LLC"], [38.9420864, -77.3294555, "Structural Repair & Renovations"], [38.94613, -77.3584858, "RAMS100"], [38.9371865, -77.3785748, "My NOVA Contractor"], [38.9505248, -77.37224049999999, "Expert"], [38.9447291, -77.33674309999999, "Roto-Rooter Plumbing & Water Cleanup"], [38.9670226, -77.3719698, "AquaPassage"], [38.9318811, -77.4255239, "RestorTech, Inc."], [38.933259, -77.2378315, "Flood Doctor | Water Damage Restoration Services"], [38.9323194, -77.23847529999999, "Water Damage DMV"], [38.9104236, -77.2204864, "Valcourt Building Services - Washington D.C."], [38.9284405, -77.24689149999999, "Restoration Doctor Water Removal"], [38.9320049, -77.2397623, "Insurance Restoration Consulting Services"], [38.9120926, -77.2227984, "Mold Relief"], [39.0105708, -77.4176379, "3 Pros Basement Systems (a division of Comfenergy)"], [38.9972583, -77.4493688, "Prospect Waterproofing Company"], [38.9805031, -77.4109228, "Century Waterproofing"], [38.990946, -77.4231197, "Raven Rock Restorations"], [38.981876, -77.422324, "ProTrust Water Damage Restoration"], [39.020904, -77.4120147, "United Water Restoration Group of Fairfax"], [39.0185712, -77.42150269999999, "Sterling"], [39.0108643, -77.4175322, "Comfenergy"], [39.0492677, -77.4253871, "Mold Removal Services"], [38.9972027, -77.4495953, "Division Seven Inc"], [38.968878, -77.4914376, "Exceptional Restoration Services"], [39.033984, -77.4021668, "Roto-Rooter Plumbing & Water Cleanup"], [39.1086075, -77.5539288, "HomePro Remodeling and Homes"], [39.1127205, -77.5637718, "Summit Restoration"], [39.0916346, -77.5261592, "Leesburg Mold Specialist"], [39.1162155, -77.5521476, "Roto-Rooter Plumbing & Water Cleanup"], [39.1298127, -77.5380945, "D & D Painting & Repairs"], [39.0312104, -77.49302829999999, "Flood Depot DMV | Water Damage Restoration"], [39.0665488, -77.4742165, "DMV Waterproofing"], [39.0410227, -77.5219415, "Prime Solutions LLC"], [39.0208065, -77.45584389999999, "Water Damage Restoration | Ashburn, VA | FLOOD DOCTOR"], [39.053669, -77.4546912, "Rytech Restoration of Northern Virginia | Water Damage Restoration"], [39.017633, -77.47697099999999, "United Group of Sterling"], [39.01627999999999, -77.4558168, "Galaxy Restoration"], [39.024578, -77.4594192, "Paul Davis Restoration of Northern Virginia"], [39.018619, -77.51892099999999, "Roto-Rooter Plumbing & Water Cleanup"], [39.0179451, -77.4792495, "PuroClean Emergency Restoration Services"], [38.8250901, -77.47026439999999, "Nova Construction Pro"], [38.8423454, -77.45416349999999, "True Dry"], [38.8818591, -77.4416246, "Fortress Foundation Solutions"], [38.8945484, -77.4541981, "Coventry Services LLC"], [38.9013589, -77.4291968, "Jenkins Restorations"], [38.889484, -77.43783599999999, "MWM Cleaning & Restoration Inc."], [38.7816386, -77.5559305, "NV Waterproofing and Foundation Repair"], [38.7890054, -77.5165715, "DMV Waterproofing, Manassas"], [38.7773178, -77.4757317, "Mc roofing"], [38.77738799999999, -77.553521, "SERVPRO of Manassas"], [38.7413831, -77.5070254, "Drying Tech of PWC"], [38.7849666, -77.5138389, "VM Drainage & Erosion Solution LLC"], [38.7525568, -77.53547429999999, "DMV Inc."], [38.6315975, -77.4163073, "SC Companies, Inc"], [38.7290499, -77.52969999999999, "Dry Time Restoration"], [38.7939206, -77.5376959, "SERVPRO of North Prince William County"], [38.7801469, -77.5118902, "Modern Remodeling Inc"], [38.756218, -77.463745, "FIRST ONSITE Property Restoration"], [38.7693519, -77.55783079999999, "Paul Davis Restoration of the National Capital Region, VA"], [38.8048433, -77.4997795, "Rainbow Restoration of Gainesville, VA"], [38.776888, -77.438085, "Power Wash Plus Inc"], [38.7958118, -77.6092077, "Basement Masters Waterproofing"], [38.7936839, -77.5923607, "ServiceMaster Restoration Services - Gainesville, VA"], [38.7848939, -77.59994189999999, "Anthony Restoration of Gainesville"], [38.8089548, -77.62702349999999, "ProTrust Water Damage Restoration"], [38.6500323, -77.3107048, "58 Foundations & Waterproofing"], [38.654375, -77.2921889, "Water Damage"], [38.6529688, -77.3017931, "Serviclean Inc"], [38.6299723, -77.26889849999999, "Primary Roofing and Waterproofing INC"], [38.649291, -77.245018, "Lightspeed Restoration of Lorton, Manassas, and Fredericksburg"], [38.6515257, -77.31767549999999, "Water Damage Pro Master"], [38.654375, -77.2921889, "Capital Restoration"], [38.6315733, -77.3042031, "WMC Restoration"], [38.6530555, -77.30158899999999, "Roto-Rooter Plumbing & Water Cleanup"], [38.8017996, -77.1799066, "Flood USA - Water Damage Restoration Services"], [38.7440969, -77.20407999999999, "Valor Mold Removal"], [38.7334447, -77.199248, "PuroClean of Springfield"], [38.8058894, -77.2154563, "Roto-Rooter Plumbing & Water Cleanup"], [38.7081495, -77.21068129999999, "Flood Expert"], [38.7417958, -77.1756731, "Voda Cleaning & Restoration"], [38.7353295, -77.185001, "Royal Restoration"], [38.7152801, -77.19659109999999, "Impact Roofing & Construction"], [38.5607751, -77.3218219, "Pentagon Construction & Services LLC"], [38.5646411, -77.3248955, "Minuteman Restoration"], [38.9159245, -77.4744899, "SERVPRO of Loudoun County, Leesburg"], [38.9159245, -77.4744899, "SERVPRO of North Arlington"], [39.1436201, -77.71493799999999, "Merit Restorations"], [39.134801, -77.6527404, "Home Paramount Pest Control"], [39.1987361, -77.6045413, "Milcon Roofing, Design & Build"], [39.2319651, -77.6552209, "Applied Restoration Group"], [38.7811221, -77.69221879999999, "Top Dog Leak and Foundation Pros"], [38.7666776, -77.70219259999999, "Titan Restoration Co."], [38.7667455, -77.70470139999999, "SERVPRO of Culpeper & Fauquier Counties"], [38.7498383, -77.67904, "RAM Restoration"], [38.697901, -77.77895099999999, "PuroClean Certified Restoration Specialists"], [38.748388, -77.6813943, "Roto-Rooter Plumbing & Water Cleanup"], [38.7852313, -77.5715243, "JES Foundation Repair"], [38.8288191, -77.6101633, "Elements"], [38.8391203, -77.6998893, "denchfield llc"], [39.0444079, -77.92259279999999, "Trusted Veterans Restoration LLC"], [38.9187769, -77.85706929999999, "Umpire Mitigation"], [38.6134203, -77.7758498, "Copper Fox Foundation Repair"], [38.5350142, -77.807332, "Genesis, LLC"], [38.6830698, -78.01226969999999, "Early's Flooring Specialists & More"], [38.4474524, -77.6507828, "TD&D Unlimited, LLC"]];
+  function init(){
+    if (typeof L === 'undefined') { return setTimeout(init, 120); }
+    var el = document.getElementById('cityMap126');
+    if (!el) return;
+    var map = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    var latlngs = [];
+    pts.forEach(function(p){
+      var dot = L.circleMarker([p[0], p[1]], {
+        radius: 9, color: '#ffffff', weight: 2,
+        fillColor: '#c8102e', fillOpacity: 1
+      }).addTo(map);
+      dot.bindPopup('<strong>' + p[2] + '</strong>');
+      latlngs.push([p[0], p[1]]);
+    });
+    if (latlngs.length === 1) { map.setView(latlngs[0], 12); }
+    else { map.fitBounds(latlngs, { padding: [40, 40], maxZoom: 13 }); }
+  }
+  init();
+})();
+</script>
 
     <div style="margin-top:32px;">
       <h2>Cities in Northern Virginia</h2>
@@ -1055,7 +1043,7 @@
       </div>
     </div>
     <div class="cta-band" style="margin-top:48px;">
-  <h2>Submit Job Request</h2>
+  <h2>Submit a Job Request</h2>
   <p>Once you submit a job request, we'll connect you with the ideal licensed contractor for your situation. They'll reach out within 1–3 business days.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
     <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
