@@ -1,0 +1,52 @@
+[
+  {
+    "key": "waterproofing",
+    "label": "Basement Waterproofing",
+    "count": 174
+  },
+  {
+    "key": "water-damage",
+    "label": "Water Damage Restoration",
+    "count": 317
+  },
+  {
+    "key": "drainage",
+    "label": "Drainage & French Drains",
+    "count": 39
+  },
+  {
+    "key": "foundation",
+    "label": "Foundation Repair",
+    "count": 39
+  },
+  {
+    "key": "crawl-space",
+    "label": "Crawl Space & Insulation",
+    "count": 40
+  },
+  {
+    "key": "mold",
+    "label": "Mold & Air Quality",
+    "count": 45
+  },
+  {
+    "key": "concrete",
+    "label": "Concrete & Masonry",
+    "count": 53
+  },
+  {
+    "key": "restoration",
+    "label": "Fire & Building Restoration",
+    "count": 329
+  },
+  {
+    "key": "plumbing",
+    "label": "Plumbing & Sump Pumps",
+    "count": 34
+  },
+  {
+    "key": "general",
+    "label": "General Contractor",
+    "count": 217
+  }
+]

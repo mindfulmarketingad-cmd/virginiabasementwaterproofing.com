@@ -122,78 +122,38 @@
 
 <main>
 
-<!-- ===== Panel 1: Hero ===== -->
-<section class="hero hero--video">
-  <video class="hero__video" autoplay muted loop playsinline preload="none" poster="">
-    <source src="https://s3.amazonaws.com/cdn.treehouseinternetgroup.com/cms_core/videos/CleanSpaceWeb.mp4" type="video/mp4">
-  </video>
-  <div class="hero__overlay"></div>
-  <div class="container">
-    <div class="grid">
-      <div>
-        <h1>Virginia Basement Waterproofing</h1>
-        <p>We match Virginia homeowners with the right licensed basement waterproofing contractor for their specific project &mdash; free of charge. Submit your job request, and your matched contractor will reach out within 1&ndash;3 business days with a free, no-obligation estimate.</p>
-        <ul class="hero__points">
-          <li>We do the matching &mdash; you get the right pro, not just any pro</li>
-          <li>Vetted, licensed &amp; insured Virginia contractors only</li>
-          <li>Free service for homeowners &mdash; no obligation, ever</li>
-        </ul>
-
-        <!-- Dynamic local-dealer card (populated by JS from ZIP / geolocation) -->
-        <div class="dealer-card" id="dealer-card" aria-live="polite">
-          <div class="dealer-card__zip" id="dealer-zip"></div>
-          <div class="dealer-card__label">Your Local Dealer is</div>
-          <div class="dealer-card__name" id="dealer-name">Detecting your location&hellip;</div>
-          <a href="#" class="dealer-card__change" id="dealer-change"><span aria-hidden="true">&#9679;</span> Change Location</a>
+<!-- ===== Panel 1: Map Hero — Virginia waterproofing services finder ===== -->
+<section class="map-hero">
+  <div class="map-hero__bar">
+    <div class="container">
+      <h1>Find Waterproofing Services in Virginia</h1>
+      <p>Explore every licensed waterproofing, foundation &amp; restoration pro across the Commonwealth on the map below. Search your ZIP code, filter by the service you need, toggle satellite or city &amp; ZIP borders &mdash; then submit a free job request to get matched.</p>
+      <a href="/get-a-quote/" class="btn btn--primary" style="margin-top:14px;">Submit a Job Request &mdash; It's Free</a>
+    </div>
+  </div>
+  <div class="map-hero__app">
+    <aside class="map-panel">
+      <div class="map-panel__controls">
+        <form class="map-search" id="zipSearch" role="search">
+          <input type="text" id="zipInput" inputmode="numeric" maxlength="5" placeholder="Search a ZIP code…" aria-label="Search by ZIP code">
+          <button type="submit" aria-label="Search">&#128269;</button>
+        </form>
+        <div class="map-filter">
+          <select id="svcFilter" aria-label="Filter by service">
+            <option value="">All Services</option>
+          </select>
+        </div>
+        <div class="map-toggles">
+          <button type="button" class="map-toggle" data-layer="city"><span class="dot"></span> City borders</button>
+          <button type="button" class="map-toggle" data-layer="zip"><span class="dot"></span> ZIP borders</button>
         </div>
       </div>
-
-      <!-- Free quote form (hero right) -->
-      <div class="quote-card">
-        <h2>Submit Job Request</h2>
-        <p class="sub">Tell us about your project and we'll match you with the ideal licensed contractor in your area. They'll reach out within 1&ndash;3 business days.</p>
-        <div class="form-success" role="status">Your job request has been received. We're reviewing your project details now and will match you with the best-fit licensed contractor in your area. Expect a call or email within 1&ndash;3 business days.</div>
-        <form data-quote novalidate>
-          <div class="form-row two">
-            <div>
-              <label for="q-name">Full Name</label>
-              <input type="text" id="q-name" name="name" required placeholder="Jane Smith">
-            </div>
-            <div>
-              <label for="q-phone">Phone</label>
-              <input type="tel" id="q-phone" name="phone" required placeholder="(757) 555-0123">
-            </div>
-          </div>
-          <div class="form-row two">
-            <div>
-              <label for="q-email">Email</label>
-              <input type="email" id="q-email" name="email" required placeholder="you@email.com">
-            </div>
-            <div>
-              <label for="q-zip">ZIP Code</label>
-              <input type="text" id="q-zip" name="zip" inputmode="numeric" maxlength="5" required placeholder="23320">
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="q-service">What do you need help with?</label>
-            <select id="q-service" name="service">
-              <option>Basement Waterproofing</option>
-              <option>Foundation Repair</option>
-              <option>Sump Pump Installation</option>
-              <option>French Drain / Drainage</option>
-              <option>Crawl Space Encapsulation</option>
-              <option>Mold &amp; Moisture Control</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="q-msg">Project Details (optional)</label>
-            <textarea id="q-msg" name="message" rows="2" placeholder="Describe the issue you're seeing..."></textarea>
-          </div>
-          <button type="submit" class="btn btn--blue btn--block btn--lg">Submit Job Request</button>
-          <p class="form-note">We are a free matching service, not a contractor. By submitting, you consent to be contacted by a matched licensed contractor about your project. No obligation, no spam.</p>
-        </form>
-      </div>
+      <div class="map-panel__meta" id="resultCount">Loading providers&hellip;</div>
+      <ul class="map-results" id="resultsList"></ul>
+    </aside>
+    <div class="map-canvas-wrap">
+      <div id="vaMap" class="map-canvas"></div>
+      <div class="map-loading" id="mapLoading">Loading map&hellip;</div>
     </div>
   </div>
 </section>
@@ -423,6 +383,18 @@
   </div>
 </footer>
 
+<!-- ===== Google Maps base map for the homepage finder =====
+     IMPORTANT: restrict this key in Google Cloud Console (HTTP referrers =
+     your domain, and APIs = "Maps JavaScript API" only). The map is the only
+     runtime Google API used; all provider data is pre-fetched & static. -->
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "AIzaSyD1IVMZyzQic5lLyZR9bQuARP9n4kJtLbg",
+    v: "weekly",
+  });
+</script>
+<script src="https://unpkg.com/@googlemaps/markerclusterer@2.5.3/dist/index.min.js"></script>
+<script src="/js/map-hero.js" defer></script>
 <script src="/js/main.js"></script>
 </body>
 </html>
