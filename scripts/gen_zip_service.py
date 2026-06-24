@@ -64,8 +64,47 @@ for pc, lst in by_zip.items():
     cities = [(g(r, "city") or "").strip() for _, r in lst if (g(r, "city") or "").strip()]
     zip_city[pc] = Counter(cities).most_common(1)[0][0] if cities else ""
 
+# ── provider cat index per zip for zero-result guard ─────────────────────────
+import json as _json, math as _math
+_providers = _json.load(open(os.path.join(ROOT, "data/va-providers.json")))
+_centroids  = _json.load(open(os.path.join(ROOT, "data/va-zip-centroids.json")))
+
+def _zip_has_cat(pc, cat_key):
+    """Return True if any provider within 20 km of pc has cat_key."""
+    ctr = _centroids.get(pc)
+    for p in _providers:
+        if cat_key not in (p.get("cats") or []):
+            continue
+        if p.get("zip","")[:5] == pc:
+            return True
+        if ctr:
+            try:
+                x = (p["lat"] - ctr[0]) * 111
+                y = (p["lng"] - ctr[1]) * 85
+                if _math.sqrt(x*x + y*y) <= 20:
+                    return True
+            except (KeyError, TypeError):
+                pass
+    return False
+
+CAT_KEY_MAP = {
+    "basement-waterproofing": "waterproofing",
+    "crawl-space-encapsulation": "crawl-space",
+    "foundation-repair": "foundation",
+    "sump-pump-installation": "plumbing",
+    "french-drain-installation": "drainage",
+    "basement-crack-repair": "foundation",
+    "basement-water-damage-restoration": "water-damage",
+    "basement-remodeling": "general",
+    "black-mold-treatment": "mold",
+    "emergency-water-clean-up": "water-damage",
+    "mobile-home-vapor-barrier": "crawl-space",
+    "thermal-dry-floor-installation": "waterproofing",
+}
+
 # ── generate pages ────────────────────────────────────────────────────────────
 generated = []
+skipped = 0
 for pc in sorted(by_zip):
     contractors = by_zip[pc]
     n_co  = len(contractors)
@@ -74,6 +113,10 @@ for pc in sorted(by_zip):
     mk    = markers_for(contractors)
 
     for svc_slug, svc_name in SERVICES:
+        cat_key = CAT_KEY_MAP.get(svc_slug, "")
+        if cat_key and not _zip_has_cat(pc, cat_key):
+            skipped += 1
+            continue
         url       = f"/{pc}/{svc_slug}/"
         canonical = f"https://www.virginiabasementwaterproofing.org{url}"
         h1        = f"{pc} {svc_name}"
@@ -92,20 +135,6 @@ for pc in sorted(by_zip):
             "url": canonical,
         })
 
-        CAT_KEY_MAP = {
-            "basement-waterproofing": "waterproofing",
-            "crawl-space-encapsulation": "crawl-space",
-            "foundation-repair": "foundation",
-            "sump-pump-installation": "plumbing",
-            "french-drain-installation": "drainage",
-            "basement-crack-repair": "foundation",
-            "basement-water-damage-restoration": "water-damage",
-            "basement-remodeling": "general",
-            "black-mold-treatment": "mold",
-            "emergency-water-clean-up": "water-damage",
-            "mobile-home-vapor-barrier": "crawl-space",
-            "thermal-dry-floor-installation": "waterproofing",
-        }
         cat_key = CAT_KEY_MAP.get(svc_slug, "")
         map_cfg = '{' + f'zip:{json.dumps(pc)}' + (f',cat:{json.dumps(cat_key)}' if cat_key else '') + '}'
 
@@ -171,7 +200,7 @@ for pc in sorted(by_zip):
             fh.write(page)
         generated.append(url)
 
-print(f"Generated {len(generated)} zip+service pages across {len(by_zip)} zip codes")
+print(f"Generated {len(generated)} zip+service pages across {len(by_zip)} zip codes, skipped {skipped} zero-result combos")
 
 with open(os.path.join(ROOT, "scripts", "zip_service_urls.json"), "w") as fh:
     json.dump(generated, fh, indent=2)

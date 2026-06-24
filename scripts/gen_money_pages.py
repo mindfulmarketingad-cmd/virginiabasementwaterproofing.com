@@ -412,8 +412,33 @@ def page_head(title, description, canonical, schema_json, zips=None, map_config_
 <body>
 {SITE_HEADER}'''
 
+# ── provider index for zero-result guard ──────────────────────────────────────
+import json as _json
+_providers = _json.load(open(os.path.join(ROOT, "data/va-providers.json")))
+city_cats_index = {}  # city -> set of cat keys with ≥1 provider
+for _p in _providers:
+    _c = _p.get("city", "")
+    for _k in (_p.get("cats") or []):
+        city_cats_index.setdefault(_c, set()).add(_k)
+
+CAT_KEY_MAP = {
+    "basement-waterproofing": "waterproofing",
+    "crawl-space-encapsulation": "crawl-space",
+    "foundation-repair": "foundation",
+    "sump-pump-installation": "plumbing",
+    "french-drain-installation": "drainage",
+    "basement-crack-repair": "foundation",
+    "basement-water-damage-restoration": "water-damage",
+    "basement-remodeling": "general",
+    "black-mold-treatment": "mold",
+    "emergency-water-clean-up": "water-damage",
+    "mobile-home-vapor-barrier": "crawl-space",
+    "thermal-dry-floor-installation": "waterproofing",
+}
+
 # ── generate ──────────────────────────────────────────────────────────────────
 count = 0
+skipped = 0
 index_links = defaultdict(list)   # region_slug -> list of (city, service) link rows
 
 for city, (region_slug, region_label) in CITY_REGION.items():
@@ -428,6 +453,12 @@ for city, (region_slug, region_label) in CITY_REGION.items():
     for svc in SERVICES:
         sname  = svc["name"]
         sslug  = svc["slug"]
+
+        # skip if no providers in this city match this service category
+        cat_key = CAT_KEY_MAP.get(sslug, "")
+        if cat_key and cat_key not in city_cats_index.get(city, set()):
+            skipped += 1
+            continue
         slc    = svc["short"]
         url    = f"/{city_slug}/{sslug}/"
         canonical = f"https://www.virginiabasementwaterproofing.org{url}"
@@ -573,7 +604,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
         count += 1
         index_links[region_slug].append((city, city_slug, sname, sslug))
 
-print(f"Generated {count} money pages ({len(CITY_REGION)} cities x {len(SERVICES)} services)")
+print(f"Generated {count} money pages, skipped {skipped} zero-result combos")
 
 # write a manifest for sitemap generation
 manifest = []
