@@ -94,14 +94,18 @@
       return;
     }
     var html = "";
-    list.slice(0, 300).forEach(function (p, i) {
+    list.slice(0, 300).forEach(function (p) {
       var rate = p.rating != null
         ? '<div class="map-result__rate">' + stars(p.rating) + " " + p.rating +
           (p.reviews != null ? " <span>(" + p.reviews + ")</span>" : "") + "</div>"
         : "";
       html += '<li class="map-result" data-i="' + p._idx + '">' +
         "<h4>" + esc(p.name) + "</h4>" + rate +
-        '<div class="map-result__loc">' + esc(p.city) + (p.zip ? ", VA " + esc(p.zip) : ", VA") + "</div></li>";
+        '<div class="map-result__loc">' + esc(p.city) + (p.zip ? ", VA " + esc(p.zip) : ", VA") + "</div>" +
+        '<div class="map-result__actions">' +
+          '<a class="map-act--primary" href="/get-a-quote/?provider=' + esc(p.slug) + '" onclick="event.stopPropagation()">Submit Job Request</a>' +
+          '<a class="map-act--ghost" href="/claim-listing/?provider=' + esc(p.slug) + '" onclick="event.stopPropagation()">Claim Listing</a>' +
+        "</div></li>";
     });
     els.results.innerHTML = html;
   }
@@ -291,7 +295,7 @@
   }).then(function (libs) {
     buildMap(libs[0], libs[1]);
   }).catch(function (err) {
-    fail("Map could not load. Please refresh or call (757) 743-9050.");
+    fail("Map could not load. Please refresh the page.");
     if (window.console) console.error(err);
   });
 })();

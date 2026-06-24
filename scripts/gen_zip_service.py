@@ -86,28 +86,70 @@ for pc in sorted(by_zip):
             "@context": "https://schema.org", "@type": "Service",
             "name": f"{svc_name} in {pc}",
             "serviceType": svc_name,
-            "areaServed": {"@type": "PostalCodeArea" if False else "PostalAddress",
+            "areaServed": {"@type": "PostalAddress",
                            "postalCode": pc, "addressRegion": "VA",
                            "addressLocality": city, "addressCountry": "US"},
-            "telephone": PHONE_TEL, "url": canonical,
+            "url": canonical,
         })
 
-        page = page_head(title=title, description=desc, canonical=canonical, schema_json=schema)
+        CAT_KEY_MAP = {
+            "basement-waterproofing": "waterproofing",
+            "crawl-space-encapsulation": "crawl-space",
+            "foundation-repair": "foundation",
+            "sump-pump-installation": "plumbing",
+            "french-drain-installation": "drainage",
+            "basement-crack-repair": "foundation",
+            "basement-water-damage-restoration": "water-damage",
+            "basement-remodeling": "general",
+            "black-mold-treatment": "mold",
+            "emergency-water-clean-up": "water-damage",
+            "mobile-home-vapor-barrier": "crawl-space",
+            "thermal-dry-floor-installation": "waterproofing",
+        }
+        cat_key = CAT_KEY_MAP.get(svc_slug, "")
+        map_cfg = '{' + f'zip:{json.dumps(pc)}' + (f',cat:{json.dumps(cat_key)}' if cat_key else '') + '}'
+
+        page = page_head(title=title, description=desc, canonical=canonical, schema_json=schema, map_config_js=map_cfg)
         page += f'''
-<div class="page-head">
-  <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/services/{svc_slug}/">{esc(svc_name)}</a> / {pc}</div>
-    <h1>{pc} {esc(svc_name)}</h1>
-    <p>Connect with vetted, licensed {esc(svc_name.lower())} professionals serving the {pc} area{(" of " + esc(place)) if city else ""}. Free estimates, no obligation &mdash; submit a job request and we'll match you with the right contractor.</p>
+<section class="map-hero">
+  <div class="map-hero__bar">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/services/{svc_slug}/">{esc(svc_name)}</a> / {pc}</nav>
+      <h1>{pc} {esc(svc_name)}</h1>
+      <p>Find vetted, licensed {esc(svc_name.lower())} professionals serving the {pc} area{(" of " + esc(place)) if city else ""}. Submit a free job request and we&rsquo;ll match you with the right contractor.</p>
+    </div>
   </div>
-</div>
+  <div class="map-hero__app">
+    <aside class="map-panel">
+      <div class="map-panel__controls">
+        <form class="map-search" id="zipSearch" role="search">
+          <input type="text" id="zipInput" inputmode="numeric" maxlength="5" placeholder="Search a ZIP code&hellip;" aria-label="Search by ZIP code">
+          <button type="submit" aria-label="Search">&#128269;</button>
+        </form>
+        <div class="map-filter">
+          <select id="svcFilter" aria-label="Filter by service">
+            <option value="">All Services</option>
+          </select>
+        </div>
+        <div class="map-toggles">
+          <button type="button" class="map-toggle" data-layer="city"><span class="dot"></span> City borders</button>
+          <button type="button" class="map-toggle" data-layer="zip"><span class="dot"></span> ZIP borders</button>
+        </div>
+      </div>
+      <div class="map-panel__meta" id="resultCount">Loading providers&hellip;</div>
+      <ul class="map-results" id="resultsList"></ul>
+    </aside>
+    <div class="map-canvas-wrap">
+      <div id="vaMap" class="map-canvas"></div>
+      <div class="map-loading" id="mapLoading">Loading map&hellip;</div>
+    </div>
+  </div>
+</section>
 
 <main>
 <section class="section">
   <div class="container">
-    {map_embed(pc, mk)}
-
-    <div style="margin-top:40px;">
+    <div style="margin-top:12px;">
       <h2>{esc(svc_name)} Professionals in {pc}</h2>
       <p class="lead" style="margin-bottom:28px;">Showing {n_co} contractor{"s" if n_co != 1 else ""} serving ZIP code {pc}{(" in " + esc(place)) if city else ""}.</p>
       {contractor_cards(contractors, pc)}

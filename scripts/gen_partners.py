@@ -253,7 +253,7 @@ def make_about(name, city, svcs, rating, reviews, idx):
     paragraphs.append(
         f'Based in {city_linked}, {esc(name)} serves residential and light-commercial clients throughout the {city_linked} area and beyond. '
         f'The company is available for projects across a wide service radius and can accommodate urgent calls when active water intrusion or flooding threatens a home. '
-        f'Contact our network at {PHONE_DISP} to confirm service availability in your specific ZIP code and schedule a free on-site consultation.'
+        f'Submit a job request to confirm service availability in your specific ZIP code and schedule a free on-site consultation.'
     )
 
     # Para 5 — Why choose them / CTA (~50 words)
@@ -267,7 +267,7 @@ def make_about(name, city, svcs, rating, reviews, idx):
 
 # ---------- templates ----------
 def header(active=""):
-    return f'''<!DOCTYPE html>
+    return '''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -286,38 +286,57 @@ __SCHEMA__
       <span class="brand__name">Virginia Basement Waterproofing<span>Statewide Contractor Directory</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <a href="/services/">Services</a>
+      <div class="nav-item">
+        <a href="/services/">Services <span class="nav-arrow"></span></a>
+        <div class="mega-menu" role="menu">
+          <div class="mega-menu__grid">
+            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
+            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
+            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
+            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
+            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
+            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
+            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
+            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
+            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
+            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
+            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
+            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
+          </div>
+          <div class="mega-menu__footer">
+            <span>All 12 waterproofing &amp; foundation services</span>
+            <a href="/services/">View All Services &rarr;</a>
+          </div>
+        </div>
+      </div>
       <a href="/virginia/">Cities</a>
       <a href="/partners/">Contractors</a>
       <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
-      <div class="header-phone">
-        <small>Call For a Free Quote</small>
-        <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
-      </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
 </header>
 '''
 
-FOOTER = f'''<footer class="site-footer">
+FOOTER = '''<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="footer-phone" href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org — All rights reserved.</span>
-      <span>Call us: <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></span>
+      <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org &mdash; All rights reserved.</span>
+      <span><a href="/get-a-quote/">Free Estimate &rarr;</a></span>
     </div>
     <p class="disclaimer-note">VirginiaBasementWaterproofing.org is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
   </div>
@@ -363,8 +382,8 @@ for n, (slug, r) in enumerate(items):
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": name,
-        "telephone": PHONE_TEL,
         "areaServed": {"@type": "City", "name": city, "addressRegion": "VA"} if city else {"@type": "State", "name": "Virginia"},
+        "url": f"https://www.virginiabasementwaterproofing.org/partners/{slug}/",
     }
     if addr:
         schema["address"] = {"@type": "PostalAddress", "streetAddress": addr, "addressRegion": "VA"}
@@ -446,14 +465,12 @@ for n, (slug, r) in enumerate(items):
       <div>
         <div class="fact-card" style="margin-bottom:22px;">
           <h3 style="margin-top:0;">Submit a Job Request</h3>
-          <p class="text-muted" style="font-size:.92rem;">We'll connect you with the ideal contractor for your situation. They'll reach out within 1–3 business days.</p>
-          <a href="/get-a-quote/" class="btn btn--primary btn--block btn--lg" style="margin-bottom:10px;">Submit Job Request</a>
-          <a href="tel:{PHONE_TEL}" class="btn btn--blue btn--block">Call {PHONE_DISP}</a>
+          <p class="text-muted" style="font-size:.92rem;">We&rsquo;ll connect you with the ideal contractor for your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
+          <a href="/get-a-quote/?provider={slug}" class="btn btn--primary btn--block btn--lg">Submit Job Request</a>
         </div>
         <div class="fact-card">
           <ul class="fact-list">
             {fact_addr}
-            <li><span class="lbl">Phone</span><a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></li>
             {f'<li><span class="lbl">Google Rating</span>{st} {rating_fmt} ({esc(reviews)} reviews)</li>' if st else ''}
             {'<li><span class="lbl">Google Reviews</span><a href="' + esc(reviews_link) + '" target="_blank" rel="noopener noreferrer">Read on Google &#8599;</a></li>' if reviews_link else ''}
             <li><span class="lbl">Service Area</span>{city_link(city) if city else 'Virginia'}, VA</li>

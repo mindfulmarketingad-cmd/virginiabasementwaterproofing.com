@@ -11,6 +11,7 @@ ROOT = "/home/user/virginiabasementwaterproofing.com"
 SRC  = "/root/.claude/uploads/d3aa2d35-0d52-4e41-a880-55c8b6248f0b/e4b92662-Outscraper20260604222103s2f_waterproofing_service.xlsx"
 PHONE_TEL  = "+17577439050"
 PHONE_DISP = "(757) 743-9050"
+GOOGLE_MAPS_KEY = "AIzaSyD1IVMZyzQic5lLyZR9bQuARP9n4kJtLbg"
 
 # ── parse xlsx ───────────────────────────────────────────────────────────────
 ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
@@ -235,23 +236,9 @@ REGION_INTROS = {
 }
 
 # ── shared HTML components ────────────────────────────────────────────────────
-SERVICE_BANNER = f'''<div class="service-banner" id="dealer-card" aria-live="polite">
-  <div class="container">
-    <div class="service-banner__inner">
-      <div class="service-banner__left">
-        <p class="service-banner__tagline">A dry, healthy home starts here.</p>
-        <p class="service-banner__sub">Contact your <a href="/partners/">local dealer</a> or call <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></p>
-      </div>
-      <div class="service-banner__right">
-        <div class="service-banner__zip" id="dealer-zip"></div>
-        <div class="service-banner__dealer">Your Local Dealer is <strong><span id="dealer-name">Detecting location&hellip;</span></strong></div>
-        <a href="#" class="service-banner__change" id="dealer-change">&#9679; Change Location</a>
-      </div>
-    </div>
-  </div>
-</div>'''
+SERVICE_BANNER = ''  # removed — no phone CTAs on site
 
-SITE_HEADER = f'''<header class="site-header">
+SITE_HEADER = '''<header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/">
       <span class="brand__mark"><span class="bm-v">V</span><span class="bm-bw">BW</span></span>
@@ -262,18 +249,18 @@ SITE_HEADER = f'''<header class="site-header">
         <a href="/services/">Services <span class="nav-arrow"></span></a>
         <div class="mega-menu" role="menu">
           <div class="mega-menu__grid">
-            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128167;</span><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
-            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127968;</span><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
-            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127959;</span><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
-            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9889;</span><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
-            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127794;</span><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
-            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128295;</span><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
-            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128680;</span><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
-            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128694;</span><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
-            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#128205;</span><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
-            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#129532;</span><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
-            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#127978;</span><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
-            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__icon">&#9632;</span><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
+            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
+            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
+            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
+            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
+            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
+            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
+            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
+            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
+            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
+            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
+            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
+            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
           </div>
           <div class="mega-menu__footer">
             <span>All 12 waterproofing &amp; foundation services</span>
@@ -286,22 +273,19 @@ SITE_HEADER = f'''<header class="site-header">
       <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
-      <div class="header-phone">
-        <small>Call For a Free Quote</small>
-        <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
-      </div>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
 </header>'''
 
-FOOTER = f'''<footer class="site-footer">
+FOOTER = '''<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="footer-phone" href="tel:{PHONE_TEL}">{PHONE_DISP}</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
@@ -310,7 +294,7 @@ FOOTER = f'''<footer class="site-footer">
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org &mdash; All rights reserved.</span>
-      <span>Call us: <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a></span>
+      <span><a href="/get-a-quote/">Free Estimate &rarr;</a></span>
     </div>
     <p class="disclaimer-note">VirginiaBasementWaterproofing.org is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor\'s work. Always verify licensing and insurance before hiring.</p>
   </div>
@@ -319,7 +303,11 @@ FOOTER = f'''<footer class="site-footer">
 </body>
 </html>'''
 
-def page_head(title, description, canonical, schema_json=''):
+def page_head(title, description, canonical, schema_json='', map_config_js='{}'):
+    gm_scripts = f'''<script>window.MAP_CONFIG = {map_config_js};</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS_KEY}&loading=async&callback=Function.prototype"></script>
+<script src="https://cdn.jsdelivr.net/npm/@googlemaps/markerclusterer@2.5.3/dist/index.min.js"></script>
+<script src="/js/map-local.js" defer></script>'''
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,14 +319,12 @@ def page_head(title, description, canonical, schema_json=''):
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+{gm_scripts}
 {('<script type="application/ld+json">' + schema_json + '</script>') if schema_json else ''}
 </head>
 <body>
-{SITE_HEADER}
-{SERVICE_BANNER}'''
+{SITE_HEADER}'''
 
 def markers_for(contractor_list):
     """Build a list of {name, lat, lng} from contractors that have valid coordinates."""
@@ -356,56 +342,13 @@ def markers_for(contractor_list):
 _map_counter = [0]
 
 def map_embed(query, markers=None):
-    """Render an interactive Leaflet map. When markers are supplied, drop a dot at
-    each business location; otherwise fall back to a city-centered Google embed."""
-    markers = markers or []
-    if markers:
-        _map_counter[0] += 1
-        map_id = f"cityMap{_map_counter[0]}"
-        pts = json.dumps([[m['lat'], m['lng'], m['name']] for m in markers])
-        return f'''<div class="city-map">
-  <div id="{map_id}" class="city-map__canvas" role="img" aria-label="Map showing waterproofing contractor locations near {html_mod.escape(query)}, Virginia"></div>
-</div>
-<script>
-(function(){{
-  var pts = {pts};
-  function init(){{
-    if (typeof L === 'undefined') {{ return setTimeout(init, 120); }}
-    var el = document.getElementById('{map_id}');
-    if (!el) return;
-    var map = L.map(el, {{ scrollWheelZoom: false }});
-    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }}).addTo(map);
-    var latlngs = [];
-    pts.forEach(function(p){{
-      var dot = L.circleMarker([p[0], p[1]], {{
-        radius: 9, color: '#ffffff', weight: 2,
-        fillColor: '#c8102e', fillOpacity: 1
-      }}).addTo(map);
-      dot.bindPopup('<strong>' + p[2] + '</strong>');
-      latlngs.push([p[0], p[1]]);
-    }});
-    if (latlngs.length === 1) {{ map.setView(latlngs[0], 12); }}
-    else {{ map.fitBounds(latlngs, {{ padding: [40, 40], maxZoom: 13 }}); }}
-  }}
-  init();
-}})();
-</script>'''
-    q = quote(query + ', Virginia, VA')
-    return f'''<div class="city-map">
-  <iframe
-    src="https://maps.google.com/maps?q={q}&z=13&output=embed&iwloc=&t=m"
-    width="100%" height="360" style="border:0; border-radius:var(--radius);"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Map of {html_mod.escape(query)}, Virginia">
-  </iframe>
-</div>'''
+    """Kept for backward-compat (imported by gen_zip_service.py). Returns empty string
+    — the map is now the full-page map-hero section, not an inline embed."""
+    return ''
 
 def contractor_cards(contractor_list, label=''):
     if not contractor_list:
-        return f'<p class="text-muted">No contractors currently listed in {label}. <a href="/partners/">Browse the full directory</a> or call <a href="tel:{PHONE_TEL}">{PHONE_DISP}</a> to be matched with a local pro.</p>'
+        return f'<p class="text-muted">No contractors currently listed in {label}. <a href="/partners/">Browse the full directory</a> or <a href="/get-a-quote/">submit a job request</a> to be matched with a local pro.</p>'
     cards = []
     for slug, r in contractor_list:
         name    = (g(r,'name') or '').strip()
@@ -460,32 +403,61 @@ for city, (region_slug, region_label) in CITY_REGION.items():
         "@context":"https://schema.org","@type":"Service",
         "name": f"Basement Waterproofing in {city}, VA",
         "areaServed":{"@type":"City","name":city,"addressRegion":"VA"},
-        "telephone": PHONE_TEL, "url": canonical
+        "url": canonical
     })
 
+    map_cfg = '{' + f'city:{json.dumps(city)}' + '}'
+
     page  = page_head(
-        title       = f"Basement Waterproofing in {esc(city)}, VA | Local Contractors",
-        description = f"Find licensed basement waterproofing contractors in {esc(city)}, Virginia. Compare ratings, view profiles, and get a free estimate. {co_note}.",
-        canonical   = canonical,
-        schema_json = schema,
+        title         = f"Basement Waterproofing in {esc(city)}, VA | Local Contractors",
+        description   = f"Find licensed basement waterproofing contractors in {esc(city)}, Virginia. Compare ratings, view profiles, and submit a free job request. {co_note}.",
+        canonical     = canonical,
+        schema_json   = schema,
+        map_config_js = map_cfg,
     )
+    breadcrumb = f'<nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/virginia/{region_slug}/">{esc(region_label)}</a> / {esc(city)}</nav>'
     page += f'''
-<div class="page-head">
-  <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/virginia/{region_slug}/">{esc(region_label)}</a> / {esc(city)}</div>
-    <h1>Basement Waterproofing in {esc(city)}, VA</h1>
-    <p>Connect with vetted, licensed waterproofing contractors serving {esc(city)} and surrounding {esc(region_label)} communities. Free estimates, no obligation.</p>
+<section class="map-hero">
+  <div class="map-hero__bar">
+    <div class="container">
+      {breadcrumb}
+      <h1>Basement Waterproofing in {esc(city)}, VA</h1>
+      <p>Find vetted, licensed waterproofing contractors serving {esc(city)} and surrounding {esc(region_label)} communities. Browse the map, filter by service, and submit a free job request.</p>
+    </div>
   </div>
-</div>
+  <div class="map-hero__app">
+    <aside class="map-panel">
+      <div class="map-panel__controls">
+        <form class="map-search" id="zipSearch" role="search">
+          <input type="text" id="zipInput" inputmode="numeric" maxlength="5" placeholder="Search a ZIP code&hellip;" aria-label="Search by ZIP code">
+          <button type="submit" aria-label="Search">&#128269;</button>
+        </form>
+        <div class="map-filter">
+          <select id="svcFilter" aria-label="Filter by service">
+            <option value="">All Services</option>
+          </select>
+        </div>
+        <div class="map-toggles">
+          <button type="button" class="map-toggle" data-layer="city"><span class="dot"></span> City borders</button>
+          <button type="button" class="map-toggle" data-layer="zip"><span class="dot"></span> ZIP borders</button>
+        </div>
+      </div>
+      <div class="map-panel__meta" id="resultCount">Loading providers&hellip;</div>
+      <ul class="map-results" id="resultsList"></ul>
+    </aside>
+    <div class="map-canvas-wrap">
+      <div id="vaMap" class="map-canvas"></div>
+      <div class="map-loading" id="mapLoading">Loading map&hellip;</div>
+    </div>
+  </div>
+</section>
 
 <main>
 <section class="section">
   <div class="container">
-    {map_embed(city, markers_for(contractors))}
-
-    <div style="margin-top:40px;">
+    <div style="margin-top:12px;">
       <h2>Waterproofing Contractors in {esc(city)}</h2>
-      <p class="lead" style="margin-bottom:28px;">{"Showing " + str(n_co) + " contractor" + ("s" if n_co!=1 else "") + " serving " + esc(city) + "." if n_co else "Our statewide network covers " + esc(city) + " — call us to be matched with a local pro."}</p>
+      <p class="lead" style="margin-bottom:28px;">{"Showing " + str(n_co) + " contractor" + ("s" if n_co!=1 else "") + " serving " + esc(city) + "." if n_co else "Our statewide network covers " + esc(city) + " &mdash; submit a job request to be matched with a local pro."}</p>
       {contractor_cards(contractors, city)}
     </div>
     {cta_band(city)}
@@ -537,30 +509,59 @@ for region_slug, region_label, map_query in REGIONS:
         "@context":"https://schema.org","@type":"Service",
         "name": f"Basement Waterproofing in {region_label}, VA",
         "areaServed":{"@type":"State","name":"Virginia"},
-        "telephone": PHONE_TEL, "url": canonical
+        "url": canonical
     })
 
+    region_city_names = [c for c, (rs, _) in CITY_REGION.items() if rs == region_slug]
+    map_cfg = '{cities:' + json.dumps(region_city_names) + '}'
+
     page = page_head(
-        title       = f"Basement Waterproofing Contractors in {esc(region_label)}, VA",
-        description = f"Browse licensed basement waterproofing contractors serving {esc(region_label)}, Virginia. Compare ratings, view profiles, and get a free estimate.",
-        canonical   = canonical,
-        schema_json = schema,
+        title         = f"Basement Waterproofing Contractors in {esc(region_label)}, VA",
+        description   = f"Browse licensed basement waterproofing contractors serving {esc(region_label)}, Virginia. Compare ratings, view profiles, and submit a free job request.",
+        canonical     = canonical,
+        schema_json   = schema,
+        map_config_js = map_cfg,
     )
     page += f'''
-<div class="page-head">
-  <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / {esc(region_label)}</div>
-    <h1>Basement Waterproofing in {esc(region_label)}, VA</h1>
-    <p>Find vetted, licensed waterproofing contractors across {esc(region_label)}. Browse by city or view all {n_co} contractors in the region below.</p>
+<section class="map-hero">
+  <div class="map-hero__bar">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / {esc(region_label)}</nav>
+      <h1>Basement Waterproofing in {esc(region_label)}, VA</h1>
+      <p>Find vetted, licensed waterproofing contractors across {esc(region_label)}. Browse the map, filter by service, or view all {n_co} contractors below.</p>
+    </div>
   </div>
-</div>
+  <div class="map-hero__app">
+    <aside class="map-panel">
+      <div class="map-panel__controls">
+        <form class="map-search" id="zipSearch" role="search">
+          <input type="text" id="zipInput" inputmode="numeric" maxlength="5" placeholder="Search a ZIP code&hellip;" aria-label="Search by ZIP code">
+          <button type="submit" aria-label="Search">&#128269;</button>
+        </form>
+        <div class="map-filter">
+          <select id="svcFilter" aria-label="Filter by service">
+            <option value="">All Services</option>
+          </select>
+        </div>
+        <div class="map-toggles">
+          <button type="button" class="map-toggle" data-layer="city"><span class="dot"></span> City borders</button>
+          <button type="button" class="map-toggle" data-layer="zip"><span class="dot"></span> ZIP borders</button>
+        </div>
+      </div>
+      <div class="map-panel__meta" id="resultCount">Loading providers&hellip;</div>
+      <ul class="map-results" id="resultsList"></ul>
+    </aside>
+    <div class="map-canvas-wrap">
+      <div id="vaMap" class="map-canvas"></div>
+      <div class="map-loading" id="mapLoading">Loading map&hellip;</div>
+    </div>
+  </div>
+</section>
 
 <main>
 <section class="section">
   <div class="container">
-    {map_embed(map_query, markers_for(contractors))}
-
-    <div style="margin-top:32px;">
+    <div style="margin-top:12px;">
       <h2>Cities in {esc(region_label)}</h2>
       <div class="city-chip-row" style="margin-top:12px; margin-bottom:32px;">
         {city_links_html}

@@ -19,13 +19,25 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "name": "Virginia Basement Waterproofing",
-  "description": "Directory of licensed basement waterproofing contractors serving Virginia.",
+  "alternateName": "VirginiaBasementWaterproofing.org",
+  "description": "Free statewide directory connecting Virginia homeowners with licensed, insured basement waterproofing, foundation repair, crawl space, and water damage restoration contractors.",
   "url": "https://www.virginiabasementwaterproofing.org/",
-  "telephone": "+17577439050",
+  "logo": "https://www.virginiabasementwaterproofing.org/favicon.svg",
+  "foundingLocation": { "@type": "State", "name": "Virginia" },
   "areaServed": { "@type": "State", "name": "Virginia" },
-  "priceRange": "$$"
+  "knowsAbout": [
+    "Basement Waterproofing",
+    "Crawl Space Encapsulation",
+    "Foundation Repair",
+    "Sump Pump Installation",
+    "French Drain Installation",
+    "Basement Crack Repair",
+    "Water Damage Restoration",
+    "Black Mold Treatment"
+  ],
+  "sameAs": []
 }
 </script>
 <script type="application/ld+json">
@@ -33,7 +45,35 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Virginia Basement Waterproofing",
-  "url": "https://www.virginiabasementwaterproofing.org/"
+  "url": "https://www.virginiabasementwaterproofing.org/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.virginiabasementwaterproofing.org/virginia/?city={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Contractor Matching Service",
+  "description": "Free service matching Virginia homeowners with licensed waterproofing and foundation repair contractors.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Virginia Basement Waterproofing",
+    "url": "https://www.virginiabasementwaterproofing.org/"
+  },
+  "areaServed": { "@type": "State", "name": "Virginia" },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free contractor matching — no cost to homeowners"
+  }
 }
 </script>
 </head>
@@ -111,11 +151,8 @@
       <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
-      <div class="header-phone">
-        <small>Call For a Free Quote</small>
-        <a href="tel:+17577439050">(757) 743-9050</a>
-      </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
 </header>
@@ -128,7 +165,6 @@
     <div class="container">
       <h1>Find Waterproofing Services in Virginia</h1>
       <p>Explore every licensed waterproofing, foundation &amp; restoration pro across the Commonwealth on the map below. Search your ZIP code, filter by the service you need, toggle satellite or city &amp; ZIP borders &mdash; then submit a free job request to get matched.</p>
-      <a href="/get-a-quote/" class="btn btn--primary" style="margin-top:14px;">Submit a Job Request &mdash; It's Free</a>
     </div>
   </div>
   <div class="map-hero__app">
@@ -346,7 +382,7 @@
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="footer-phone" href="tel:+17577439050">(757) 743-9050</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
       <div>
         <h4>Explore</h4>
@@ -377,7 +413,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> VirginiaBasementWaterproofing.org — All rights reserved.</span>
-      <span>Call us: <a href="tel:+17577439050">(757) 743-9050</a></span>
+      <span><a href="/get-a-quote/">Free Estimate &rarr;</a></span>
     </div>
     <p class="disclaimer-note">VirginiaBasementWaterproofing.org is a free directory and lead-referral service. We are not a licensed contractor and do not perform waterproofing work ourselves. Listed companies are independent businesses; we make no warranty regarding any contractor's work. Always verify licensing and insurance before hiring.</p>
   </div>
