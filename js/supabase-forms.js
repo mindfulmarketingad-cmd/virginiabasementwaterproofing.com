@@ -1,10 +1,8 @@
 /* ============================================================================
    supabase-forms.js
    Handles job-request and claim-listing form submissions to Supabase.
-https://tbqigevoksabizjogvtm.supabase.co
-   SETUP: Set SUPABASE_URL to your project URL, e.g.:
 
-   The anon/publishable key is already embedded below.
+   The anon/publishable key and project URL are configured below.
 
    Required Supabase tables:
      job_requests  (name, phone, email, zip, city, service, message, provider, created_at)
@@ -13,7 +11,7 @@ https://tbqigevoksabizjogvtm.supabase.co
 (function () {
   "use strict";
 
-  var SUPABASE_URL = ""; // TODO: set to https://<project-ref>.supabase.co
+  var SUPABASE_URL = "https://tbqigevoksabizjogvtm.supabase.co";
   var SUPABASE_KEY = "sb_publishable_aHlx0Tdu2rhOTBUp3lhkQw_Lv6Awz7a";
 
   // ---- low-level REST insert -------------------------------------------------
