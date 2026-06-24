@@ -282,7 +282,7 @@ __SCHEMA__
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/">
-      <span class="brand__mark"><span class="bm-v">V</span><span class="bm-bw">BW</span></span>
+      <img class="brand__logo" src="/img/vbw-logo.svg" alt="VBW — Virginia Basement Waterproofing" width="62" height="26">
       <span class="brand__name">Virginia Basement Waterproofing<span>Statewide Contractor Directory</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
@@ -310,8 +310,6 @@ __SCHEMA__
         </div>
       </div>
       <a href="/virginia/">Cities</a>
-      <a href="/partners/">Contractors</a>
-      <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
       <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
@@ -329,7 +327,7 @@ FOOTER = '''<footer class="site-footer">
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
         <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
@@ -429,7 +427,7 @@ for n, (slug, r) in enumerate(items):
     body = f'''
 <section class="listing-hero">
   <div class="container">
-    <div class="breadcrumb" style="color:#9fb6cc;"><a href="/" style="color:#cfe0f0;">Home</a> / <a href="/partners/" style="color:#cfe0f0;">Contractors</a> / {esc(name)}</div>
+    <div class="breadcrumb" style="color:#9fb6cc;"><a href="/" style="color:#cfe0f0;">Home</a> / <a href="/virginia/" style="color:#cfe0f0;">Virginia</a> / {esc(name)}</div>
     <span class="contractor__badge" style="margin-bottom:6px;">Verified Pro</span>
     <h1>{esc(name)}</h1>
     {rating_line if rating_line else ''}
@@ -513,64 +511,12 @@ for slug, r in items:
         <div class="listing__foot"><a href="/partners/{slug}/" class="btn btn--blue btn--block">View Profile</a></div>
       </div>''')
 
-hub_head = ('<title>Virginia Basement Waterproofing Contractors | Full Directory</title>\n'
-            '<meta name="description" content="Browse our full directory of basement waterproofing contractors across Virginia. Compare ratings and reviews, then request a free estimate.">\n'
-            '<link rel="canonical" href="https://www.virginiabasementwaterproofing.org/partners/">\n'
-            '<meta name="robots" content="index, follow">')
-hub = header().replace('__HEAD__', hub_head).replace('__SCHEMA__', '')
-hub += f'''
-<div class="page-head">
-  <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a> / Contractors</div>
-    <h1>Basement Waterproofing Contractors In Network</h1>
-    <p id="zip-note">Browse our directory of {len(items)} basement waterproofing professionals serving homeowners across Virginia. Search by company name or city, then request a free estimate.</p>
-  </div>
-</div>
-
-<main>
-<section class="dealer-section">
-  <div class="container">
-    <div class="dealer-card" id="dealer-card" aria-live="polite">
-      <div class="dealer-card__zip" id="dealer-zip"></div>
-      <div class="dealer-card__label">Your Local Dealer is</div>
-      <div class="dealer-card__name" id="dealer-name">Detecting your location&hellip;</div>
-      <a href="#" class="dealer-card__change" id="dealer-change"><span aria-hidden="true">&#9679;</span> Change Location</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="partner-search">
-      <input type="search" id="partner-search" placeholder="Search by company name or city (e.g. Richmond)" aria-label="Search contractors">
-    </div>
-    <div class="partner-count" id="partner-count">Showing all {len(items)} contractors</div>
-    <div class="listing-grid">
-      {''.join(cards)}
-    </div>
-
-    <div class="section--soft card" style="margin-top:48px; text-align:center;">
-      <h2 style="margin-bottom:.3em;">Are You a Virginia Waterproofing Contractor?</h2>
-      <p class="text-muted" style="max-width:640px; margin:0 auto 22px;">Join our in-network directory to connect with homeowners actively searching for waterproofing services in your area.</p>
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Apply to Get Listed</a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--soft">
-  <div class="container prose">
-    <h2>How We Vet Our Contractors</h2>
-    <p>We want every Virginia homeowner to hire with confidence. We encourage you to verify a contractor\'s license through the Virginia Department of Professional and Occupational Regulation (DPOR), confirm current insurance, and obtain multiple written estimates before signing any contract.</p>
-  </div>
-</section>
-</main>
-'''
-hub += FOOTER
-with open(os.path.join(ROOT, 'partners', 'index.html'), 'w') as fp:
-    fp.write(hub)
+# NOTE: the /partners/ directory hub index page has been intentionally removed
+# from the site. Individual /partners/<slug>/ profile pages are still generated
+# above; only the aggregate directory listing is no longer published.
 
 # ---------- emit slug list for sitemap ----------
 with open(os.path.join(ROOT, 'scripts', 'partner_slugs.txt'), 'w') as fp:
     fp.write("\n".join(slug for slug, _ in items))
 
-print("Generated", len(items), "partner pages + hub")
+print("Generated", len(items), "partner pages")

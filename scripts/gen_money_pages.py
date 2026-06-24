@@ -325,7 +325,7 @@ REASONS = [
 SITE_HEADER = '''<header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/">
-      <span class="brand__mark"><span class="bm-v">V</span><span class="bm-bw">BW</span></span>
+      <img class="brand__logo" src="/img/vbw-logo.svg" alt="VBW — Virginia Basement Waterproofing" width="62" height="26">
       <span class="brand__name">Virginia Basement Waterproofing<span>Statewide Contractor Directory</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
@@ -353,8 +353,6 @@ SITE_HEADER = '''<header class="site-header">
         </div>
       </div>
       <a href="/virginia/">Cities</a>
-      <a href="/partners/">Contractors</a>
-      <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
       <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
@@ -371,7 +369,7 @@ FOOTER = '''<footer class="site-footer">
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
         <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
@@ -552,7 +550,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
       <p>Once you submit a job request, we&rsquo;ll connect you with the ideal licensed contractor for your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
-        <a href="/partners/" class="btn btn--ghost btn--lg">Browse All Contractors</a>
+        <a href="/virginia/" class="btn btn--ghost btn--lg">Browse Service Areas</a>
       </div>
     </div>
 

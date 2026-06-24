@@ -241,7 +241,7 @@ SERVICE_BANNER = ''  # removed — no phone CTAs on site
 SITE_HEADER = '''<header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/">
-      <span class="brand__mark"><span class="bm-v">V</span><span class="bm-bw">BW</span></span>
+      <img class="brand__logo" src="/img/vbw-logo.svg" alt="VBW — Virginia Basement Waterproofing" width="62" height="26">
       <span class="brand__name">Virginia Basement Waterproofing<span>Statewide Contractor Directory</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
@@ -269,8 +269,6 @@ SITE_HEADER = '''<header class="site-header">
         </div>
       </div>
       <a href="/virginia/">Cities</a>
-      <a href="/partners/">Contractors</a>
-      <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
       <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
@@ -287,7 +285,7 @@ FOOTER = '''<footer class="site-footer">
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
         <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
@@ -348,7 +346,7 @@ def map_embed(query, markers=None):
 
 def contractor_cards(contractor_list, label=''):
     if not contractor_list:
-        return f'<p class="text-muted">No contractors currently listed in {label}. <a href="/partners/">Browse the full directory</a> or <a href="/get-a-quote/">submit a job request</a> to be matched with a local pro.</p>'
+        return f'<p class="text-muted">No contractors currently listed in {label}. <a href="/virginia/">Browse other Virginia areas</a> or <a href="/get-a-quote/">submit a job request</a> to be matched with a local pro.</p>'
     cards = []
     for slug, r in contractor_list:
         name    = (g(r,'name') or '').strip()
@@ -381,7 +379,7 @@ def cta_band(city_label):
   <p>Once you submit a job request, we\'ll connect you with the ideal licensed contractor for your situation. They\'ll reach out within 1–3 business days.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
     <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
-    <a href="/partners/" class="btn btn--ghost btn--lg">Browse All Contractors</a>
+    <a href="/virginia/" class="btn btn--ghost btn--lg">Browse Service Areas</a>
   </div>
 </div>'''
 
@@ -493,20 +491,28 @@ REGIONS = [
     ("shenandoah-valley","Shenandoah Valley","Shenandoah Valley, Virginia"),
     ("western-virginia", "Western Virginia", "Western Virginia"),
     ("central-virginia", "Central Virginia", "Central Virginia"),
+    ("central-western-valley", "Central, Western & Valley Virginia", "Central Virginia"),
 ]
+
+# combined "super-regions" aggregate several base regions onto a single page
+COMBINED_REGIONS = {
+    "central-western-valley": ["central-virginia", "western-virginia", "shenandoah-valley"],
+}
 
 region_count = 0
 for region_slug, region_label, map_query in REGIONS:
-    canonical   = f"https://www.virginiabasementwaterproofing.org/virginia/{region_slug}/"
-    contractors = by_region.get(region_slug, [])
-    n_co        = len(contractors)
-    intro       = REGION_INTROS.get(region_slug, '')
+    canonical    = f"https://www.virginiabasementwaterproofing.org/virginia/{region_slug}/"
+    source_slugs = COMBINED_REGIONS.get(region_slug, [region_slug])
+    contractors  = [item for ss in source_slugs for item in by_region.get(ss, [])]
+    n_co         = len(contractors)
+    intro        = REGION_INTROS.get(region_slug, '')
 
-    # city links for this region
-    region_cities = [(c, slugify(c)) for c, (rs, _) in CITY_REGION.items() if rs == region_slug]
+    # city links for this region (each links to its own base-region path)
+    region_cities = [(c, CITY_REGION[c][0], slugify(c))
+                     for c, (rs, _) in CITY_REGION.items() if rs in source_slugs]
     city_links_html = ' '.join(
-        f'<a href="/virginia/{region_slug}/{cs}/" class="city-chip">{esc(c)}</a>'
-        for c, cs in sorted(region_cities)
+        f'<a href="/virginia/{rs}/{cs}/" class="city-chip">{esc(c)}</a>'
+        for c, rs, cs in sorted(region_cities)
     )
 
     schema = json.dumps({
@@ -516,7 +522,7 @@ for region_slug, region_label, map_query in REGIONS:
         "url": canonical
     })
 
-    region_city_names = [c for c, (rs, _) in CITY_REGION.items() if rs == region_slug]
+    region_city_names = [c for c, (rs, _) in CITY_REGION.items() if rs in source_slugs]
     map_cfg = '{cities:' + json.dumps(region_city_names) + '}'
 
     page = page_head(

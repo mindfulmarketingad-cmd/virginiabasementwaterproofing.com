@@ -261,6 +261,12 @@
     state.info = new MapsLib.InfoWindow();
     els.loading.classList.add("is-hidden");
 
+    // blue outline around the state of Virginia
+    var vaBorder = new google.maps.Data();
+    vaBorder.setStyle({ fillOpacity: 0, strokeColor: "#2d55b0", strokeWeight: 2.5, clickable: false });
+    vaBorder.loadGeoJson("/data/va-state.geojson");
+    vaBorder.setMap(state.map);
+
     // build markers
     state.providers.forEach(function (p, idx) {
       p._idx = idx;

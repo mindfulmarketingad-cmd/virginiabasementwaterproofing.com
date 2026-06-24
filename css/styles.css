@@ -123,15 +123,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 .brand { display: flex; align-items: center; gap: 11px; }
-.brand__mark {
-  width: 48px; height: 40px; border-radius: 9px;
-  background: var(--navy);
-  display: grid; place-items: center;
-  font-weight: 900; font-size: 1rem; letter-spacing: -.5px;
-  flex-shrink: 0;
-}
-.brand__mark .bm-v { color: #fff; }
-.brand__mark .bm-bw { color: var(--accent); }
+.brand__logo { height: 30px; width: auto; display: block; flex-shrink: 0; }
 .brand__name { font-weight: 800; color: var(--navy); font-size: 1.05rem; line-height: 1.15; }
 .brand__name span { display: block; font-weight: 600; color: var(--muted); font-size: .74rem; letter-spacing: .5px; text-transform: uppercase; }
 .brand:hover { text-decoration: none; }
@@ -888,7 +880,7 @@ img { max-width: 100%; display: block; }
   .header-inner { padding: 11px 16px; gap: 10px; }
   .header-right { gap: 10px; }
   .brand { gap: 8px; }
-  .brand__mark { width: 40px; height: 34px; font-size: .85rem; }
+  .brand__logo { height: 26px; }
   .brand__name { font-size: .92rem; }
   .brand__name span { font-size: .62rem; }
   .header-cta { font-size: .74rem; padding: 7px 10px; }
