@@ -17,14 +17,17 @@
   var VA_ZOOM = 7;
 
   var els = {
-    map:     document.getElementById("vaMap"),
-    loading: document.getElementById("mapLoading"),
-    results: document.getElementById("resultsList"),
-    count:   document.getElementById("resultCount"),
-    filter:  document.getElementById("svcFilter"),
-    zipForm: document.getElementById("zipSearch"),
-    zipInput:document.getElementById("zipInput"),
-    toggles: document.querySelectorAll(".map-toggle")
+    map:        document.getElementById("vaMap"),
+    loading:    document.getElementById("mapLoading"),
+    results:    document.getElementById("resultsList"),
+    count:      document.getElementById("resultCount"),
+    filter:     document.getElementById("svcFilter"),
+    zipForm:    document.getElementById("zipSearch"),
+    zipInput:   document.getElementById("zipInput"),
+    toggles:    document.querySelectorAll(".map-toggle"),
+    detail:     document.getElementById("mapDetail"),
+    detailBody: document.getElementById("mapDetailBody"),
+    detailBack: document.getElementById("mapDetailBack")
   };
   if (!els.map) return;
 
@@ -49,6 +52,18 @@
       return { "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c];
     });
   }
+
+  var CAT_NAMES = {
+    "waterproofing": "Basement Waterproofing",
+    "crawl-space":   "Crawl Space Encapsulation",
+    "foundation":    "Foundation Repair",
+    "plumbing":      "Sump Pump Installation",
+    "drainage":      "French Drain / Drainage",
+    "water-damage":  "Water Damage Restoration",
+    "general":       "General Contractor",
+    "mold":          "Mold Remediation"
+  };
+
   function stars(r) {
     if (r == null) return "";
     var full = Math.round(r);
@@ -75,6 +90,56 @@
       return false;
     }
     return true;
+  }
+
+  // ---- detail panel (Google Maps-style) -------------------------------------
+  function openDetail(p) {
+    if (!els.detail) return;
+    var initials = p.name.split(/\s+/).slice(0, 2).map(function (w) { return w[0] || ""; }).join("").toUpperCase();
+    var cats = (p.cats || []).map(function (k) {
+      return '<span class="map-detail__cat">' + esc(CAT_NAMES[k] || k) + "</span>";
+    }).join("");
+    var rateHtml = p.rating != null
+      ? '<div class="map-detail__rating">' + stars(p.rating) +
+        ' <strong>' + p.rating + '</strong>' +
+        (p.reviews != null ? ' <span class="map-detail__rev">(' + p.reviews + ' reviews)</span>' : '') +
+        "</div>" : "";
+    var loc = esc(p.city) + ", VA" + (p.zip ? " " + esc(p.zip) : "");
+    var countyLine = p.county
+      ? '<div class="map-detail__section"><span class="map-detail__section-label">Service Area</span>' + esc(p.county) + "</div>"
+      : "";
+    var svcNames = (p.cats || []).map(function (k) { return CAT_NAMES[k] || k; }).join(", ");
+
+    els.detailBody.innerHTML =
+      '<div class="map-detail__banner"><div class="map-detail__avatar">' + initials + "</div></div>" +
+      '<div class="map-detail__info">' +
+        '<h2 class="map-detail__name">' + esc(p.name) + "</h2>" +
+        rateHtml +
+        (cats ? '<div class="map-detail__cats">' + cats + "</div>" : "") +
+        '<div class="map-detail__loc">' + loc + "</div>" +
+      "</div>" +
+      '<div class="map-detail__divider"></div>' +
+      '<div class="map-detail__actions">' +
+        '<a href="/get-a-quote/?provider=' + esc(p.slug) + '" class="map-detail__primary-btn">Submit Job Request</a>' +
+        '<a href="/partners/' + esc(p.slug) + '/" class="map-detail__secondary-btn">View Full Profile &rarr;</a>' +
+      "</div>" +
+      '<div class="map-detail__links">' +
+        '<a href="/claim-listing/?provider=' + esc(p.slug) + '">Claim this listing</a>' +
+      "</div>" +
+      '<div class="map-detail__divider"></div>' +
+      countyLine +
+      '<div class="map-detail__section"><span class="map-detail__section-label">Location</span>' + loc + "</div>" +
+      (svcNames ? '<div class="map-detail__section"><span class="map-detail__section-label">Listed Services</span>' + esc(svcNames) + "</div>" : "");
+
+    els.detail.classList.add("is-open");
+    els.detail.parentElement.classList.add("detail-open");
+    els.detail.scrollTop = 0;
+  }
+
+  function closeDetail() {
+    if (!els.detail) return;
+    els.detail.classList.remove("is-open");
+    els.detail.parentElement.classList.remove("detail-open");
   }
 
   // ---- info window content ---------------------------------------------------
@@ -131,6 +196,7 @@
 
   // ---- apply filter ----------------------------------------------------------
   function applyFilter() {
+    closeDetail();
     var visible = [], visMarkers = [];
     state.markers.forEach(function (m) {
       var show = matches(m.provider);
@@ -281,8 +347,9 @@
       });
     }
 
-    // results click
+    // results click — open detail panel
     els.results.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return; // let action links navigate normally
       var li = e.target.closest(".map-result");
       if (!li) return;
       var idx = +li.getAttribute("data-i");
@@ -290,10 +357,14 @@
       if (!m) return;
       state.map.panTo(m.marker.getPosition());
       if (state.map.getZoom() < 12) state.map.setZoom(13);
-      state.info.setContent(popupHTML(m.provider));
-      state.info.open(state.map, m.marker);
       highlight(idx);
+      openDetail(m.provider);
     });
+
+    // back button
+    if (els.detailBack) {
+      els.detailBack.addEventListener("click", closeDetail);
+    }
 
     // border toggles
     els.toggles.forEach(function (btn) {

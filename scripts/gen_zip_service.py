@@ -138,6 +138,10 @@ for pc in sorted(by_zip):
       </div>
       <div class="map-panel__meta" id="resultCount">Loading providers&hellip;</div>
       <ul class="map-results" id="resultsList"></ul>
+      <div class="map-detail" id="mapDetail">
+        <button class="map-detail__back" id="mapDetailBack">&#8592; Back to results</button>
+        <div id="mapDetailBody"></div>
+      </div>
     </aside>
     <div class="map-canvas-wrap">
       <div id="vaMap" class="map-canvas"></div>
