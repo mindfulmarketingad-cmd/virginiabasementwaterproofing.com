@@ -74,12 +74,16 @@ FOOTER = '''<footer class="site-footer">
 
 
 def google_maps_head_scripts(map_config_js):
-    """Returns <script> tags for Google Maps + MarkerClusterer + map-local.js.
+    """Returns <script> tags for the Leaflet map + MarkerCluster + map-local.js.
     map_config_js: a JS object literal string, e.g. '{city:"Virginia Beach"}'
+    (Name kept for backwards compatibility; uses free Leaflet/OSM tiles now.)
     """
     return f'''<script>window.MAP_CONFIG = {map_config_js};</script>
-<script async src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS_KEY}&loading=async&callback=Function.prototype"></script>
-<script src="https://cdn.jsdelivr.net/npm/@googlemaps/markerclusterer@2.5.3/dist/index.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="/js/map-local.js" defer></script>'''
 
 

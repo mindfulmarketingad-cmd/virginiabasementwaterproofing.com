@@ -1,16 +1,15 @@
 /* ============================================================================
    Homepage map hero — Virginia waterproofing services finder.
 
-   Data is PRE-FETCHED and static (data/va-providers.json, sourced from Google
-   Maps via Outscraper) so there are ZERO runtime Places/Geocoding API calls.
-   The only Google API used at runtime is the Maps JavaScript base map itself.
-   ZIP search resolves against a local centroid table (no Geocoding billing).
-   Business phone numbers are intentionally never shown — leads route to us.
+   Base map: Leaflet + free CARTO/OpenStreetMap raster tiles (NO API key, NO
+   billing). Provider data is PRE-FETCHED and static (data/va-providers.json).
+   There are ZERO paid map API calls — tiles are served free by CARTO/OSM and
+   the optional satellite layer by Esri. Business phone numbers are never shown.
    ============================================================================ */
 (function () {
   "use strict";
 
-  var VA_CENTER = { lat: 37.62, lng: -79.2 };
+  var VA_CENTER = [37.62, -79.2];
   var VA_ZOOM = 7;
 
   var els = {
@@ -30,7 +29,6 @@
 
   var state = {
     map: null,
-    info: null,
     markers: [],        // { marker, provider }
     clusterer: null,
     providers: [],
@@ -60,6 +58,17 @@
     "general":       "General Contractor",
     "mold":          "Mold Remediation"
   };
+
+  // navy teardrop pin (inline SVG — no external image, avoids broken icon paths)
+  var PIN = L.divIcon({
+    className: "vbw-pin",
+    html: '<svg width="26" height="34" viewBox="0 0 26 34" xmlns="http://www.w3.org/2000/svg">' +
+          '<path d="M13 0C5.8 0 0 5.8 0 13c0 9.6 13 21 13 21s13-11.4 13-21C26 5.8 20.2 0 13 0z" fill="#1b2a6b"/>' +
+          '<circle cx="13" cy="13" r="5" fill="#fff"/></svg>',
+    iconSize: [26, 34],
+    iconAnchor: [13, 34],
+    popupAnchor: [0, -32]
+  });
 
   function stars(r) {
     if (r == null) return "";
@@ -131,7 +140,7 @@
     els.detail.parentElement.classList.remove("detail-open");
   }
 
-  // ---- info window content (NO phone numbers) ------------------------------
+  // ---- popup content (NO phone numbers) ------------------------------------
   function popupHTML(p) {
     var rate = p.rating != null
       ? '<div class="gm-pop__rate">' + stars(p.rating) + " " + p.rating +
@@ -182,8 +191,6 @@
   }
 
   // ---- apply current filter to markers + list (closes detail if open) -----
-  // Works whether or not the MarkerClusterer library is present: with it, the
-  // clusterer owns the markers; without it, we toggle marker.setMap directly.
   function applyFilter() {
     closeDetail();
     var visible = [];
@@ -191,11 +198,10 @@
     state.markers.forEach(function (m) {
       var show = matches(m.provider);
       if (show) { visible.push(m.provider); visMarkers.push(m.marker); }
-      if (!state.clusterer) m.marker.setMap(show ? state.map : null);
     });
     if (state.clusterer) {
-      state.clusterer.clearMarkers();
-      state.clusterer.addMarkers(visMarkers);
+      state.clusterer.clearLayers();
+      state.clusterer.addLayers(visMarkers);
     }
     // sort list: rating desc then reviews desc
     visible.sort(function (a, b) {
@@ -210,82 +216,89 @@
     btn.classList.toggle("is-on", on);
 
     if (kind === "city") {
-      if (!state.cityLayer) {
-        state.cityLayer = new google.maps.Data();
-        state.cityLayer.setStyle({ fillOpacity: 0, strokeColor: "#1b2a6b", strokeWeight: 1.1, clickable: false });
-      }
       if (on) {
-        if (!state.layersLoaded.city) { state.cityLayer.loadGeoJson("/data/va-cities.geojson"); state.layersLoaded.city = true; }
-        state.cityLayer.setMap(state.map);
-      } else {
-        state.cityLayer.setMap(null);
+        if (!state.layersLoaded.city) {
+          state.layersLoaded.city = true;
+          fetch("/data/va-cities.geojson").then(function (r) { return r.json(); }).then(function (geo) {
+            state.cityLayer = L.geoJSON(geo, {
+              style: { fill: false, color: "#1b2a6b", weight: 1.1, interactive: false }
+            });
+            if (btn.classList.contains("is-on")) state.cityLayer.addTo(state.map);
+          });
+        } else if (state.cityLayer) {
+          state.cityLayer.addTo(state.map);
+        }
+      } else if (state.cityLayer) {
+        state.map.removeLayer(state.cityLayer);
       }
     } else {
-      if (!state.zipLayer) {
-        state.zipLayer = new google.maps.Data();
-        state.zipLayer.setStyle({ fillOpacity: 0, strokeColor: "#2d55b0", strokeWeight: 0.6, clickable: false });
-      }
       if (on) {
         if (!state.layersLoaded.zip) {
-          btn.textContent = "";
-          var dot = document.createElement("span"); dot.className = "dot";
-          btn.appendChild(dot); btn.appendChild(document.createTextNode(" Loading…"));
-          state.zipLayer.loadGeoJson("/data/va-zips.geojson", null, function () {
-            btn.innerHTML = '<span class="dot"></span> ZIP borders';
-          });
           state.layersLoaded.zip = true;
+          btn.innerHTML = '<span class="dot"></span> Loading…';
+          fetch("/data/va-zips.geojson").then(function (r) { return r.json(); }).then(function (geo) {
+            state.zipLayer = L.geoJSON(geo, {
+              style: { fill: false, color: "#2d55b0", weight: 0.6, interactive: false }
+            });
+            btn.innerHTML = '<span class="dot"></span> ZIP borders';
+            if (btn.classList.contains("is-on")) state.zipLayer.addTo(state.map);
+          });
+        } else if (state.zipLayer) {
+          state.zipLayer.addTo(state.map);
         }
-        state.zipLayer.setMap(state.map);
-      } else {
-        state.zipLayer.setMap(null);
+      } else if (state.zipLayer) {
+        state.map.removeLayer(state.zipLayer);
       }
     }
   }
 
-  // ---- build everything once Google Maps + data are ready ------------------
-  function buildMap(MapsLib, MarkerLib) {
-    state.map = new MapsLib.Map(els.map, {
+  // ---- build everything once Leaflet + data are ready ----------------------
+  function buildMap() {
+    state.map = L.map(els.map, {
       center: VA_CENTER,
       zoom: VA_ZOOM,
-      mapTypeControl: true,          // native Map | Satellite toggle
-      mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DEFAULT,
-        mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"]
-      },
-      streetViewControl: false,
-      fullscreenControl: true,
       zoomControl: true,
-      gestureHandling: "greedy",
-      clickableIcons: false
+      scrollWheelZoom: true,
+      worldCopyJump: true
     });
-    state.info = new MapsLib.InfoWindow();
-    els.loading.classList.add("is-hidden");
+
+    // free base layers — CARTO Voyager (street) + Esri World Imagery (satellite)
+    var street = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      { subdomains: "abcd", maxZoom: 20,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' }
+    ).addTo(state.map);
+
+    var satellite = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      { maxZoom: 19, attribution: "Tiles &copy; Esri" }
+    );
+
+    L.control.layers({ "Map": street, "Satellite": satellite }, null, { position: "topright" }).addTo(state.map);
 
     // blue outline around the state of Virginia
-    var vaBorder = new google.maps.Data();
-    vaBorder.setStyle({ fillOpacity: 0, strokeColor: "#2d55b0", strokeWeight: 2.5, clickable: false });
-    vaBorder.loadGeoJson("/data/va-state.geojson");
-    vaBorder.setMap(state.map);
+    fetch("/data/va-state.geojson").then(function (r) { return r.json(); }).then(function (geo) {
+      L.geoJSON(geo, { style: { fill: false, color: "#2d55b0", weight: 2.5, interactive: false } }).addTo(state.map);
+    }).catch(function () {});
+
+    els.loading.classList.add("is-hidden");
+
+    // clusterer
+    state.clusterer = L.markerClusterGroup({
+      maxClusterRadius: 50,
+      showCoverageOnHover: false,
+      chunkedLoading: true
+    });
+    state.map.addLayer(state.clusterer);
 
     // build markers
     state.providers.forEach(function (p, idx) {
       p._idx = idx;
-      var marker = new MarkerLib.Marker({
-        position: { lat: p.lat, lng: p.lng },
-        title: p.name
-      });
-      marker.addListener("click", function () {
-        state.info.setContent(popupHTML(p));
-        state.info.open(state.map, marker);
-        highlight(idx);
-      });
+      var marker = L.marker([p.lat, p.lng], { icon: PIN, title: p.name });
+      marker.bindPopup(popupHTML(p));
+      marker.on("click", function () { highlight(idx); });
       state.markers.push({ marker: marker, provider: p });
     });
-
-    // cluster if the library is available (graceful fallback to plain markers)
-    if (window.markerClusterer && window.markerClusterer.MarkerClusterer) {
-      state.clusterer = new markerClusterer.MarkerClusterer({ map: state.map, markers: [] });
-    }
 
     applyFilter();
   }
@@ -318,10 +331,9 @@
       if (z && !/^\d{5}$/.test(z)) { els.zipInput.focus(); return; }
       state.activeZip = z;
       if (z && state.centroids[z]) {
-        state.map.setCenter({ lat: state.centroids[z][0], lng: state.centroids[z][1] });
-        state.map.setZoom(11);
+        state.map.setView([state.centroids[z][0], state.centroids[z][1]], 11);
       } else if (!z) {
-        state.map.setCenter(VA_CENTER); state.map.setZoom(VA_ZOOM);
+        state.map.setView(VA_CENTER, VA_ZOOM);
       }
       applyFilter();
     });
@@ -334,8 +346,8 @@
       var idx = +li.getAttribute("data-i");
       var m = state.markers[idx];
       if (!m) return;
-      state.map.panTo(m.marker.getPosition());
-      if (state.map.getZoom() < 12) state.map.setZoom(13);
+      var z = state.map.getZoom() < 12 ? 13 : state.map.getZoom();
+      state.map.setView(m.marker.getLatLng(), z);
       highlight(idx);
       openDetail(m.provider);
     });
@@ -365,12 +377,7 @@
     state.categories = res[1];
     state.centroids = res[2];
     wireUI();
-    return Promise.all([
-      google.maps.importLibrary("maps"),
-      google.maps.importLibrary("marker")
-    ]);
-  }).then(function (libs) {
-    buildMap(libs[0], libs[1]);
+    buildMap();
   }).catch(function (err) {
     fail("Map could not load. Please refresh the page.");
     if (window.console) console.error(err);
