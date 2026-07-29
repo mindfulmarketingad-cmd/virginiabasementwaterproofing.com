@@ -54,6 +54,326 @@ REGION_LABEL = {
     "central-western-valley": "Central & Western Valley",
 }
 
+# Region-specific soil/geography blurb -- real variance across the 653 city
+# pages instead of one paragraph copy-pasted everywhere.
+REGION_CAUSES = {
+    "hampton-roads": (
+        "a high water table and sandy, low-lying coastal soil. Groundwater sits close to the "
+        "surface for much of the year, so basements and crawl spaces here fight hydrostatic "
+        "pressure almost constantly, and storm surge or nor'easters can push the table up "
+        "further overnight."),
+    "northern-virginia": (
+        "heavy clay soil that expands when wet and shrinks when dry. That cycle stresses "
+        "foundation walls every season, and the region's dense, older housing stock means "
+        "many foundations were built before modern drainage codes existed."),
+    "richmond": (
+        "clay-heavy Piedmont soil combined with mature tree roots common in older "
+        "neighborhoods. Roots seeking moisture can crack footings and clog drain tile, while "
+        "clay swelling adds constant pressure against basement walls."),
+    "central-virginia": (
+        "rolling Piedmont clay and a mix of older rural foundations. Grading that was adequate "
+        "decades ago often no longer directs water away from the house, and clay expansion "
+        "does the rest."),
+    "shenandoah-valley": (
+        "limestone bedrock and karst terrain, which can create unpredictable underground water "
+        "flow and, in some areas, sinkhole risk. Valley clay soils on top of that bedrock still "
+        "expand and contract with the seasons."),
+    "western-virginia": (
+        "steep terrain and rocky, mountainous soil. Water moves fast downhill toward "
+        "foundations built into hillsides, and older homes in the region often have minimal "
+        "exterior drainage to intercept it."),
+    "central-western-valley": (
+        "a transitional mix of Piedmont clay and valley limestone geology. Foundations here see "
+        "both the clay expansion common further east and the bedrock drainage quirks typical of "
+        "the Shenandoah Valley."),
+}
+REGION_CAUSES_GENERIC = (
+    "Virginia's mix of clay-heavy soil and a high water table in many areas. Clay expands when "
+    "saturated and contracts when dry, and that seasonal cycle puts steady pressure on "
+    "foundation walls and footings statewide.")
+
+# Per-service facts used in the FAQ. Ranges match the homepage cost table so the
+# whole site quotes the same numbers.
+SERVICE_INFO = {
+    "waterproofing": {
+        "cost": "$3,000&ndash;$9,000 for an interior drainage system, or $8,000&ndash;$15,000+ "
+                "for exterior waterproofing",
+        "duration": "1&ndash;3 days for an interior system; exterior work can take a week or more "
+                    "because it involves excavation",
+        "urgent": False,
+        "warranty": "Reputable installers back interior drainage and sump systems with a "
+                    "transferable warranty, often 10&ndash;25 years.",
+    },
+    "crawl-space-encapsulation": {
+        "cost": "$1,500&ndash;$8,000 depending on square footage and whether a dehumidifier is included",
+        "duration": "1&ndash;2 days for most residential crawl spaces",
+        "urgent": False,
+        "warranty": "Vapor barrier and encapsulation warranties commonly run 15&ndash;25 years "
+                    "and are usually transferable.",
+    },
+    "foundation-repair": {
+        "cost": "$500&ndash;$1,500 per crack for injection repair, or several thousand dollars for "
+                "wall anchors or push piers on a bowing or settling wall",
+        "duration": "A single crack injection can be same-day; wall anchor or pier systems "
+                    "typically take 1&ndash;3 days",
+        "urgent": False,
+        "warranty": "Structural repairs like wall anchors and piers are usually backed by a "
+                    "lifetime transferable warranty from the manufacturer.",
+    },
+    "sump-pump-installation": {
+        "cost": "$1,000&ndash;$3,500 including a battery-backup pump",
+        "duration": "Most installations are completed in a single day",
+        "urgent": True,
+        "warranty": "Pump manufacturers typically warranty the unit itself for 3&ndash;5 years, "
+                    "with the installer separately warrantying the labor.",
+    },
+    "french-drain-installation": {
+        "cost": "$2,000&ndash;$6,500 for an interior system, more for a full exterior French drain",
+        "duration": "1&ndash;2 days for interior drain tile; exterior drains can take longer "
+                    "depending on the run length",
+        "urgent": False,
+        "warranty": "Interior drain tile is commonly warrantied for the life of the system when "
+                    "paired with a sump pump.",
+    },
+    "basement-crack-repair": {
+        "cost": "$500&ndash;$1,500 per crack for epoxy or polyurethane injection",
+        "duration": "Most single-crack repairs are completed in a few hours",
+        "urgent": False,
+        "warranty": "Crack injection is typically warrantied against re-leaking for as long as "
+                    "you own the home.",
+    },
+    "basement-water-damage-restoration": {
+        "cost": "$1,500&ndash;$8,000+ depending on how much water intruded and whether drywall or "
+                "flooring needs replacing",
+        "duration": "Water extraction starts the same day; full structural drying can take "
+                    "3&ndash;5 days",
+        "urgent": True,
+        "warranty": "Restoration work itself is not usually warrantied the way installed "
+                    "systems are, since the goal is repair rather than a new product.",
+    },
+    "emergency-water-clean-up": {
+        "cost": "$500&ndash;$3,000 for emergency extraction, before any repair work",
+        "duration": "Response is typically same-day, and extraction itself can be finished in "
+                    "hours once a crew is on site",
+        "urgent": True,
+        "warranty": "Emergency clean-up is a response service, not an installed product, so it "
+                    "is not typically warrantied.",
+    },
+    "basement-remodeling": {
+        "cost": "$10,000&ndash;$35,000+ depending on finish level, egress windows, and square footage",
+        "duration": "2&ndash;6 weeks depending on scope",
+        "urgent": False,
+        "warranty": "Workmanship warranties for finishing work are usually 1&ndash;5 years; ask "
+                    "what is covered before signing.",
+    },
+    "black-mold-treatment": {
+        "cost": "$500&ndash;$6,000 depending on the affected area and whether testing is included",
+        "duration": "Small areas can be treated in a day; larger remediation jobs can take "
+                    "several days of containment and drying",
+        "urgent": True,
+        "warranty": "Mold remediation itself is not usually warrantied, but fixing the moisture "
+                    "source that caused it often is.",
+    },
+    "mobile-home-vapor-barrier": {
+        "cost": "$1,000&ndash;$4,000 depending on underbelly size and condition",
+        "duration": "Most jobs are completed in a single day",
+        "urgent": False,
+        "warranty": "Vapor barrier and belly-wrap repairs are commonly warrantied for "
+                    "10&ndash;15 years.",
+    },
+    "thermal-dry-floor-installation": {
+        "cost": "$3,000&ndash;$10,000 depending on square footage",
+        "duration": "1&ndash;3 days for most residential installations",
+        "urgent": False,
+        "warranty": "Insulated subfloor panel systems are commonly warrantied for "
+                    "10&ndash;25 years.",
+    },
+}
+
+# Natural-language noun for "what causes X" / "X emergency" questions -- avoids
+# awkward phrasing like "what causes foundation repair problems".
+PROBLEM_NOUN = {
+    "waterproofing": "wet basement problems",
+    "crawl-space-encapsulation": "crawl space moisture problems",
+    "foundation-repair": "foundation problems",
+    "sump-pump-installation": "basement flooding",
+    "french-drain-installation": "poor yard and foundation drainage",
+    "basement-crack-repair": "foundation cracks",
+    "basement-water-damage-restoration": "water damage",
+    "emergency-water-clean-up": "flooding emergencies",
+    "basement-remodeling": "the basement moisture issues that block finishing a space",
+    "black-mold-treatment": "mold growth",
+    "mobile-home-vapor-barrier": "moisture under mobile and manufactured homes",
+    "thermal-dry-floor-installation": "cold, damp subfloors",
+}
+
+with open(os.path.join(ROOT, "scripts", "zip_city_map.json"), encoding="utf-8") as f:
+    _ZIP_CITY_RAW = json.load(f)
+CITY_ZIPS = {}
+for _z, _c in _ZIP_CITY_RAW.items():
+    CITY_ZIPS.setdefault(_c, []).append(_z)
+for _c in CITY_ZIPS:
+    CITY_ZIPS[_c].sort()
+
+
+def faq_schema(qa_pairs):
+    plain = re.compile(r"&\w+;|<[^>]+>")
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": plain.sub(" ", q).strip(),
+             "acceptedAnswer": {"@type": "Answer", "text": plain.sub(" ", a).strip()}}
+            for q, a in qa_pairs],
+    })
+
+
+def faq_html(qa_pairs):
+    items = "".join(f'<div class="faq-item"><h2>{q}</h2><p>{a}</p></div>' for q, a in qa_pairs)
+    return f'''
+    <span class="eyebrow">Common Questions</span>
+    <div class="faq-list">{items}</div>'''
+
+
+def city_faq(svc, city, city_slug, rows, center):
+    """Per-page FAQ for a /find/<service>-<city>-va/ page.
+
+    Every answer pulls a real, page-specific fact (provider count, ZIP list,
+    average local rating, region geology) rather than repeating one paragraph
+    across all 653 city pages.
+    """
+    label, cat = svc["label"], svc["cat"]
+    info = SERVICE_INFO.get(svc["find"], {})
+    problem = PROBLEM_NOUN.get(svc["find"], f"{label.lower()} problems")
+    n = len(rows)
+    rated = [p for p in rows if p.get("rating")]
+    avg = sum(p["rating"] for p in rated) / len(rated) if rated else 0
+    zips = CITY_ZIPS.get(city, [])
+    region = REGION_BY_SLUG.get(city_slug)
+    region_label = REGION_LABEL.get(region, "Virginia")
+    causes = REGION_CAUSES.get(region, REGION_CAUSES_GENERIC)
+    open_now = sum(1 for p in rows if p.get("open_24h"))
+
+    qa = []
+
+    qa.append((
+        f"How much does {label.lower()} cost in {esc(city)}, VA?",
+        f"Typical cost runs {info.get('cost', 'a few thousand dollars depending on scope')}. "
+        f"That is a statewide range, not a quote &mdash; the only accurate number comes from an "
+        f"on-site inspection, which is free through this site."))
+
+    if n:
+        rating_note = (f" The {len(rated)} with a public rating average {avg:.1f}&#9733;."
+                       if rated else "")
+        qa.append((
+            f"How many {label.lower()} contractors serve {esc(city)}?",
+            f"We currently track {n} contractor{'s' if n != 1 else ''} within about 25 miles of "
+            f"{esc(city)} that list {label.lower()} as a service.{rating_note} The map above "
+            f"shows all of them; submit a job request and we&rsquo;ll match you with the "
+            f"best-fit pro."))
+    else:
+        qa.append((
+            f"Are there {label.lower()} contractors near {esc(city)}?",
+            f"We don&rsquo;t yet have a {label.lower()} contractor listed within 25 miles of "
+            f"{esc(city)} in our directory. Submit a job request anyway &mdash; we work with "
+            f"contractors outside our standard listings and can often still find a match for "
+            f"your ZIP code."))
+
+    if zips:
+        shown = ", ".join(zips[:8])
+        more = f", and {len(zips) - 8} more" if len(zips) > 8 else ""
+        qa.append((
+            f"What ZIP codes does this cover near {esc(city)}?",
+            f"This map includes ZIP code{'s' if len(zips) != 1 else ''} {shown}{more} in and "
+            f"around {esc(city)}. Search any of them above, or type your own ZIP to recenter "
+            f"the map."))
+
+    qa.append((
+        f"What causes {problem} in {esc(city)}?",
+        f"{esc(city)} sits in the {esc(region_label)} region, where the main driver is "
+        f"{causes}"))
+
+    if info.get("urgent"):
+        emergency_note = (
+            f" {open_now} of the {n} contractors listed near {esc(city)} are open 24 hours."
+            if n and open_now else
+            " Mention that it's urgent in your job request and we'll prioritize the match.")
+        qa.append((
+            f"How fast can someone respond to {problem} in {esc(city)}?",
+            f"Most companies that offer {label.lower()} treat active water intrusion as an "
+            f"emergency call and can respond same-day.{emergency_note}"))
+    else:
+        qa.append((
+            f"How long does {label.lower()} take in {esc(city)}?",
+            f"{info.get('duration', 'Timing depends on the scope of the job')}. Your matched "
+            f"contractor will confirm an exact schedule during the free on-site estimate."))
+
+    qa.append((
+        f"Is {label.lower()} covered by a warranty in {esc(city)}?",
+        info.get("warranty", "Ask any contractor you're considering exactly what their warranty "
+                             "covers and whether it transfers if you sell the home.")))
+
+    qa.append((
+        f"How do I get a free {label.lower()} quote in {esc(city)}?",
+        f"Use the map above or submit a job request with your ZIP code. We match you with a "
+        f"licensed contractor covering {esc(city)}, and they contact you directly &mdash; "
+        f"usually within 1&ndash;3 business days. There is no cost and no obligation."))
+
+    return qa
+
+
+def statewide_faq(svc, n_total, n_cities):
+    """Per-page FAQ for a /find/<service>-va/ statewide page."""
+    label = svc["label"]
+    info = SERVICE_INFO.get(svc["find"], {})
+    problem = PROBLEM_NOUN.get(svc["find"], f"{label.lower()} problems")
+    rows = [p for p in PARTNERS if svc["cat"] in (p.get("cats") or [])]
+    rated = [p for p in rows if p.get("rating")]
+    avg = sum(p["rating"] for p in rated) / len(rated) if rated else 0
+
+    qa = [
+        (f"How much does {label.lower()} cost in Virginia?",
+         f"Typical cost runs {info.get('cost', 'a few thousand dollars depending on scope')} "
+         f"statewide. Prices vary by region and by how much excavation or structural work is "
+         f"involved &mdash; the only accurate number comes from a free on-site inspection."),
+
+        (f"How many {label.lower()} contractors are listed in Virginia?",
+         f"We currently track {n_total} contractors offering {label.lower()} across "
+         f"{n_cities} Virginia cities and towns."
+         + (f" Of the {len(rated)} with a public Google rating, the average is {avg:.1f}&#9733;."
+            if rated else "")),
+
+        (f"What causes {problem} across Virginia?",
+         f"Mostly {REGION_CAUSES_GENERIC} The specifics vary by region &mdash; coastal Hampton "
+         f"Roads deals with a high water table, while the Shenandoah Valley's limestone bedrock "
+         f"creates its own drainage quirks. Open the city-specific map below for detail on your area."),
+    ]
+
+    if info.get("urgent"):
+        qa.append((
+            f"Is {label.lower()} available as an emergency service?",
+            "Yes &mdash; most companies offering this service treat active water intrusion as "
+            "an emergency call. Note that it's urgent in your job request and we will "
+            "prioritize the match."))
+    else:
+        qa.append((
+            f"How long does {label.lower()} take?",
+            f"{info.get('duration', 'Timing depends on the scope of the job')}. Your matched "
+            f"contractor will confirm an exact schedule during the free on-site estimate."))
+
+    qa.append((
+        f"Is {label.lower()} covered by a warranty?",
+        info.get("warranty", "Ask any contractor you're considering exactly what their warranty "
+                             "covers and whether it transfers if you sell the home.")))
+
+    qa.append((
+        "How do I get a free quote?",
+        "Search the map above by ZIP code, or submit a job request directly. We match you with "
+        "a licensed contractor covering your area, and they contact you within 1&ndash;3 "
+        "business days. There is no cost and no obligation."))
+
+    return qa
+
 
 def city_center(city_name):
     """Average the centroids of every ZIP mapped to this city."""
@@ -84,10 +404,11 @@ def providers_near(center, cat, km=40):
 
 
 # ---------- page shell ----------
-def page(title, desc, canonical, body, find_config=None, extra_head=""):
+def page(title, desc, canonical, body, find_config=None, extra_head="", faq_qa=None):
     cfg = ""
     if find_config is not None:
         cfg = f"\n<script>window.FIND_CONFIG = {json.dumps(find_config)};</script>"
+    schema = f"\n<script type=\"application/ld+json\">{faq_schema(faq_qa)}</script>" if faq_qa else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +425,7 @@ def page(title, desc, canonical, body, find_config=None, extra_head=""):
 <meta property="og:url" content="{BASE}{canonical}">
 <link rel="stylesheet" href="/css/styles.css">
 {SEARCHMAP_HEAD}
-{ADSENSE}{cfg}{extra_head}
+{ADSENSE}{cfg}{extra_head}{schema}
 </head>
 <body>
 {SITE_HEADER}
@@ -200,6 +521,8 @@ def build_statewide(svc, city_pages):
         "No providers are listed for this service yet &mdash; submit a job request "
         "and we&rsquo;ll match you manually.")
 
+    qa = statewide_faq(svc, len(rows), len(city_pages))
+
     body = f'''<main>
 {searchmap_section(f"Find {esc(label)} in Virginia", intro, crumb)}
 
@@ -215,6 +538,12 @@ def build_statewide(svc, city_pages):
 
 {legacy.get("body", "")}
 
+<section class="section section--soft">
+  <div class="container">
+    {faq_html(qa)}
+  </div>
+</section>
+
 <section class="section section--navy">
   <div class="container" style="text-align:center;">
     <h2>Instant Free Quote</h2>
@@ -226,7 +555,7 @@ def build_statewide(svc, city_pages):
 </main>
 '''
     cfg = {"cat": cat, "service": label, "scope": "va"}
-    write(f"find/{find}-va", page(esc(title), esc(desc), url, body, cfg))
+    write(f"find/{find}-va", page(esc(title), esc(desc), url, body, cfg, faq_qa=qa))
     return url
 
 
@@ -270,6 +599,8 @@ def build_city(svc, city_slug):
         "and we&rsquo;ll match you manually.")
     strip = provider_strip(rows, f"Top-Rated {esc(label)} Pros Near {esc(city)}", empty_note)
 
+    qa = city_faq(svc, city, city_slug, rows, center)
+
     body = f'''<main>
 {searchmap_section(f"Find {esc(label)} in {esc(city)}, VA", intro, crumb)}
 
@@ -283,13 +614,19 @@ def build_city(svc, city_slug):
     </div>
   </div>
 </section>
+
+<section class="section section--soft">
+  <div class="container">
+    {faq_html(qa)}
+  </div>
+</section>
 </main>
 '''
     cfg = {"cat": cat, "service": label, "city": city, "scope": "city"}
     if center:
         cfg["center"] = center
         cfg["zoom"] = 11
-    write(f"find/{find}-{city_slug}-va", page(esc(title), esc(desc), url, body, cfg))
+    write(f"find/{find}-{city_slug}-va", page(esc(title), esc(desc), url, body, cfg, faq_qa=qa))
     return url, len(rows)
 
 

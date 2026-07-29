@@ -1064,7 +1064,7 @@ img { max-width: 100%; display: block; }
   background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--blue);
   border-radius: var(--radius); padding: 16px 18px;
 }
-.faq-item h3 { margin: 0 0 6px; font-size: 1rem; color: var(--navy); }
+.faq-item h2, .faq-item h3 { margin: 0 0 6px; font-size: 1rem; color: var(--navy); }
 .faq-item p { margin: 0; font-size: .94rem; }
 
 @media (max-width: 480px) {
