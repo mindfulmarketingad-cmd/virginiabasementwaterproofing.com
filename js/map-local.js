@@ -35,7 +35,7 @@
   var state = {
     map:      null,
     markers:  [],
-    clusterer:null,
+    markerLayer:null,
     providers:[],
     centroids:{},
     categories:[],
@@ -213,9 +213,9 @@
       var show = matches(m.provider);
       if (show) { visible.push(m.provider); visMarkers.push(m.marker); }
     });
-    if (state.clusterer) {
-      state.clusterer.clearLayers();
-      state.clusterer.addLayers(visMarkers);
+    if (state.markerLayer) {
+      state.markerLayer.clearLayers();
+      visMarkers.forEach(function (m) { state.markerLayer.addLayer(m); });
     }
     visible.sort(function (a, b) {
       return (b.rating || 0) - (a.rating || 0) || (b.reviews || 0) - (a.reviews || 0);
@@ -309,13 +309,10 @@
 
     els.loading.classList.add("is-hidden");
 
-    // clusterer
-    state.clusterer = L.markerClusterGroup({
-      maxClusterRadius: 50,
-      showCoverageOnHover: false,
-      chunkedLoading: true
-    });
-    state.map.addLayer(state.clusterer);
+    // plain layer group -- every provider gets its own pin, never grouped into
+    // a cluster bubble, even at low zoom with many providers in one area.
+    state.markerLayer = L.layerGroup();
+    state.map.addLayer(state.markerLayer);
 
     state.providers.forEach(function (p, idx) {
       p._idx = idx;

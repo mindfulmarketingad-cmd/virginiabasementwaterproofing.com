@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="1200" height="675" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1b2a6b"/>
+  <text x="40" y="40" font-size="26" font-weight="800" fill="#ffffff">The Order I Actually Follow, Every Time</text>
+
+  <!-- 5 steps, stacked -->
+  <!-- Step 1 -->
+  <rect x="60" y="90" width="1080" height="96" rx="10" fill="#eaeffa" stroke="#2d55b0" stroke-width="2"/>
+  <circle cx="130" cy="138" r="32" fill="#2d55b0"/>
+  <text x="130" y="149" text-anchor="middle" font-size="28" fill="#fff" font-weight="800">1</text>
+  <text x="185" y="128" font-size="21" font-weight="800" fill="#1b2a6b">Diagnose the water source</text>
+  <text x="185" y="155" font-size="15" fill="#5a6b7b">Hose test the exterior wall, check grading and downspouts, watch where water actually enters after rain.</text>
+
+  <!-- Step 2 -->
+  <rect x="60" y="196" width="1080" height="96" rx="10" fill="#eafaf0" stroke="#1f8a4c" stroke-width="2"/>
+  <circle cx="130" cy="244" r="32" fill="#1f8a4c"/>
+  <text x="130" y="255" text-anchor="middle" font-size="28" fill="#fff" font-weight="800">2</text>
+  <text x="185" y="234" font-size="21" font-weight="800" fill="#1b2a6b">Fix the cheap causes first</text>
+  <text x="185" y="261" font-size="15" fill="#5a6b7b">Extend downspouts 6+ feet, regrade soil to slope away from the house, clear gutters.</text>
+
+  <!-- Step 3 -->
+  <rect x="60" y="302" width="1080" height="96" rx="10" fill="#fdeef0" stroke="#c8102e" stroke-width="2"/>
+  <circle cx="130" cy="350" r="32" fill="#c8102e"/>
+  <text x="130" y="361" text-anchor="middle" font-size="28" fill="#fff" font-weight="800">3</text>
+  <text x="185" y="340" font-size="21" font-weight="800" fill="#1b2a6b">Seal active cracks</text>
+  <text x="185" y="367" font-size="15" fill="#5a6b7b">Epoxy or polyurethane injection for wall cracks; hydraulic cement for floor cracks.</text>
+
+  <!-- Step 4 -->
+  <rect x="60" y="408" width="1080" height="96" rx="10" fill="#eaeffa" stroke="#2d55b0" stroke-width="2"/>
+  <circle cx="130" cy="456" r="32" fill="#2d55b0"/>
+  <text x="130" y="467" text-anchor="middle" font-size="28" fill="#fff" font-weight="800">4</text>
+  <text x="185" y="446" font-size="21" font-weight="800" fill="#1b2a6b">Install drainage if seepage persists</text>
+  <text x="185" y="473" font-size="15" fill="#5a6b7b">Interior drain tile and sump pump, or exterior French drain and membrane for chronic cases.</text>
+
+  <!-- Step 5 -->
+  <rect x="60" y="514" width="1080" height="96" rx="10" fill="#eafaf0" stroke="#1f8a4c" stroke-width="2"/>
+  <circle cx="130" cy="562" r="32" fill="#1f8a4c"/>
+  <text x="130" y="573" text-anchor="middle" font-size="28" fill="#fff" font-weight="800">5</text>
+  <text x="185" y="552" font-size="21" font-weight="800" fill="#1b2a6b">Control humidity and maintain it</text>
+  <text x="185" y="579" font-size="15" fill="#5a6b7b">Run a dehumidifier, test the sump pump quarterly, and recheck grading every spring.</text>
+</svg>

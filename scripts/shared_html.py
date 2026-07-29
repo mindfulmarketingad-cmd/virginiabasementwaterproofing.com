@@ -35,6 +35,7 @@ MAIN_NAV = '''<nav class="main-nav" id="main-nav" aria-label="Primary">
       <a href="/find/">Find</a>
       <a href="/reviews/">Reviews</a>
       <a href="/partners/">Partners</a>
+      <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>'''
 

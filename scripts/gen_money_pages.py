@@ -333,6 +333,7 @@ SITE_HEADER = '''<header class="site-header">
       <a href="/find/">Find</a>
       <a href="/reviews/">Reviews</a>
       <a href="/partners/">Partners</a>
+      <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>
     <div class="header-right">
