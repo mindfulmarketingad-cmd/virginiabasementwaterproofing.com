@@ -1,5 +1,5 @@
 """Shared HTML components for all generator scripts.
-No phone numbers anywhere. 'Submit Job Request' is the only CTA.
+No phone numbers anywhere. 'Instant Free Quote' is the only CTA.
 No emoji icons in the mega menu.
 """
 
@@ -42,7 +42,7 @@ SITE_HEADER = f'''<header class="site-header">
       <a href="/get-a-quote/">Free Estimate</a>
     </nav>
     <div class="header-right">
-      <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Instant Free Quote</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
@@ -54,7 +54,7 @@ FOOTER = '''<footer class="site-footer">
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Instant Free Quote</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/partners/">Contractors</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
@@ -87,7 +87,7 @@ def google_maps_head_scripts(map_config_js):
 <script src="/js/map-local.js" defer></script>'''
 
 
-def map_hero_section(breadcrumb_html, h1_text, description_html, cta_label="Submit Job Request"):
+def map_hero_section(breadcrumb_html, h1_text, description_html, cta_label="Instant Free Quote"):
     """Returns the full .map-hero section HTML for city/region/service pages."""
     return f'''<section class="map-hero">
   <div class="map-hero__bar">

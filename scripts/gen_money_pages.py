@@ -8,7 +8,7 @@ page with:
   - H2: [Service] Offered in [City]
   - H2: Why More [City] Homeowners Choose Us
   - H2: Service Area ZIP Codes
-  - H2: Submit a Job Request for [Service] in [City], VA  + "Submit Job Request"
+  - H2: Submit a Job Request for [Service] in [City], VA  + "Instant Free Quote"
   - "Get a Free Quote" CTA on every page
 """
 import os, re, html as html_mod, json, zipfile
@@ -355,7 +355,7 @@ SITE_HEADER = '''<header class="site-header">
       <a href="/virginia/">Cities</a>
     </nav>
     <div class="header-right">
-      <a href="/get-a-quote/" class="btn btn--primary header-cta">Submit Job Request</a>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Instant Free Quote</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
@@ -367,7 +367,7 @@ FOOTER = '''<footer class="site-footer">
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="btn btn--primary" href="/get-a-quote/">Submit Job Request</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Instant Free Quote</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
@@ -583,7 +583,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
       <h2>Submit a Job Request for {esc(sname)} in {esc(city)}, VA</h2>
       <p>Once you submit a job request, we&rsquo;ll connect you with the ideal licensed contractor for your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="/get-a-quote/" class="btn btn--primary btn--lg">Submit Job Request</a>
+        <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
         <a href="/virginia/" class="btn btn--ghost btn--lg">Browse Service Areas</a>
       </div>
     </div>

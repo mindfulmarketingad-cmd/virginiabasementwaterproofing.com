@@ -5,7 +5,7 @@ Same layout as the city/region pages: interactive Leaflet map with a dot at each
 contractor location, contractor listing cards, and the standard CTA band.
 
   H1:    [zip] [service]
-  Title: [zip] [service] professionals | Submit a Job Request
+  Title: [zip] [service] professionals | Instant Free Quote
 
 Reuses the data layer and shared HTML helpers from gen_cities.py by exec-ing the
 portion of that script that runs before its own generation loop.
@@ -120,7 +120,7 @@ for pc in sorted(by_zip):
         url       = f"/{pc}/{svc_slug}/"
         canonical = f"https://www.virginiabasementwaterproofing.org{url}"
         h1        = f"{pc} {svc_name}"
-        title     = f"{esc(h1)} professionals | Submit a Job Request"
+        title     = f"{esc(h1)} professionals | Instant Free Quote"
         desc      = (f"Find licensed {svc_name.lower()} professionals serving ZIP code {pc}"
                      f"{(' (' + esc(city) + ', VA)') if city else ''}. "
                      f"Compare ratings, view profiles, and submit a job request.")
