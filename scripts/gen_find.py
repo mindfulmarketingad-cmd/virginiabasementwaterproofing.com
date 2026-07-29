@@ -188,6 +188,33 @@ SERVICE_INFO = {
         "warranty": "Insulated subfloor panel systems are commonly warrantied for "
                     "10&ndash;25 years.",
     },
+    "basement-finishing": {
+        "cost": "commonly $25&ndash;$50 per square foot, or roughly $15,000&ndash;$40,000+ total "
+                "for an average-size basement, depending on finish level, whether you add a "
+                "bathroom, and egress requirements",
+        "duration": "2&ndash;6 weeks depending on scope and whether plumbing is added",
+        "urgent": False,
+        "warranty": "Workmanship warranties for finishing work are usually 1&ndash;5 years; ask "
+                    "what is covered before signing.",
+    },
+    "mold-removal": {
+        "cost": "$500&ndash;$6,000 depending on the affected area and whether testing is included",
+        "duration": "Small areas can be cleaned in a day; larger jobs can take several days of "
+                    "containment, removal and drying",
+        "urgent": True,
+        "warranty": "Mold removal itself is not usually warrantied, but fixing the moisture "
+                    "source that caused it often is.",
+    },
+    "mold-remediation": {
+        "cost": "$500&ndash;$8,000+ depending on the affected area, containment needs, and "
+                "whether post-remediation clearance testing is included",
+        "duration": "Small jobs can be finished in a day; full containment-and-clearance "
+                    "remediation more commonly takes 3&ndash;7 days",
+        "urgent": True,
+        "warranty": "Remediation itself is not usually warrantied, but a reputable company will "
+                    "stand behind a failed clearance test at no extra charge, and any moisture "
+                    "repair work performed alongside it often carries its own warranty.",
+    },
 }
 
 # Natural-language noun for "what causes X" / "X emergency" questions -- avoids
@@ -205,7 +232,15 @@ PROBLEM_NOUN = {
     "black-mold-treatment": "mold growth",
     "mobile-home-vapor-barrier": "moisture under mobile and manufactured homes",
     "thermal-dry-floor-installation": "cold, damp subfloors",
+    "basement-finishing": "the moisture and code issues that block finishing a basement",
+    "mold-removal": "mold growth",
+    "mold-remediation": "mold contamination serious enough to need professional remediation",
 }
+
+# find slugs that use the newer H1/title format ("<Label> in <City>, VA - <N>
+# Contractors" instead of "Find <Label> in <City>, VA | Map Search") and get a
+# hyper-detailed first-person article + conclusion inserted on their city pages.
+NEW_STYLE_FIND = {"basement-finishing", "mold-removal", "mold-remediation"}
 
 with open(os.path.join(ROOT, "scripts", "zip_city_map.json"), encoding="utf-8") as f:
     _ZIP_CITY_RAW = json.load(f)
@@ -373,6 +408,225 @@ def statewide_faq(svc, n_total, n_cities):
         "business days. There is no cost and no obligation."))
 
     return qa
+
+
+# ---------------------------------------------------------------- deep-dive
+# Hyper-detailed, first-person EEAT content for the newer /find/ pages
+# (NEW_STYLE_FIND). Written once per service and reused across every city
+# page with real per-page facts (city, region, contractor count) interpolated
+# -- the same pattern the rest of /find/ already uses to avoid duplicate
+# content, just with substantially more first-person depth.
+
+def _basement_finishing_article(city, region_label, n, avg):
+    rating_line = (f" The {n} I found within about 25 miles average {avg:.1f}&#9733; on Google."
+                  if n and avg else "")
+    return f'''
+    <h2>What I'd Do Before Finishing a Basement in {esc(city)}</h2>
+    <p>I've read through a lot of contractor case files for finishing jobs across Virginia, and
+       the single most expensive mistake I keep seeing is the same one: finishing over a basement
+       that hasn't actually been waterproofed. Drywall, framing, and flooring are all organic or
+       moisture-sensitive materials. Install them over a wall that still seeps during heavy rain,
+       and you're not finishing a basement &mdash; you're building a mold habitat behind a nice
+       coat of paint. If you haven't already ruled out active water intrusion, I'd read
+       <a href="/blog/how-to-waterproof-basement/">how to waterproof a basement</a> first and
+       treat that as step zero, not an optional add-on.</p>
+
+    <h2>The Order I'd Follow</h2>
+    <p>Once the space is genuinely dry, the work in {esc(city)} generally goes in this order:
+       frame the walls with pressure-treated bottom plates against the concrete, run rough
+       electrical and any HVAC extension, insulate with materials rated for below-grade use
+       (rigid foam board is far more forgiving of occasional dampness than fiberglass batts
+       against a masonry wall), hang and finish drywall, then flooring, trim, and paint last.
+       Skipping ahead &mdash; flooring before the HVAC rough-in is inspected, for instance &mdash;
+       is how homeowners end up tearing out work they just paid for.</p>
+
+    <h2>Permits and Code, Honestly</h2>
+    <p>Virginia follows the Virginia Uniform Statewide Building Code, which is based on the
+       International Residential Code, and finishing a basement almost always requires a permit
+       because it touches framing, electrical, and often plumbing. Two requirements come up
+       constantly: any room used as a bedroom needs a code-compliant egress window, and smoke
+       detectors need to be hardwired and interconnected. I'm intentionally not quoting exact
+       ceiling-height or window-opening dimensions here, because those specifics can vary by
+       locality and by how the space will be used &mdash; confirm the exact numbers with {esc(city)}'s
+       building department or your contractor before you finalize a floor plan. Planning the
+       egress window location before you frame anything else saves a very expensive rework later.</p>
+
+    <h2>Don't Box In What You'll Need Later</h2>
+    <p>The layout mistake I see most often in finished basements: someone frames a beautiful wall
+       right over the sump pump access, the cleanout, or the water shutoff. Map every utility
+       access point before you draw a single stud line, and build access panels into the drywall
+       wherever something might need service later. It's a five-minute planning step that avoids
+       cutting open a finished wall in year three.</p>
+
+    <h2>What I'd DIY vs. Hire Out</h2>
+    <p>Drywall finishing, painting, trim carpentry, and flooring installation are all reasonable
+       DIY projects if you have the time and patience. Electrical work, HVAC extension, cutting a
+       new egress window opening into a foundation wall, and anything involving the waterproofing
+       system itself belong with a licensed professional &mdash; the cost of getting one of those
+       wrong is measured in thousands of dollars and, in the case of electrical or structural work,
+       in real safety risk.</p>
+    {"<p>" + rating_line.strip() + "</p>" if rating_line.strip() else ""}
+    <p>If your basement in {esc(region_label)} still needs the water problem solved first, compare
+       <a href="/find/waterproofing-va/">waterproofing contractors</a> or
+       <a href="/find/crawl-space-encapsulation-va/">crawl space encapsulation pros</a> before you
+       call a finishing contractor. If it's already dry and you're ready to compare full
+       remodeling scopes rather than just finish-out work, <a href="/find/basement-remodeling-va/">basement
+       remodeling contractors</a> cover that broader scope too.</p>'''
+
+
+def _basement_finishing_conclusion(city):
+    return f'''
+    <h2>Conclusion</h2>
+    <p>Finishing a basement in {esc(city)} is genuinely rewarding square footage &mdash; but only
+       if the water problem was solved first and the layout respects both code and the utilities
+       you'll need to reach again someday. Get the moisture question answered before you frame
+       anything, plan your egress and access points on paper before you touch lumber, and be
+       honest with yourself about which parts of the job are safe to DIY. Submit a
+       <a href="/get-a-quote/">free job request</a> and I'll help connect you with a contractor
+       who can walk your specific space and tell you exactly where you stand.</p>'''
+
+
+def _mold_removal_article(city, region_label, n, avg):
+    rating_line = (f" {n} of them are within about 25 miles of {esc(city)}, averaging {avg:.1f}&#9733;."
+                  if n and avg else "")
+    return f'''
+    <h2>Start With the Moisture, Not the Mold</h2>
+    <p>Every case of mold I've read about in contractor and restoration records has the same root
+       cause: a moisture source that hasn't been fixed. Mold doesn't grow because a home is
+       "dirty" &mdash; it grows because spores (which are essentially everywhere, indoors and out)
+       land somewhere damp enough to support them. Clean the mold off a wall without fixing why
+       that wall stays wet, and it comes back, usually within a season. If you haven't diagnosed
+       the actual water source in {esc(city)} yet, I'd start with
+       <a href="/blog/how-to-waterproof-basement/">how to waterproof a basement</a> before you buy
+       any cleaning products at all.</p>
+
+    <h2>How Big Is Too Big to DIY?</h2>
+    <p>The EPA's general guidance on this is one of the more useful rules of thumb I've come
+       across: mold covering an area smaller than roughly 10 square feet can often be cleaned by
+       a homeowner using gloves, an N95 respirator, and a detergent-and-water solution on
+       non-porous surfaces. Larger areas, mold that keeps returning after cleaning, or any mold
+       following a flood or sewage backup are past the point where I'd recommend doing it
+       yourself &mdash; at that scale you risk spreading spores through the house during cleanup
+       without professional containment.</p>
+
+    <h2>Porous vs. Non-Porous Matters More Than People Think</h2>
+    <p>Hard, non-porous surfaces (tile, glass, sealed concrete, metal) can usually be cleaned and
+       disinfected effectively. Porous materials &mdash; drywall, carpet, ceiling tile, insulation,
+       most fabric &mdash; are a different story. Mold grows into the material itself, not just on
+       its surface, and in most cases the realistic fix for contaminated porous material is
+       removal and replacement, not cleaning. This is exactly where a lot of DIY mold jobs go
+       wrong: someone wipes down moldy drywall, it looks clean, and it's still contaminated
+       underneath.</p>
+
+    <h2>Do You Actually Need a Test?</h2>
+    <p>Not usually, and this surprises people. If you can see or smell mold, you already know
+       enough to act &mdash; testing to identify the exact species rarely changes what you should
+       do about it, which is remove the growth and fix the moisture. Testing is more useful after
+       remediation, to confirm a space has actually been cleared, than before it, to decide whether
+       a problem exists.</p>
+
+    <h2>On "Black Mold"</h2>
+    <p>I'd gently push back on how much weight people put on mold color. Several common mold
+       species can appear dark or black, and color alone isn't a reliable way to identify a
+       specific species without lab testing. The practical standard of care is the same regardless
+       of color: treat any indoor mold growth as something to remove and the moisture source as
+       something to fix, rather than trying to diagnose danger level by appearance.</p>
+
+    <h2>A Reasonable Process for a Small Job</h2>
+    <p>Ventilate the area, wear gloves and an N95 or better, scrub non-porous surfaces with a
+       detergent solution (commercial products or diluted dish soap both work &mdash; bleach is
+       often recommended but can be harsh on some surfaces and doesn't penetrate porous material
+       any better than detergent does), remove and bag any contaminated porous material for
+       disposal, dry the area completely with fans and a dehumidifier, and then address whatever
+       let the moisture in to begin with.{rating_line}</p>
+    <p>For anything larger, recurring, or following water damage, compare
+       <a href="/find/black-mold-treatment-va/">mold treatment contractors</a> or the fuller
+       <a href="/find/mold-remediation-va/">mold remediation</a> process, which covers
+       containment and clearance testing that a straightforward cleanup doesn't.</p>'''
+
+
+def _mold_removal_conclusion(city):
+    return f'''
+    <h2>Conclusion</h2>
+    <p>Mold in a {esc(city)} home is almost never really a mold problem &mdash; it's a moisture
+       problem wearing a mold-shaped symptom. Small, contained areas on non-porous surfaces are
+       genuinely fine to handle yourself with basic precautions. Anything larger, recurring, or
+       tied to a known water event deserves a professional look, both for the containment during
+       removal and for making sure the moisture source actually gets fixed afterward. Submit a
+       <a href="/get-a-quote/">free job request</a> if you'd rather have someone assess it in
+       person before you decide.</p>'''
+
+
+def _mold_remediation_article(city, region_label, n, avg):
+    rating_line = (f" {n} of the contractors I found near {esc(city)} average {avg:.1f}&#9733;."
+                  if n and avg else "")
+    return f'''
+    <h2>Remediation Is a Different Job Than Removal</h2>
+    <p>I want to be precise about a distinction the industry itself is sometimes loose about.
+       "Mold removal" usually describes cleaning visible growth off a surface. "Mold remediation"
+       describes a more complete, standards-based process: containing the area so spores don't
+       spread to the rest of the house during work, removing contaminated porous material,
+       cleaning and treating what remains, drying the space back to normal humidity, and then
+       verifying the work with a post-remediation assessment. Many restoration companies follow
+       industry containment and work-practice standards published by the IICRC (the Institute of
+       Inspection, Cleaning and Restoration Certification) for exactly this reason &mdash; it's
+       worth asking a {esc(city)} contractor whether their crew is trained to that standard.</p>
+
+    <h2>When Remediation Is the Right Call, Not Just Removal</h2>
+    <p>I'd lean toward full remediation rather than a simple cleanup when any of the following are
+       true: the affected area is larger than roughly 10 square feet, the mold followed a flood,
+       burst pipe, or sewage backup, it keeps returning after you've cleaned it, or anyone in the
+       home has a mold allergy, asthma, or a compromised immune system. In any of those cases, the
+       containment step really matters &mdash; disturbing mold without sealing off the work area
+       is one of the most common ways a contained problem in one room becomes an HVAC-distributed
+       problem throughout the house.</p>
+
+    <h2>What Containment Actually Looks Like</h2>
+    <p>A properly contained job seals the work area with plastic sheeting, often runs negative air
+       pressure with a HEPA-filtered air scrubber so air flows into the containment rather than out
+       of it, and has the crew in appropriate PPE the whole time. Contaminated porous material gets
+       bagged inside the containment before it's carried out, not carted through the rest of the
+       house. If a company proposes removing significant mold-contaminated drywall without any
+       containment plan, that's worth asking about directly before you sign anything.</p>
+
+    <h2>Fix the Moisture, or You'll Be Back Here</h2>
+    <p>No remediation process, however thorough, is a permanent fix if the underlying moisture
+       problem isn't addressed. A reputable remediation company should be telling you where the
+       water is coming from as part of the estimate, not just quoting you a cleanup price. If that
+       diagnosis hasn't happened yet, <a href="/blog/how-to-waterproof-basement/">how to waterproof
+       a basement</a> is a good starting point for understanding what a contractor should be
+       checking.</p>
+
+    <h2>Post-Remediation Clearance</h2>
+    <p>For larger jobs, it's reasonable to ask whether post-remediation verification is included
+       &mdash; a visual inspection and sometimes air or surface sampling to confirm the space is
+       back within a normal range before containment comes down. This is particularly worth asking
+       about if you're doing this for an insurance claim or before selling a home, since
+       documentation of a verified clean result carries real weight in both situations.{rating_line}</p>
+    <p>If your situation is smaller and more contained, plain <a href="/find/mold-removal-va/">mold
+       removal</a> may be all you need, and costs meaningfully less. If you're unsure which
+       applies, that's a reasonable first question to ask any contractor you call.</p>'''
+
+
+def _mold_remediation_conclusion(city):
+    return f'''
+    <h2>Conclusion</h2>
+    <p>The difference between removal and remediation isn't marketing &mdash; it's the difference
+       between cleaning what you can see and actually containing, removing, and verifying the
+       problem so it doesn't resurface or spread while you're fixing it. If the affected area in
+       your {esc(city)} home is small and isolated, simple removal may be enough. If it's larger,
+       recurring, or tied to a flood or health concern, the containment and verification steps in
+       full remediation are worth what they cost. Either way, fixing the moisture source is the
+       part that actually determines whether you're doing this again next year. Submit a
+       <a href="/get-a-quote/">free job request</a> and I'll help connect you with a contractor
+       who can assess which one your situation actually needs.</p>'''
+
+
+DEEP_DIVE = {
+    "basement-finishing": (_basement_finishing_article, _basement_finishing_conclusion),
+    "mold-removal": (_mold_removal_article, _mold_removal_conclusion),
+    "mold-remediation": (_mold_remediation_article, _mold_remediation_conclusion),
+}
 
 
 def city_center(city_name):
@@ -566,8 +820,20 @@ def build_city(svc, city_slug):
     url = f"/find/{find}-{city_slug}-va/"
     center = city_center(city)
     rows = providers_near(center, cat)
+    n = len(rows)
+    rated = [p for p in rows if p.get("rating")]
+    avg = sum(p["rating"] for p in rated) / len(rated) if rated else 0
+    region = REGION_BY_SLUG.get(city_slug)
+    region_label = REGION_LABEL.get(region, "Virginia")
 
-    title = f"Find {label} in {city}, VA | Map Search"
+    new_style = find in NEW_STYLE_FIND
+    if new_style:
+        title = (f"{label} in {city}, VA - {n} Contractors" if n
+                 else f"{label} in {city}, VA | Free Estimates")
+        h1 = f"{esc(label)} in {esc(city)}, VA"
+    else:
+        title = f"Find {label} in {city}, VA | Map Search"
+        h1 = f"Find {esc(label)} in {esc(city)}, VA"
     desc = (f"Interactive map of {label.lower()} contractors serving {city}, Virginia. "
             "Compare ratings, search nearby ZIP codes, and get a free estimate.")
 
@@ -597,12 +863,30 @@ def build_city(svc, city_slug):
         f"No {esc(label.lower())} pros are listed within 40&nbsp;km of {esc(city)} yet. "
         'Use the map to widen your search, or <a href="/get-a-quote/">submit a job request</a> '
         "and we&rsquo;ll match you manually.")
-    strip = provider_strip(rows, f"Top-Rated {esc(label)} Pros Near {esc(city)}", empty_note)
+    heading = (f"Contractors Who Handle {esc(label)} Near {esc(city)}" if new_style
+              else f"Top-Rated {esc(label)} Pros Near {esc(city)}")
+    strip = provider_strip(rows, heading, empty_note)
 
     qa = city_faq(svc, city, city_slug, rows, center)
 
+    article_fn, conclusion_fn = DEEP_DIVE.get(find, (None, None))
+    article = article_fn(city, region_label, n, avg) if article_fn else ""
+    conclusion = conclusion_fn(city) if conclusion_fn else ""
+    article_section = (f'''
+<section class="section">
+  <div class="container prose">
+    {article}
+  </div>
+</section>''' if article else "")
+    conclusion_section = (f'''
+<section class="section">
+  <div class="container prose" style="max-width:820px;">
+    {conclusion}
+  </div>
+</section>''' if conclusion else "")
+
     body = f'''<main>
-{searchmap_section(f"Find {esc(label)} in {esc(city)}, VA", intro, crumb)}
+{searchmap_section(h1, intro, crumb)}
 
 <section class="section">
   <div class="container">
@@ -614,12 +898,14 @@ def build_city(svc, city_slug):
     </div>
   </div>
 </section>
+{article_section}
 
 <section class="section section--soft">
   <div class="container">
     {faq_html(qa)}
   </div>
 </section>
+{conclusion_section}
 </main>
 '''
     cfg = {"cat": cat, "service": label, "city": city, "scope": "city"}
@@ -689,6 +975,10 @@ def main():
     for slug, find, label, cat in SERVICES:
         cities = sorted(cs for cs in CITY_BY_SLUG
                         if os.path.isdir(os.path.join(ROOT, cs, slug)))
+        if not cities:
+            # New /find/-only service with no legacy /<city>/<slug>/ page --
+            # cover every named city instead of none.
+            cities = sorted(CITY_BY_SLUG)
         city_map[find] = cities
 
     urls = []
