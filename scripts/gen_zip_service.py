@@ -34,6 +34,23 @@ FOOTER          = ns["FOOTER"]
 PHONE_TEL       = ns["PHONE_TEL"]
 PHONE_DISP      = ns["PHONE_DISP"]
 
+# /find/ URL fragment per service, for the breadcrumb back to the statewide
+# searchmap that replaced /services/<slug>/. Canonical list: shared_html.SERVICES.
+FIND_SLUG = {
+    "basement-waterproofing": "waterproofing",
+    "crawl-space-encapsulation": "crawl-space-encapsulation",
+    "foundation-repair": "foundation-repair",
+    "sump-pump-installation": "sump-pump-installation",
+    "french-drain-installation": "french-drain-installation",
+    "basement-crack-repair": "basement-crack-repair",
+    "basement-water-damage-restoration": "basement-water-damage-restoration",
+    "emergency-water-clean-up": "emergency-water-clean-up",
+    "basement-remodeling": "basement-remodeling",
+    "black-mold-treatment": "black-mold-treatment",
+    "mobile-home-vapor-barrier": "mobile-home-vapor-barrier",
+    "thermal-dry-floor-installation": "thermal-dry-floor-installation",
+}
+
 # ── 12 services (slug + display name), matching the rest of the site ───────────
 SERVICES = [
     ("basement-waterproofing",            "Basement Waterproofing"),
@@ -143,7 +160,7 @@ for pc in sorted(by_zip):
 <section class="map-hero">
   <div class="map-hero__bar">
     <div class="container">
-      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/services/{svc_slug}/">{esc(svc_name)}</a> / {pc}</nav>
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/">Virginia</a> / <a href="/find/{FIND_SLUG[svc_slug]}-va/">{esc(svc_name)}</a> / {pc}</nav>
       <h1>{pc} {esc(svc_name)}</h1>
       <p>Find vetted, licensed {esc(svc_name.lower())} professionals serving the {pc} area{(" of " + esc(place)) if city else ""}. Submit a free job request and we&rsquo;ll match you with the right contractor.</p>
     </div>

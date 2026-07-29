@@ -1,0 +1,155 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/services/basement-waterproofing",
+      "destination": "/find/waterproofing-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-waterproofing/",
+      "destination": "/find/waterproofing-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/crawl-space-encapsulation",
+      "destination": "/find/crawl-space-encapsulation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/crawl-space-encapsulation/",
+      "destination": "/find/crawl-space-encapsulation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/foundation-repair",
+      "destination": "/find/foundation-repair-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/foundation-repair/",
+      "destination": "/find/foundation-repair-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/sump-pump-installation",
+      "destination": "/find/sump-pump-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/sump-pump-installation/",
+      "destination": "/find/sump-pump-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/french-drain-installation",
+      "destination": "/find/french-drain-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/french-drain-installation/",
+      "destination": "/find/french-drain-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-crack-repair",
+      "destination": "/find/basement-crack-repair-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-crack-repair/",
+      "destination": "/find/basement-crack-repair-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-water-damage-restoration",
+      "destination": "/find/basement-water-damage-restoration-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-water-damage-restoration/",
+      "destination": "/find/basement-water-damage-restoration-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/emergency-water-clean-up",
+      "destination": "/find/emergency-water-clean-up-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/emergency-water-clean-up/",
+      "destination": "/find/emergency-water-clean-up-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-remodeling",
+      "destination": "/find/basement-remodeling-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-remodeling/",
+      "destination": "/find/basement-remodeling-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/black-mold-treatment",
+      "destination": "/find/black-mold-treatment-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/black-mold-treatment/",
+      "destination": "/find/black-mold-treatment-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/mobile-home-vapor-barrier",
+      "destination": "/find/mobile-home-vapor-barrier-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/mobile-home-vapor-barrier/",
+      "destination": "/find/mobile-home-vapor-barrier-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/thermal-dry-floor-installation",
+      "destination": "/find/thermal-dry-floor-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services/thermal-dry-floor-installation/",
+      "destination": "/find/thermal-dry-floor-installation-va/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/find/",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/find/",
+      "permanent": true
+    },
+    {
+      "source": "/partners/tidewater-dry-basements",
+      "destination": "/partners/",
+      "permanent": true
+    },
+    {
+      "source": "/partners/tidewater-dry-basements/",
+      "destination": "/partners/",
+      "permanent": true
+    },
+    {
+      "source": "/reviews/tidewater-dry-basements",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/reviews/tidewater-dry-basements/",
+      "destination": "/reviews/",
+      "permanent": true
+    }
+  ]
+}

@@ -50,7 +50,10 @@ def linked_address(addr, city):
     return result
 
 ROOT = "/home/user/virginiabasementwaterproofing.com"
-SRC = "/root/.claude/uploads/d3aa2d35-0d52-4e41-a880-55c8b6248f0b/e4b92662-Outscraper20260604222103s2f_waterproofing_service.xlsx"
+SRC = os.environ.get(
+    "OUTSCRAPER_XLSX",
+    "/root/.claude/uploads/e5d91189-be53-5917-9e4a-2869781cc3d8/"
+    "0aea0fa5-Outscraper20260604222103s2f_waterproofing_service.xlsx")
 PHONE_TEL = "+17577439050"
 PHONE_DISP = "(757) 743-9050"
 
@@ -286,30 +289,11 @@ __SCHEMA__
       <span class="brand__name">Virginia Basement Waterproofing<span>Statewide Contractor Directory</span></span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <div class="nav-item">
-        <a href="/services/">Services <span class="nav-arrow"></span></a>
-        <div class="mega-menu" role="menu">
-          <div class="mega-menu__grid">
-            <a href="/services/basement-waterproofing/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Waterproofing</strong><span>Interior drains, exterior membranes &amp; sump systems</span></span></a>
-            <a href="/services/crawl-space-encapsulation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Crawl Space Encapsulation</strong><span>Vapor barriers, vent sealing &amp; dehumidifiers</span></span></a>
-            <a href="/services/foundation-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Foundation Repair</strong><span>Piers, wall anchors &amp; carbon-fiber straps</span></span></a>
-            <a href="/services/sump-pump-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Sump Pump Installation</strong><span>Primary &amp; battery-backup pumps</span></span></a>
-            <a href="/services/french-drain-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>French Drain Installation</strong><span>Interior, exterior &amp; curtain drains</span></span></a>
-            <a href="/services/basement-crack-repair/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Crack Repair</strong><span>Polyurethane &amp; epoxy injection</span></span></a>
-            <a href="/services/basement-water-damage-restoration/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Water Damage Restoration</strong><span>Emergency extraction &amp; structural drying</span></span></a>
-            <a href="/services/emergency-water-clean-up/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Emergency Water Clean Up</strong><span>24/7 flooding response &amp; sanitizing</span></span></a>
-            <a href="/services/basement-remodeling/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Basement Remodeling</strong><span>Finishing, flooring &amp; egress windows</span></span></a>
-            <a href="/services/black-mold-treatment/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Black Mold Treatment</strong><span>Testing, containment &amp; remediation</span></span></a>
-            <a href="/services/mobile-home-vapor-barrier/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Mobile Home Vapor Barrier</strong><span>Underbelly sealing &amp; belly-wrap repair</span></span></a>
-            <a href="/services/thermal-dry-floor-installation/" class="mega-menu__item" role="menuitem"><span class="mega-menu__text"><strong>Thermal Dry Floor Installation</strong><span>Insulated, moisture-proof subfloor panels</span></span></a>
-          </div>
-          <div class="mega-menu__footer">
-            <span>All 12 waterproofing &amp; foundation services</span>
-            <a href="/services/">View All Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-      <a href="/virginia/">Cities</a>
+      <a href="/">Home</a>
+      <a href="/find/">Find</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/partners/">Partners</a>
+      <a href="/about/">About</a>
     </nav>
     <div class="header-right">
       <a href="/get-a-quote/" class="btn btn--primary header-cta">Instant Free Quote</a>
@@ -327,8 +311,8 @@ FOOTER = '''<footer class="site-footer">
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
         <a class="btn btn--primary" href="/get-a-quote/">Instant Free Quote</a>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="/services/basement-waterproofing/">Basement Waterproofing</a></li><li><a href="/services/crawl-space-encapsulation/">Crawl Space Encapsulation</a></li><li><a href="/services/foundation-repair/">Foundation Repair</a></li><li><a href="/services/sump-pump-installation/">Sump Pump Installation</a></li><li><a href="/services/french-drain-installation/">French Drain Installation</a></li><li><a href="/services/basement-crack-repair/">Basement Crack Repair</a></li><li><a href="/services/basement-water-damage-restoration/">Water Damage Restoration</a></li><li><a href="/services/basement-remodeling/">Basement Remodeling</a></li><li><a href="/services/black-mold-treatment/">Black Mold Treatment</a></li><li><a href="/services/emergency-water-clean-up/">Emergency Water Clean Up</a></li><li><a href="/services/mobile-home-vapor-barrier/">Mobile Home Vapor Barrier</a></li><li><a href="/services/thermal-dry-floor-installation/">Thermal Dry Floor Installation</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/find/">Find</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/find/waterproofing-va/">Basement Waterproofing</a></li><li><a href="/find/crawl-space-encapsulation-va/">Crawl Space Encapsulation</a></li><li><a href="/find/foundation-repair-va/">Foundation Repair</a></li><li><a href="/find/sump-pump-installation-va/">Sump Pump Installation</a></li><li><a href="/find/french-drain-installation-va/">French Drain Installation</a></li><li><a href="/find/basement-crack-repair-va/">Basement Crack Repair</a></li><li><a href="/find/basement-water-damage-restoration-va/">Water Damage Restoration</a></li><li><a href="/find/basement-remodeling-va/">Basement Remodeling</a></li><li><a href="/find/black-mold-treatment-va/">Black Mold Treatment</a></li><li><a href="/find/emergency-water-clean-up-va/">Emergency Water Clean Up</a></li><li><a href="/find/mobile-home-vapor-barrier-va/">Mobile Home Vapor Barrier</a></li><li><a href="/find/thermal-dry-floor-installation-va/">Thermal Dry Floor Installation</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About Us</a></li><li><a href="/get-a-quote/">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms-of-service/">Terms of Service</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
@@ -511,9 +495,11 @@ for slug, r in items:
         <div class="listing__foot"><a href="/partners/{slug}/" class="btn btn--blue btn--block">View Profile</a></div>
       </div>''')
 
-# NOTE: the /partners/ directory hub index page has been intentionally removed
-# from the site. Individual /partners/<slug>/ profile pages are still generated
-# above; only the aggregate directory listing is no longer published.
+# NOTE: the /partners/ hub index page is no longer built here. It is generated by
+# scripts/gen_directory.py, which renders the full roster as a sortable table
+# (and also builds /reviews/ and the per-business /reviews/<slug>/ pages).
+# The `cards` list above is kept because gen_directory.py's predecessors used it;
+# regenerate the hub with:  python3 scripts/gen_directory.py
 
 # ---------- emit slug list for sitemap ----------
 with open(os.path.join(ROOT, 'scripts', 'partner_slugs.txt'), 'w') as fp:

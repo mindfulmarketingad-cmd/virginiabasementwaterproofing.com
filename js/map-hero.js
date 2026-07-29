@@ -9,8 +9,13 @@
 (function () {
   "use strict";
 
-  var VA_CENTER = [37.62, -79.2];
-  var VA_ZOOM = 7;
+  // /find/ searchmap pages set window.FIND_CONFIG to preselect a service and
+  // recenter the map on a city. The homepage leaves it undefined.
+  //   { cat: "foundation", center: [37.02, -76.34], zoom: 11, city: "Hampton" }
+  var CFG = window.FIND_CONFIG || {};
+
+  var VA_CENTER = CFG.center || [37.62, -79.2];
+  var VA_ZOOM = CFG.zoom || 7;
 
   var els = {
     map:        document.getElementById("vaMap"),
@@ -34,7 +39,7 @@
     providers: [],
     centroids: {},
     categories: [],
-    activeCat: "",      // "" = all
+    activeCat: CFG.cat || "",   // "" = all; /find/ pages preselect a service
     activeZip: "",      // "" = none
     cityLayer: null,
     zipLayer: null,
@@ -159,8 +164,10 @@
     var label = state.activeCat
       ? (catLabel(state.activeCat) + " providers")
       : "waterproofing & restoration providers";
-    els.count.textContent = "Showing " + n + " " + label +
-      (state.activeZip ? " near " + state.activeZip : " across Virginia");
+    var where = state.activeZip ? " near " + state.activeZip
+              : CFG.city ? " near " + CFG.city + ", VA"
+              : " across Virginia";
+    els.count.textContent = "Showing " + n + " " + label + where;
 
     if (!n) {
       els.results.innerHTML = '<li class="map-result__empty">No providers match this filter.' +
@@ -319,6 +326,7 @@
       opts += '<option value="' + c.key + '">' + esc(c.label) + " (" + c.count + ")</option>";
     });
     els.filter.innerHTML = opts;
+    if (state.activeCat) els.filter.value = state.activeCat;
     els.filter.addEventListener("change", function () {
       state.activeCat = els.filter.value;
       applyFilter();
