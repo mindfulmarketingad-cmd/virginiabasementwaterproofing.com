@@ -16,6 +16,9 @@
 
   var VA_CENTER = CFG.center || [37.62, -79.2];
   var VA_ZOOM = CFG.zoom || 7;
+  // Keeps the map on Virginia -- other states aren't relevant to this site,
+  // so panning/zooming out is capped just past the state line.
+  var VA_BOUNDS = L.latLngBounds([36.3, -83.9], [39.7, -74.8]);
 
   var els = {
     map:        document.getElementById("vaMap"),
@@ -264,9 +267,12 @@
     state.map = L.map(els.map, {
       center: VA_CENTER,
       zoom: VA_ZOOM,
+      minZoom: 7,
       zoomControl: true,
       scrollWheelZoom: true,
-      worldCopyJump: true
+      worldCopyJump: false,
+      maxBounds: VA_BOUNDS,
+      maxBoundsViscosity: 1.0
     });
 
     // free base layers — CARTO Voyager (street) + Esri World Imagery (satellite)
