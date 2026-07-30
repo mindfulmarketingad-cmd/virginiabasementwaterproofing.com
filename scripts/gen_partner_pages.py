@@ -23,7 +23,7 @@ import os, sys, json, html, re
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from shared_html import SITE_HEADER, FOOTER, SERVICES  # noqa: E402
+from shared_html import SITE_HEADER, FOOTER, SERVICES, best_city_find_url  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.virginiabasementwaterproofing.org"
@@ -59,8 +59,10 @@ for _c in BY_CITY:
 
 
 def city_link(city):
-    url = CITY_URLS.get(city)
-    return f'<a href="{url}">{esc(city)}</a>' if url else esc(city)
+    slug = CITY_SLUG.get(city)
+    if not slug:
+        return esc(city)
+    return f'<a href="{best_city_find_url(ROOT, slug)}">{esc(city)}</a>'
 
 
 def stars(rating):

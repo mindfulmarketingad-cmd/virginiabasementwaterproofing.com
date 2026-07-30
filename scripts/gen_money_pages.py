@@ -11,11 +11,13 @@ page with:
   - H2: Submit a Job Request for [Service] in [City], VA  + "Instant Free Quote"
   - "Get a Free Quote" CTA on every page
 """
-import os, re, html as html_mod, json, zipfile
+import os, re, sys, html as html_mod, json, zipfile
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
 ROOT = "/home/user/virginiabasementwaterproofing.com"
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+from shared_html import SERVICE_BY_SLUG  # noqa: E402
 SRC  = "/root/.claude/uploads/d3aa2d35-0d52-4e41-a880-55c8b6248f0b/e4b92662-Outscraper20260604222103s2f_waterproofing_service.xlsx"
 PHONE_TEL  = "+17577439050"
 PHONE_DISP = "(757) 743-9050"
@@ -503,7 +505,7 @@ for city, (region_slug, region_label) in CITY_REGION.items():
 <section class="map-hero">
   <div class="map-hero__bar">
     <div class="container">
-      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/virginia/{region_slug}/{city_slug}/">{esc(city)}</a> / {esc(sname)}</nav>
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/find/{SERVICE_BY_SLUG.get(sslug, {}).get('find', 'waterproofing')}-{city_slug}-va/">{esc(city)}</a> / {esc(sname)}</nav>
       <h1>{esc(sname)} in {esc(city)}, VA</h1>
       <p>Find licensed, insured {esc(slc)} contractors serving {esc(city)} and surrounding {esc(region_label)} communities. Browse the map and submit a free job request.</p>
     </div>

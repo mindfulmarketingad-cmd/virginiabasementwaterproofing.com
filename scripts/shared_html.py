@@ -3,6 +3,8 @@ No phone numbers anywhere. 'Instant Free Quote' is the only CTA.
 Primary nav: Home | Find | Reviews | Partners | About.
 """
 
+import os
+
 GOOGLE_MAPS_KEY = "AIzaSyD1IVMZyzQic5lLyZR9bQuARP9n4kJtLbg"
 
 # The 12 services, keyed by the legacy /services/<slug>/ directory name.
@@ -32,6 +34,28 @@ SERVICES = [
 ]
 
 SERVICE_BY_SLUG = {s[0]: {"slug": s[0], "find": s[1], "label": s[2], "cat": s[3]} for s in SERVICES}
+
+# Preference order for "link to this city in general" (not tied to one service).
+# basement-finishing / mold-removal / mold-remediation cover every named city
+# (gen_find.py falls back to full coverage for /find/-only services), so this
+# chain always resolves to a real page -- there is no need for a final fallback
+# to the /find/ hub.
+_FIND_CITY_PREFERENCE = [s[1] for s in SERVICES]
+
+
+def best_city_find_url(root, city_slug, preferred=None):
+    """Best available /find/<service>-<city_slug>-va/ page for a city, used
+    wherever a page used to link to the retired /virginia/<region>/<city>/ page.
+    """
+    order = ([preferred] if preferred else []) + _FIND_CITY_PREFERENCE
+    seen = set()
+    for find in order:
+        if not find or find in seen:
+            continue
+        seen.add(find)
+        if os.path.isdir(os.path.join(root, "find", f"{find}-{city_slug}-va")):
+            return f"/find/{find}-{city_slug}-va/"
+    return "/find/"
 
 # Primary navigation. Keep in sync with scripts/batch_patch_nav.py, which
 # rewrites the same block across every already-generated page.

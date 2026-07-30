@@ -19,7 +19,7 @@ from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shared_html import (  # noqa: E402
-    SITE_HEADER, FOOTER, SERVICES, SEARCHMAP_HEAD, SEARCHMAP_SCRIPTS)
+    SITE_HEADER, FOOTER, SERVICES, SEARCHMAP_HEAD, SEARCHMAP_SCRIPTS, best_city_find_url)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://www.virginiabasementwaterproofing.org"
@@ -367,9 +367,7 @@ def coverage_block():
     chips = []
     for c in sorted(top):
         cslug = CITY_SLUG.get(c)
-        href = (f"/find/waterproofing-{cslug}-va/"
-                if cslug and os.path.isdir(os.path.join(ROOT, "find", f"waterproofing-{cslug}-va"))
-                else CITY_URLS.get(c, "/virginia/"))
+        href = best_city_find_url(ROOT, cslug, preferred="waterproofing") if cslug else "/find/"
         chips.append(f'<a href="{href}" class="city-chip">{esc(c)} '
                      f'<span class="city-chip__n">{CITY_COUNT[c]}</span></a>')
     regions = [("Hampton Roads", "/virginia/hampton-roads/"),

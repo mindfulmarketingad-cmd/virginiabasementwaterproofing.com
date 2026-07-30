@@ -9,9 +9,11 @@ Sources, in order of authority:
 Nothing is scraped back out of the generated HTML: the pages are downstream of
 this file, so parsing them would be circular.
 """
-import os, json
+import os, json, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from shared_html import best_city_find_url  # noqa: E402
 
 CAT_LABEL = {
     "waterproofing": "Basement Waterproofing",
@@ -34,7 +36,13 @@ def load(rel):
 
 
 def city_url(city, city_urls):
-    return city_urls.get(city, "")
+    """Best /find/ page for this city -- the old /virginia/<region>/<city>/ pages
+    (what city_urls.json's raw values still encode) have been retired."""
+    url = city_urls.get(city, "")
+    if not url:
+        return ""
+    slug = url.strip("/").split("/")[-1]
+    return best_city_find_url(ROOT, slug, preferred="waterproofing")
 
 
 def text(v):

@@ -150,6 +150,1256 @@
       "source": "/reviews/tidewater-dry-basements/",
       "destination": "/reviews/",
       "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/alexandria",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/alexandria/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/amherst",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/amherst/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/amissville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/amissville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/arlington",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/arlington/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/ashburn",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/ashburn/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/ashland",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/ashland/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/bedford",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/bedford/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/blacksburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/blacksburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/bristol",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/bristol/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/bristow",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/bristow/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/broad-run",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/broad-run/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/cave-spring",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/cave-spring/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/centreville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/centreville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/chantilly",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/chantilly/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/charles-city",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/charles-city/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/charlottesville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/charlottesville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/chesapeake",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/chesapeake/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/chester",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/chester/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/christiansburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/christiansburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/churchville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/churchville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/clarksville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/clarksville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/clintwood",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/clintwood/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/coeburn",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/coeburn/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/collinsville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/collinsville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/culpeper",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/culpeper/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/danville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/danville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/dayton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/dayton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/dinwiddie",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/dinwiddie/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/dumfries",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/dumfries/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/eastville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/eastville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/evington",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/evington/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/fairfax",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/fairfax/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/falls-church",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/falls-church/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/farmville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/farmville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/forest",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/forest/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/fort-monroe",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/fort-monroe/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/franklin",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/franklin/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/fredericksburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/fredericksburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/front-royal",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/front-royal/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/gainesville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/gainesville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/glade-spring",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/glade-spring/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/gladstone",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/gladstone/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/glen-allen",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/glen-allen/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/gloucester",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/gloucester/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/goldvein",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/goldvein/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/grafton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/grafton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/halifax",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/halifax/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/hamilton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/hamilton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hampton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hampton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/hardy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/hardy/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/harrisonburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/harrisonburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hartfield",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hartfield/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/heathsville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/heathsville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/henrico",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/henrico/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/herndon",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/herndon/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/hollins",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/hollins/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hopewell",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/hopewell/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/kenbridge",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/kenbridge/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/keysville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/keysville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/king-george",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/king-george/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/lancaster",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/lancaster/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/leesburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/leesburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/linden",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/linden/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/lorton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/lorton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/lovettsville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/lovettsville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/lynchburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/lynchburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/madison",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/madison/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/manassas",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/manassas/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/manassas-park",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/manassas-park/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/manquin",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/manquin/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/marshall",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/marshall/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/martinsville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/martinsville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/max-meadows",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/max-meadows/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/mclean",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/mclean/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/mechanicsville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/mechanicsville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/midland",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/midland/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/midlothian",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/midlothian/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/moneta",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/moneta/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/montpelier",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/montpelier/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/mt-sidney",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/mt-sidney/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/new-market",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/new-market/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/newport-news",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/newport-news/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/norfolk",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/norfolk/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/north-chesterfield",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/north-chesterfield/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/orange",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/orange/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/paris",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/paris/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/portsmouth",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/portsmouth/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/powhatan",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/powhatan/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/prince-george",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/prince-george/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/purcellville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/purcellville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/remington",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/remington/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/reston",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/reston/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/richlands",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/richlands/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/richmond",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/richmond/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/roanoke",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/roanoke/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/rockville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/rockville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/ruckersville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/ruckersville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/rustburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/rustburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/salem",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/salem/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/smithfield",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/smithfield/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/south-chesterfield",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/south-chesterfield/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/south-hill",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/south-hill/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/south-riding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/south-riding/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/spotsylvania-courthouse",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/spotsylvania-courthouse/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/springfield",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/springfield/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/stafford",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/central-virginia/stafford/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/staunton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/staunton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/sterling",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/sterling/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/suffolk",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/suffolk/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/toano",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/toano/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/topping",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/topping/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/troutville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/troutville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/troy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/richmond/troy/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/vienna",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/vienna/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/vinton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/vinton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/virginia-beach",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/virginia-beach/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/warrenton",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/warrenton/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/waterford",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/waterford/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/waynesboro",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/waynesboro/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/williamsburg",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/williamsburg/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/winchester",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/shenandoah-valley/winchester/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/wirtz",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/wirtz/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/woodbridge",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/northern-virginia/woodbridge/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/wytheville",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/western-virginia/wytheville/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/yorktown",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia/hampton-roads/yorktown/",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
