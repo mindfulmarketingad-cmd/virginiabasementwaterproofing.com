@@ -188,7 +188,7 @@ def zip_bar():
       <label class="sr-only" for="heroZip">ZIP code</label>
       <input type="text" id="heroZip" name="zip" inputmode="numeric" maxlength="5"
              pattern="[0-9]{5}" placeholder="Enter ZIP code" required>
-      <button type="submit" class="btn btn--primary">Instant Free Quote</button>
+      <button type="submit" class="btn btn--primary">Call or Text for Quote</button>
     </form>
   </div>
 </section>'''
@@ -446,7 +446,7 @@ def final_cta():
         <label class="sr-only" for="ctaZip">ZIP code</label>
         <input type="text" id="ctaZip" name="zip" inputmode="numeric" maxlength="5"
                pattern="[0-9]{5}" placeholder="Enter ZIP code" required>
-        <button type="submit" class="btn btn--primary btn--lg">Instant Free Quote</button>
+        <button type="submit" class="btn btn--primary btn--lg">Call or Text for Quote</button>
       </form>
     </div>
   </div>

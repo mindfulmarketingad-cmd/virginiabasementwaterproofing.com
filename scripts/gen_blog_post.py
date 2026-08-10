@@ -138,6 +138,6 @@ def cta_card(provider_find="/find/", quote_note="A licensed Virginia contractor 
     return f'''<div class="fact-card">
           <h3 style="margin-top:0; font-size:1rem;">Ready to Get This Fixed?</h3>
           <p class="text-muted" style="font-size:.88rem;">{quote_note}</p>
-          <a href="/get-a-quote/" class="btn btn--primary btn--block" style="margin-bottom:10px;">Instant Free Quote</a>
+          <a href="/get-a-quote/" class="btn btn--primary btn--block" style="margin-bottom:10px;">Call or Text for Quote</a>
           <a href="{provider_find}" class="btn btn--blue btn--block">Find a pro near me</a>
         </div>'''

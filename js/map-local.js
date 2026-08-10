@@ -134,7 +134,7 @@
       "</div>" +
       '<div class="map-detail__divider"></div>' +
       '<div class="map-detail__actions">' +
-        '<a href="/get-a-quote/?provider=' + esc(p.slug) + '" class="map-detail__primary-btn">Instant Free Quote</a>' +
+        '<a href="/get-a-quote/?provider=' + esc(p.slug) + '" class="map-detail__primary-btn">Call or Text for Quote</a>' +
         '<a href="/partners/' + esc(p.slug) + '/" class="map-detail__secondary-btn">View Full Profile &rarr;</a>' +
       "</div>" +
       '<div class="map-detail__links">' +
@@ -166,7 +166,7 @@
     return '<div class="gm-pop"><strong>' + esc(p.name) + "</strong>" + rate +
       '<div class="gm-pop__loc">' + loc + "</div>" +
       '<a class="gm-pop__btn" href="/partners/' + esc(p.slug) + '/">View Profile</a>' +
-      '<a class="gm-pop__btn gm-pop__btn--alt" href="/get-a-quote/">Instant Free Quote</a></div>';
+      '<a class="gm-pop__btn gm-pop__btn--alt" href="/get-a-quote/">Call or Text for Quote</a></div>';
   }
 
   // ---- results list ----------------------------------------------------------
@@ -195,7 +195,7 @@
         "<h4>" + esc(p.name) + "</h4>" + rate +
         '<div class="map-result__loc">' + esc(p.city) + (p.zip ? ", VA " + esc(p.zip) : ", VA") + "</div>" +
         '<div class="map-result__actions">' +
-          '<a class="map-act--primary" href="/get-a-quote/?provider=' + esc(p.slug) + '" onclick="event.stopPropagation()">Instant Free Quote</a>' +
+          '<a class="map-act--primary" href="/get-a-quote/?provider=' + esc(p.slug) + '" onclick="event.stopPropagation()">Call or Text for Quote</a>' +
           '<a class="map-act--ghost" href="/claim-listing/?provider=' + esc(p.slug) + '" onclick="event.stopPropagation()">Claim Listing</a>' +
         "</div></li>";
     });

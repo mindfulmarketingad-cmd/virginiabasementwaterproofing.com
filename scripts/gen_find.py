@@ -738,7 +738,7 @@ def provider_strip(rows, heading, empty_note):
         <h3><a href="/partners/{esc(p["slug"])}/">{esc(p["name"])}</a></h3>
         <div class="meta">{esc(p.get("city") or "Virginia")}, VA</div>
         <div class="rating-line">{stars}</div>
-        <div class="listing__foot"><a href="/get-a-quote/?provider={esc(p["slug"])}" class="btn btn--blue btn--block">Instant Free Quote</a></div>
+        <div class="listing__foot"><a href="/get-a-quote/?provider={esc(p["slug"])}" class="btn btn--blue btn--block">Call or Text for Quote</a></div>
       </div>''')
     return (f'<h2>{heading}</h2>\n<div class="listing-grid">\n      '
             + "\n      ".join(cards) + "\n    </div>")
@@ -785,7 +785,7 @@ def build_statewide(svc, city_pages):
     {strip}
 {by_city}
     <div style="margin-top:32px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
     </div>
   </div>
 </section>
@@ -803,7 +803,7 @@ def build_statewide(svc, city_pages):
     <h2>Instant Free Quote</h2>
     <p>Submit a job request and we&rsquo;ll connect you with the ideal licensed contractor for
        your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
-    <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+    <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
   </div>
 </section>
 </main>
@@ -894,7 +894,7 @@ def build_city(svc, city_slug):
 {deep}
 {also}
     <div style="margin-top:32px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
     </div>
   </div>
 </section>
@@ -937,7 +937,7 @@ def build_hub(statewide, city_map):
        Every map plots the licensed waterproofing, foundation, crawl space and restoration
        contractors we track, with ZIP search, ratings and a free job request built in.</p>
     <div style="margin-top:18px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
     </div>
   </div>
 </div>

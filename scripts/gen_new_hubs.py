@@ -187,7 +187,7 @@ def build_hub(sslug):
     <h1>{esc(name)} in Virginia</h1>
     <p>Licensed local contractors serving homeowners across Virginia. Free estimates, no obligation.</p>
     <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
       <a href="tel:{PHONE_TEL}" class="btn btn--ghost btn--lg">Call {PHONE_DISP}</a>
     </div>
   </div>
@@ -208,7 +208,7 @@ def build_hub(sslug):
       <h2>Instant Free Quote</h2>
       <p>Once you submit a job request, we'll connect you with the ideal licensed contractor for your situation. They'll reach out within 1&ndash;3 business days.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="/get-a-quote/" class="btn btn--primary btn--lg">Instant Free Quote</a>
+        <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
         <a href="tel:{PHONE_TEL}" class="btn btn--ghost btn--lg">Call {PHONE_DISP}</a>
       </div>
     </div>

@@ -44,7 +44,7 @@ def patch_header_right(html):
     def replacer(m):
         return (
             '<div class="header-right">\n'
-            '      <a href="/get-a-quote/" class="btn btn--primary header-cta">Instant Free Quote</a>\n'
+            '      <a href="/get-a-quote/" class="btn btn--primary header-cta">Call or Text for Quote</a>\n'
             '      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>\n'
             '    </div>'
         )
@@ -54,7 +54,7 @@ def patch_footer_phone(html):
     # Replace <a class="footer-phone" href="tel:...">...</a> with Submit Job Request btn
     html = re.sub(
         r'<a class="footer-phone" href="tel:[^"]*">[^<]*</a>',
-        '<a class="btn btn--primary" href="/get-a-quote/">Instant Free Quote</a>',
+        '<a class="btn btn--primary" href="/get-a-quote/">Call or Text for Quote</a>',
         html
     )
     # Replace footer-bottom phone link

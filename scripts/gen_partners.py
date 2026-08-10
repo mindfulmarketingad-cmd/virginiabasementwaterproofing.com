@@ -297,7 +297,7 @@ __SCHEMA__
       <a href="/about/">About</a>
     </nav>
     <div class="header-right">
-      <a href="/get-a-quote/" class="btn btn--primary header-cta">Instant Free Quote</a>
+      <a href="/get-a-quote/" class="btn btn--primary header-cta">Call or Text for Quote</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     </div>
   </div>
@@ -310,7 +310,7 @@ FOOTER = '''<footer class="site-footer">
       <div class="footer-brand">
         <h4>Virginia Basement Waterproofing</h4>
         <p>A statewide directory connecting Virginia homeowners with licensed, insured, and vetted basement waterproofing contractors.</p>
-        <a class="btn btn--primary" href="/get-a-quote/">Instant Free Quote</a>
+        <a class="btn btn--primary" href="/get-a-quote/">Call or Text for Quote</a>
       </div>
       <div><h4>Explore</h4><ul><li><a href="/find/">Find</a></li><li><a href="/virginia/">Cities</a></li><li><a href="/get-a-quote/">Free Estimate</a></li><li><a href="/blog/">Blog</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="/find/waterproofing-va/">Basement Waterproofing</a></li><li><a href="/find/crawl-space-encapsulation-va/">Crawl Space Encapsulation</a></li><li><a href="/find/foundation-repair-va/">Foundation Repair</a></li><li><a href="/find/sump-pump-installation-va/">Sump Pump Installation</a></li><li><a href="/find/french-drain-installation-va/">French Drain Installation</a></li><li><a href="/find/basement-crack-repair-va/">Basement Crack Repair</a></li><li><a href="/find/basement-water-damage-restoration-va/">Water Damage Restoration</a></li><li><a href="/find/basement-remodeling-va/">Basement Remodeling</a></li><li><a href="/find/black-mold-treatment-va/">Black Mold Treatment</a></li><li><a href="/find/emergency-water-clean-up-va/">Emergency Water Clean Up</a></li><li><a href="/find/mobile-home-vapor-barrier-va/">Mobile Home Vapor Barrier</a></li><li><a href="/find/thermal-dry-floor-installation-va/">Thermal Dry Floor Installation</a></li></ul></div>
@@ -449,7 +449,7 @@ for n, (slug, r) in enumerate(items):
         <div class="fact-card" style="margin-bottom:22px;">
           <h3 style="margin-top:0;">Instant Free Quote</h3>
           <p class="text-muted" style="font-size:.92rem;">We&rsquo;ll connect you with the ideal contractor for your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
-          <a href="/get-a-quote/?provider={slug}" class="btn btn--primary btn--block btn--lg">Instant Free Quote</a>
+          <a href="/get-a-quote/?provider={slug}" class="btn btn--primary btn--block btn--lg">Call or Text for Quote</a>
         </div>
         <div class="fact-card">
           <ul class="fact-list">

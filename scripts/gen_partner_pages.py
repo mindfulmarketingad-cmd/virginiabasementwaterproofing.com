@@ -503,7 +503,7 @@ def build(slug, d, p):
           <p class="text-muted" style="font-size:.92rem;">Describe the job once and we&rsquo;ll connect
              you with the ideal contractor for your situation. They&rsquo;ll reach out within
              1&ndash;3 business days. Free, no obligation.</p>
-          <a href="/get-a-quote/?provider={esc(slug)}" class="btn btn--primary btn--block btn--lg">Instant Free Quote</a>
+          <a href="/get-a-quote/?provider={esc(slug)}" class="btn btn--primary btn--block btn--lg">Call or Text for Quote</a>
         </div>
         <div class="fact-card" style="margin-bottom:22px;">
           <ul class="fact-list">{"".join(facts)}</ul>
