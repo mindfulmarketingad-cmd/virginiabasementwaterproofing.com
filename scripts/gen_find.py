@@ -928,7 +928,7 @@ def build_city(svc, city_slug):
        <a href="{detail_url}">{esc(label)} in {esc(city)}, VA &rarr;</a></p>''' if has_detail else "")
 
     others = [s for s in SERVICES
-              if s[1] != find and os.path.isdir(os.path.join(ROOT, city_slug, s[0]))]
+              if s[1] != find and f"/find/{s[1]}-{city_slug}-va/" in FIND_URLS]
     other_links = "".join(
         f'<a href="/find/{f}-{city_slug}-va/" class="city-chip">{esc(l)}</a> '
         for _slug, f, l, _c in others)
