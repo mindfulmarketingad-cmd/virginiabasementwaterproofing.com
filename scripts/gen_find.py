@@ -8,7 +8,7 @@
 Every page carries the same searchmap component as the homepage; window.FIND_CONFIG
 preselects the service filter and recenters the map.
 """
-import os, sys, json, html, re
+import os, sys, json, html, re, random
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shared_html import (  # noqa: E402
@@ -43,6 +43,28 @@ with open(os.path.join(ROOT, "scripts", "zip_city_map.json"), encoding="utf-8") 
     ZIP_CITY = json.load(f)
 with open(os.path.join(ROOT, "data", "va-zip-centroids.json"), encoding="utf-8") as f:
     CENTROIDS = json.load(f)
+
+# Authoritative set of every /find/ URL that already exists on disk, from the
+# previous build. Used to decide whether a cross-linked service+city combo has
+# its own city page or should fall back to the statewide page.
+try:
+    with open(os.path.join(ROOT, "scripts", "find_urls.json"), encoding="utf-8") as f:
+        FIND_URLS = set(json.load(f))
+except FileNotFoundError:
+    FIND_URLS = set()
+
+# Broad scope-of-work phrase per service category, used in the "Full-Service"
+# E-E-A-T section so the copy varies by category instead of repeating verbatim.
+CAT_SCOPE = {
+    "waterproofing": "interior drainage systems, sump-pump tie-ins, and exterior excavation waterproofing",
+    "crawl-space": "vapor barrier installation, full encapsulation, and dehumidification",
+    "foundation": "crack injection, wall anchors, push piers, and full foundation stabilization",
+    "plumbing": "sump pump installation, battery-backup systems, and drainage tie-ins",
+    "drainage": "French drains, interior drain tile, and grading or downspout correction",
+    "water-damage": "water extraction, structural drying, and post-flood cleanup",
+    "general": "planning, permitting, and finish-level construction",
+    "mold": "mold testing, containment, remediation, and correcting the moisture source",
+}
 
 REGION_LABEL = {
     "hampton-roads": "Hampton Roads",
@@ -814,6 +836,61 @@ def build_statewide(svc, city_pages):
 
 
 # ---------- city service pages ----------
+def guaranteed_solutions_block(label, city, city_slug, find):
+    """E-E-A-T breadth signal: 10 other services this network covers, picked
+    in a page-stable random order so the list varies city to city instead of
+    repeating the same 10 everywhere."""
+    others = [s for s in SERVICES if s[1] != find]
+    rnd = random.Random(f"{find}-{city_slug}")
+    rnd.shuffle(others)
+    picks = others[:10]
+    chips = []
+    for _slug, f, l, _c in picks:
+        city_url = f"/find/{f}-{city_slug}-va/"
+        href = city_url if city_url in FIND_URLS else f"/find/{f}-va/"
+        chips.append(f'<a href="{href}" class="city-chip">{esc(l)}</a>')
+    return f'''
+    <h2>Guaranteed Solutions for {esc(label)} in {esc(city)}, Virginia</h2>
+    <p>Contractors in our {esc(city)} network back their {esc(label.lower())} work with
+       manufacturer and workmanship warranties, and many handle these related jobs too:</p>
+    <div class="city-chip-row">{"".join(chips)}</div>'''
+
+
+def safe_strong_healthy_block(city, region, region_label, find, n, avg):
+    """E-E-A-T trust section: local geotechnical experience, aggregate track
+    record (authority), warranty facts (expertise), and a verification
+    prompt (trust)."""
+    causes = REGION_CAUSES.get(region, REGION_CAUSES_GENERIC)
+    warranty = SERVICE_INFO.get(find, {}).get("warranty", "")
+    if n:
+        stats_line = (
+            f"We currently track {n} rated contractor{'s' if n != 1 else ''} serving "
+            f"{esc(city)}{f', averaging a {avg:.1f}-star Google rating' if avg else ''}, so you "
+            "can compare real track records instead of guessing.")
+    else:
+        stats_line = (
+            f"We&rsquo;re still building out our rated-contractor list for {esc(city)} &mdash; "
+            '<a href="/get-a-quote/">submit a job request</a> and we&rsquo;ll match you with a '
+            "vetted pro directly.")
+    return f'''
+    <h2>We Help Provide Safe, Strong, &amp; Healthy Homes in {esc(city)}, Virginia</h2>
+    <p>Homes around {esc(city)} deal with {causes} We&rsquo;ve tracked contractors across
+       {esc(region_label)} for years, so we know which local crews actually stand behind their
+       work.</p>
+    <p>{stats_line} {warranty} Before hiring anyone, confirm their license with the Virginia
+       DPOR and ask for a current certificate of insurance &mdash; a legitimate contractor will
+       have both ready on request.</p>'''
+
+
+def full_service_block(label, city, find, cat):
+    scope = CAT_SCOPE.get(cat, "inspection, repair, and installation work")
+    return f'''
+    <h2>Full-Service {esc(label)} Providers Near Me: {esc(city)}, Virginia</h2>
+    <p>The map above pulls every full-service {esc(label.lower())} contractor we track within
+       range of {esc(city)}, including crews that handle {scope}. Filter by service, tap a pin
+       for details, or call the top-rated pros below directly.</p>'''
+
+
 def build_city(svc, city_slug):
     label, find, cat = svc["label"], svc["find"], svc["cat"]
     city = CITY_BY_SLUG[city_slug]
@@ -869,6 +946,10 @@ def build_city(svc, city_slug):
 
     qa = city_faq(svc, city, city_slug, rows, center)
 
+    full_service = full_service_block(label, city, find, cat)
+    safe_strong = safe_strong_healthy_block(city, region, region_label, find, n, avg)
+    guaranteed = guaranteed_solutions_block(label, city, city_slug, find)
+
     article_fn, conclusion_fn = DEEP_DIVE.get(find, (None, None))
     article = article_fn(city, region_label, n, avg) if article_fn else ""
     conclusion = conclusion_fn(city) if conclusion_fn else ""
@@ -890,12 +971,20 @@ def build_city(svc, city_slug):
 
 <section class="section">
   <div class="container">
+    {full_service}
     {strip}
 {deep}
 {also}
     <div style="margin-top:32px;">
       <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container prose">
+    {safe_strong}
+    {guaranteed}
   </div>
 </section>
 {article_section}
@@ -920,12 +1009,12 @@ def build_city(svc, city_slug):
 def build_hub(statewide, city_map):
     rows = []
     for slug, find, label, cat in SERVICES:
-        chips = "".join(
-            f'<a href="/find/{find}-{cs}-va/" class="city-chip">{esc(CITY_BY_SLUG[cs])}</a> '
+        links = " &middot; ".join(
+            f'<a href="/find/{find}-{cs}-va/">{esc(CITY_BY_SLUG[cs])}</a>'
             for cs in city_map.get(find, []))
         rows.append(f'''<div class="find-group">
         <h3><a href="/find/{find}-va/">{esc(label)} &mdash; Statewide Map</a></h3>
-        <div class="city-chip-row">{chips or '<span class="text-muted">Statewide map only</span>'}</div>
+        <p class="city-text-list">{links or '<span class="text-muted">Statewide map only</span>'}</p>
       </div>''')
 
     total = sum(len(v) for v in city_map.values()) + len(SERVICES)
@@ -946,7 +1035,7 @@ def build_hub(statewide, city_map):
 <section class="section">
   <div class="container">
     <p class="lead">Pick the service you need. Each statewide map covers all of Virginia;
-       the city chips below it open a map already centred on that area.</p>
+       the city links below it open a map already centred on that area.</p>
     <div class="find-groups">
       {"".join(rows)}
     </div>
