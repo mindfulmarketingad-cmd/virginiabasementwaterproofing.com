@@ -461,7 +461,7 @@ def build(slug, d, p):
     <div class="breadcrumb" style="color:#9fb6cc;"><a href="/" style="color:#cfe0f0;">Home</a> /
       <a href="/partners/" style="color:#cfe0f0;">Partners</a> / {esc(name)}</div>
     <span class="contractor__badge" style="margin-bottom:6px;">Directory Listing</span>
-    <h1>{esc(name)}</h1>
+    <h1>{esc(name)} - {esc(city) + ', Virginia' if city else 'Virginia'}</h1>
     <p style="margin-top:6px;color:#cfe0f0;">{loc}{' &middot; ' + esc(d["category"]) if d.get("category") else ''}</p>
     {rating_line}
     {reviews_link}
@@ -503,7 +503,7 @@ def build(slug, d, p):
           <p class="text-muted" style="font-size:.92rem;">Describe the job once and we&rsquo;ll connect
              you with the ideal contractor for your situation. They&rsquo;ll reach out within
              1&ndash;3 business days. Free, no obligation.</p>
-          <a href="/get-a-quote/?provider={esc(slug)}" class="btn btn--primary btn--block btn--lg">Call or Text for Quote</a>
+          <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--block btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
         </div>
         <div class="fact-card" style="margin-bottom:22px;">
           <ul class="fact-list">{"".join(facts)}</ul>

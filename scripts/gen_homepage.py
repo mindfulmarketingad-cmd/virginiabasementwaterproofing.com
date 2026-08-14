@@ -8,8 +8,7 @@ ZIP capture -> proof -> symptoms -> causes -> solutions -> services -> coverage
 Everything quantitative is computed from data/partners.json at build time, so
 the stat strip and the featured-contractor grid can never drift from reality.
 
-Two deliberate omissions:
-  * No phone number anywhere -- every CTA is the site's own lead form.
+One deliberate omission:
   * No invented homeowner testimonials. The previous homepage carried three
     fabricated quotes with fake names and cities; they are gone. The proof
     block now uses the real aggregate Google rating data instead.
@@ -182,14 +181,9 @@ def zip_bar():
   <div class="container zip-bar__inner">
     <div class="zip-bar__copy">
       <h2>Get started with a free inspection</h2>
-      <p>Enter your ZIP code and we&rsquo;ll match you with a licensed pro who covers it.</p>
+      <p>Call or text now and we&rsquo;ll connect you with a licensed pro who covers your area.</p>
     </div>
-    <form class="zip-bar__form" action="/get-a-quote/" method="get">
-      <label class="sr-only" for="heroZip">ZIP code</label>
-      <input type="text" id="heroZip" name="zip" inputmode="numeric" maxlength="5"
-             pattern="[0-9]{5}" placeholder="Enter ZIP code" required>
-      <button type="submit" class="btn btn--primary">Call or Text for Quote</button>
-    </form>
+    <a href="tel:+17577202096" class="btn btn--primary btn--phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
   </div>
 </section>'''
 
@@ -439,15 +433,10 @@ def final_cta():
   <div class="container">
     <div class="cta-band">
       <h2>Ready to Get Matched?</h2>
-      <p>Submit your job request and we&rsquo;ll identify the best-fit licensed contractor in your
-         area. They&rsquo;ll reach out within 1&ndash;3 business days with a free, no-obligation
-         estimate. The matching service is completely free to homeowners.</p>
-      <form class="zip-bar__form zip-bar__form--center" action="/get-a-quote/" method="get">
-        <label class="sr-only" for="ctaZip">ZIP code</label>
-        <input type="text" id="ctaZip" name="zip" inputmode="numeric" maxlength="5"
-               pattern="[0-9]{5}" placeholder="Enter ZIP code" required>
-        <button type="submit" class="btn btn--primary btn--lg">Call or Text for Quote</button>
-      </form>
+      <p>Call or text now and we&rsquo;ll identify the best-fit licensed contractor in your
+         area for a free, no-obligation estimate. The matching service is completely free to
+         homeowners.</p>
+      <a href="tel:+17577202096" class="btn btn--primary btn--lg btn--phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
   </div>
 </section>'''

@@ -44,7 +44,7 @@ def patch_header_right(html):
     def replacer(m):
         return (
             '<div class="header-right">\n'
-            '      <a href="/get-a-quote/" class="btn btn--primary header-cta">Call or Text for Quote</a>\n'
+            '      <a href="tel:+17577202096" class="btn btn--primary header-cta btn--phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call/Text 24/7</span></span></a>\n'
             '      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>\n'
             '    </div>'
         )
@@ -54,7 +54,7 @@ def patch_footer_phone(html):
     # Replace <a class="footer-phone" href="tel:...">...</a> with Submit Job Request btn
     html = re.sub(
         r'<a class="footer-phone" href="tel:[^"]*">[^<]*</a>',
-        '<a class="btn btn--primary" href="/get-a-quote/">Call or Text for Quote</a>',
+        '<a href="tel:+17577202096" class="btn btn--primary btn--phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>',
         html
     )
     # Replace footer-bottom phone link

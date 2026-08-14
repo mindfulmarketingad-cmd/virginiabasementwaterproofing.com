@@ -785,7 +785,7 @@ def build_statewide(svc, city_pages):
     {strip}
 {by_city}
     <div style="margin-top:32px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+      <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
   </div>
 </section>
@@ -803,7 +803,7 @@ def build_statewide(svc, city_pages):
     <h2>Instant Free Quote</h2>
     <p>Submit a job request and we&rsquo;ll connect you with the ideal licensed contractor for
        your situation. They&rsquo;ll reach out within 1&ndash;3 business days.</p>
-    <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+    <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
   </div>
 </section>
 </main>
@@ -894,7 +894,7 @@ def build_city(svc, city_slug):
 {deep}
 {also}
     <div style="margin-top:32px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+      <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
   </div>
 </section>
@@ -937,7 +937,7 @@ def build_hub(statewide, city_map):
        Every map plots the licensed waterproofing, foundation, crawl space and restoration
        contractors we track, with ZIP search, ratings and a free job request built in.</p>
     <div style="margin-top:18px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+      <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
   </div>
 </div>

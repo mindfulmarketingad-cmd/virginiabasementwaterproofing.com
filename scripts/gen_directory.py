@@ -287,7 +287,7 @@ def build_partners():
        {total_reviews:,} Google reviews between them and an average rating of {avg:.1f}&#9733;.
        Sort any column, or search by business, city, ZIP or service.</p>
     <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+      <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
       <a href="/claim-listing/" class="btn btn--ghost btn--lg">Claim Your Listing</a>
     </div>
   </div>
@@ -381,7 +381,7 @@ def build_reviews_hub():
        {len(rated)} have a public rating, backed by {total_reviews:,} Google reviews in total &mdash;
        {five} of them sit at 4.8&#9733; or better. Click any business for its full review profile.</p>
     <div style="margin-top:18px;">
-      <a href="/get-a-quote/" class="btn btn--primary btn--lg">Call or Text for Quote</a>
+      <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
     </div>
   </div>
 </div>
@@ -564,7 +564,7 @@ def build_review_page(p, rank, total):
           <p class="text-muted" style="font-size:.92rem;">Tell us about the job and we&rsquo;ll connect you
              with the ideal contractor for your situation &mdash; they&rsquo;ll reach out within 1&ndash;3
              business days.</p>
-          <a href="/get-a-quote/?provider={esc(slug)}" class="btn btn--primary btn--block btn--lg">Call or Text for Quote</a>
+          <a href="tel:+17577202096" class="btn btn--primary btn--phone btn--block btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn--phone__text"><span class="btn--phone__number">757-720-2096</span><span class="btn--phone__sub">Call or Text 24/7 for Quote</span></span></a>
         </div>
         <div class="fact-card" style="margin-bottom:22px;">
           <ul class="fact-list">{"".join(facts)}</ul>

@@ -1347,3 +1347,33 @@ img { max-width: 100%; display: block; }
   .dash-feed__type { min-width: 88px; }
   .dash-toolbar { align-items: flex-start; }
 }
+
+/* ==========================================================================
+   Phone CTA — replaces the "Call or Text for Quote" lead-form link site-wide.
+   Two treatments:
+     .btn--phone      big, two-line (bold number + subtext), for hero/header/
+                       block CTAs that have room
+     .btn--phone-sm   compact, single-line (icon + number), for dense listing
+                       cards and small map-generated buttons
+   ========================================================================== */
+.btn--phone {
+  display: inline-flex; align-items: center; gap: 10px;
+  line-height: 1.2; text-align: left;
+}
+.btn--phone svg { flex: none; width: 22px; height: 22px; }
+.btn--phone__text { display: flex; flex-direction: column; }
+.btn--phone__number {
+  font-size: 1.05em; font-weight: 800; letter-spacing: .01em;
+  font-variant-numeric: tabular-nums;
+}
+.btn--phone__sub { font-size: .74em; font-weight: 600; opacity: .88; }
+
+.btn--phone-sm {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+}
+.btn--phone-sm svg { flex: none; width: 15px; height: 15px; }
+.btn--phone-sm .btn--phone__number { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 480px) {
+  .btn--phone__sub { font-size: .7em; }
+}
