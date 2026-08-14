@@ -391,6 +391,24 @@ def coverage_block():
 </section>'''
 
 
+def we_help_block():
+    links = []
+    for c in CITIES:
+        cslug = CITY_SLUG.get(c)
+        href = best_city_find_url(ROOT, cslug, preferred="waterproofing") if cslug else "/find/"
+        links.append(f'<a href="{href}" class="city-chip">{esc(c)}</a>')
+    return f'''<section class="section">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Dealing with Crawl Space or Foundation Issues?</span>
+      <h2>Virginia Basement Waterproofing Is Here To Help</h2>
+      <p class="lead">We Proudly Help:</p>
+    </div>
+    <div class="city-chip-row">{" ".join(links)}</div>
+  </div>
+</section>'''
+
+
 def why_block():
     cards = "".join(f'''<div class="why-card">
         <h3>{esc(t)}</h3>
@@ -557,6 +575,8 @@ def main():
 {services_block()}
 
 {coverage_block()}
+
+{we_help_block()}
 
 {why_block()}
 
